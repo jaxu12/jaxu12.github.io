@@ -43,6 +43,10 @@
     return /(?:^https?:\/\/)?play\.google\.com\//i.test(value || "");
   }
 
+  function isGithubUrl(value) {
+    return /(?:^https?:\/\/)?(?:www\.)?github\.com\//i.test(value || "");
+  }
+
   function normalizeActionHref(value) {
     return String(value || "").trim().replace(/\/+$/, "");
   }
@@ -167,7 +171,9 @@
       disabled.setAttribute("aria-disabled", "true");
       actions.appendChild(disabled);
     } else {
-      appendAction(text("portfolio.actions.details"), project.link, "btn-primary");
+      const detailsHref = project.link || project.external || project.repo;
+      const detailsLabelKey = isGithubUrl(detailsHref) ? "portfolio.actions.github" : "portfolio.actions.details";
+      appendAction(text(detailsLabelKey), detailsHref, "btn-primary");
       const externalLabelKey = isGooglePlayUrl(project.external) ? "portfolio.actions.live" : "portfolio.actions.link";
       appendAction(text(externalLabelKey), project.external, "btn-secondary");
       appendAction(text("portfolio.actions.repo"), project.repo, "btn-ghost");
