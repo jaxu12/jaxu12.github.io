@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="portfolio.meta.title">Portfolio | Jan Freda | Jachsu Games</title>
+  <meta name="description" content="Portfolio projektów: gry mobilne i backend." data-i18n-content="portfolio.meta.description">
+  <meta property="og:title" content="Portfolio Jana Fredy" data-i18n-content="portfolio.meta.ogTitle">
+  <meta property="og:description" content="Gry mobilne, backend i design produktu." data-i18n-content="portfolio.meta.ogDescription">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jaxu12.github.io/portfolio/">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Portfolio Jana Fredy" data-i18n-content="portfolio.meta.ogTitle">
+  <meta property="twitter:description" content="Gry mobilne, backend i design produktu." data-i18n-content="portfolio.meta.ogDescription">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/pages/portfolio.css">
+  <script defer src="../scripts/i18n.js"></script>
+  <script defer src="../scripts/main.js"></script>
+  <script defer src="../scripts/portfolio.js"></script>
+</head>
+<body class="portfolio-page">
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Nawigacja glowna" data-i18n-aria-label="nav.primary">
+        <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav-links">Menu</button>
+        <div class="site-nav-links" id="site-nav-links">
+          <a href="../" data-i18n="nav.home">Strona glowna</a>
+          <a href="../portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+          <div class="dropdown">
+            <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="games-menu" data-i18n="nav.games">Gry</button>
+            <div class="dropdown-menu" role="menu" id="games-menu">
+              <a role="menuitem" href="../polyrush/" data-i18n="nav.polyrush">Polyrush: Endless Runner</a>
+            </div>
+          </div>
+          <div class="lang-switch" role="group" data-i18n-aria-label="nav.language">
+            <button type="button" class="lang-btn" data-lang-switch="pl" data-i18n="nav.switch.pl" aria-pressed="true">PL</button>
+            <button type="button" class="lang-btn" data-lang-switch="en" data-i18n="nav.switch.en" aria-pressed="false">EN</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section portfolio-hero">
+      <div class="container portfolio-hero-grid">
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="portfolio.hero.eyebrow">Jan Freda</p>
+          <h1 data-i18n="portfolio.hero.title">Projektuję i rozwijam produkty od pomysłu do wdrożenia</h1>
+          <p class="lead" data-i18n="portfolio.hero.lead">Case'y łączące gameplay, architekturę i nacisk na użyteczność.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://github.com/jaxu12" target="_blank" rel="noreferrer noopener" data-i18n="portfolio.hero.ctaGithub">Profil GitHub</a>
+            <a class="btn btn-secondary" href="https://play.google.com/store/apps/dev?id=4923254199329031787" target="_blank" rel="noreferrer noopener" data-i18n="portfolio.hero.ctaPlay">Google Play</a>
+          </div>
+        </div>
+        <aside class="portfolio-metrics reveal" aria-label="Metryki portfolio" data-i18n-aria-label="portfolio.metrics.label">
+          <article class="metric-card">
+            <strong data-i18n="portfolio.metrics.projects.label">4+</strong>
+            <span data-i18n="portfolio.metrics.projects.desc">Aktywne projekty</span>
+          </article>
+          <article class="metric-card">
+            <strong data-i18n="portfolio.metrics.focus.label">Product + Code</strong>
+            <span data-i18n="portfolio.metrics.focus.desc">Od UX po implementację</span>
+          </article>
+          <article class="metric-card">
+            <strong data-i18n="portfolio.metrics.stack.label">Mobile / Backend</strong>
+            <span data-i18n="portfolio.metrics.stack.desc">Godot, API, frontend</span>
+          </article>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="portfolio-filters-header">
+          <h2 data-i18n="portfolio.filters.title">Moje projekty</h2>
+          <div class="chip-row" role="toolbar" data-i18n-aria-label="portfolio.filters.toolbarLabel">
+            <button type="button" class="chip is-active" data-filter="all" aria-pressed="true" data-i18n="portfolio.filters.all">Wszystkie</button>
+            <button type="button" class="chip" data-filter="game" aria-pressed="false" data-i18n="portfolio.filters.game">Gry</button>
+            <button type="button" class="chip" data-filter="backend" aria-pressed="false" data-i18n="portfolio.filters.backend">Backend</button>
+            <button type="button" class="chip" data-filter="web" aria-pressed="false" data-i18n="portfolio.filters.web">Web</button>
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projects" aria-live="polite"></div>
+
+        <noscript>
+          <div class="noscript-fallback">
+            <p data-i18n="portfolio.noscript.title">Podstawowa lista projektów (tryb bez JavaScript):</p>
+            <ul>
+              <li><a href="../polyrush/">Polyrush: Endless Runner</a></li>
+              <li><a href="https://github.com/jaxu12/PrzetwarzanieProjekt">System mikroserwisowy</a></li>
+              <li><a href="https://github.com/jaxu12/jaxu12.github.io">Strona Jachsu Games</a></li>
+            </ul>
+          </div>
+        </noscript>
+      </div>
+    </section>
+
+    <section class="section portfolio-aboutme">
+      <div class="container">
+        <article class="card about-me-card reveal">
+          <p class="eyebrow" data-i18n="portfolio.aboutme.eyebrow">About Me</p>
+          <h2 data-i18n="portfolio.aboutme.title">Kim jestem</h2>
+          <p class="lead" data-i18n="portfolio.aboutme.lead">Nazywam sie Jan Freda. Tworze gry i produkty cyfrowe laczace gameplay, UX i architekture backend.</p>
+          <div class="about-me-grid">
+            <article class="about-me-item">
+              <h3 data-i18n="portfolio.aboutme.point1.title">Gameplay i product</h3>
+              <p data-i18n="portfolio.aboutme.point1.text">Projektuje petle rozgrywki i flow produktu tak, aby decyzje designu mialy realny wplyw na retencje.</p>
+            </article>
+            <article class="about-me-item">
+              <h3 data-i18n="portfolio.aboutme.point2.title">Backend i architektura</h3>
+              <p data-i18n="portfolio.aboutme.point2.text">Buduje zaplecze API i strukture projektu tak, by mozna bylo szybko iterowac bez dlugu technicznego.</p>
+            </article>
+            <article class="about-me-item">
+              <h3 data-i18n="portfolio.aboutme.point3.title">Sposob pracy</h3>
+              <p data-i18n="portfolio.aboutme.point3.text">Lacze szybkie prototypowanie z testami i dopracowaniem detali, zeby dowozic stabilne wydania.</p>
+            </article>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="portfolio.about.title">Workflow</h2>
+        <p class="lead" data-i18n="portfolio.about.lead">Pracuję iteracyjnie: od szybkiego prototypu do stabilnego release.</p>
+        <div class="portfolio-about-grid">
+          <article class="card reveal">
+            <h3 data-i18n="portfolio.about.item1.title">1. Discovery</h3>
+            <p data-i18n="portfolio.about.item1.text">Definicja celu, odbiorcy i metryk sukcesu.</p>
+          </article>
+          <article class="card reveal">
+            <h3 data-i18n="portfolio.about.item2.title">2. Build</h3>
+            <p data-i18n="portfolio.about.item2.text">Implementacja z naciskiem na czytelność kodu i UX.</p>
+          </article>
+          <article class="card reveal">
+            <h3 data-i18n="portfolio.about.item3.title">3. Polish</h3>
+            <p data-i18n="portfolio.about.item3.text">Testy, optymalizacja i domknięcie detali produktu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section portfolio-next">
+      <div class="container">
+        <div class="card reveal">
+          <div>
+            <h2 data-i18n="portfolio.next.title">Masz pomysł na projekt?</h2>
+            <p data-i18n="portfolio.next.lead">Chętnie pomogę zaprojektować i dostarczyć kolejną iterację produktu.</p>
+          </div>
+          <p class="portfolio-next-contact"><span data-i18n="portfolio.next.contactLabel">Kontakt e-mail:</span> <strong>contact.jachsugames@gmail.com</strong></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Jachsu Games</p>
+      <p><span data-i18n="footer.contactPrefix">Kontakt:</span> contact.jachsugames@gmail.com</p>
+    </div>
+  </footer>
+</body>
+</html>
+

@@ -1,0 +1,83 @@
+.polyrush-hero {
+  padding-top: clamp(2rem, 4vw, 3.8rem);
+}
+
+.polyrush-hero-grid {
+  display: grid;
+  gap: 1.3rem;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.polyrush-hero-banner {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(17, 32, 51, 0.18);
+  box-shadow: var(--shadow);
+}
+
+.polyrush-quick {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.polyrush-list {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.polyrush-list li + li {
+  margin-top: 0.35rem;
+}
+
+.polyrush-gallery {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.polyrush-gallery img {
+  border-radius: 12px;
+  border: 1px solid rgba(17, 32, 51, 0.15);
+}
+
+.polyrush-cta .card {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+}
+
+.polyrush-cta-image {
+  max-width: 260px;
+  margin-inline: auto;
+  border-radius: 18px;
+  border: 1px solid rgba(17, 32, 51, 0.2);
+}
+
+@media (max-width: 1024px) {
+  .polyrush-hero-grid,
+  .polyrush-quick,
+  .polyrush-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .polyrush-hero-grid,
+  .polyrush-quick,
+  .polyrush-gallery,
+  .polyrush-cta .card {
+    grid-template-columns: 1fr;
+  }
+
+  .polyrush-hero-grid,
+  .polyrush-quick,
+  .polyrush-gallery {
+    gap: 0.9rem;
+  }
+
+  .polyrush-cta-image {
+    width: min(240px, 100%);
+  }
+}

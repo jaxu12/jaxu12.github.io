@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="polyrush.meta.title">Polyrush: Endless Runner | Jachsu Games</title>
+  <meta name="description" content="Polyrush: Endless Runner to prosty, casualowy endless runner na Androida." data-i18n-content="polyrush.meta.description">
+  <meta property="og:title" content="Polyrush: Endless Runner" data-i18n-content="polyrush.meta.ogTitle">
+  <meta property="og:description" content="Polyrush: Endless Runner - prosty, casualowy endless runner od Jachsu Games." data-i18n-content="polyrush.meta.ogDescription">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jaxu12.github.io/polyrush/">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Polyrush: Endless Runner" data-i18n-content="polyrush.meta.ogTitle">
+  <meta property="twitter:description" content="Prosty, casualowy endless runner od Jachsu Games." data-i18n-content="polyrush.meta.ogDescription">
+  <link rel="stylesheet" href="../styles/base.css">
+  <link rel="stylesheet" href="../styles/components.css">
+  <link rel="stylesheet" href="../styles/pages/polyrush.css">
+  <script defer src="../scripts/i18n.js"></script>
+  <script defer src="../scripts/main.js"></script>
+</head>
+<body class="polyrush-page">
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav" aria-label="Nawigacja glowna" data-i18n-aria-label="nav.primary">
+        <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav-links">Menu</button>
+        <div class="site-nav-links" id="site-nav-links">
+          <a href="../" data-i18n="nav.home">Strona glowna</a>
+          <a href="../portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+          <div class="dropdown">
+            <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="games-menu" data-i18n="nav.games">Gry</button>
+            <div class="dropdown-menu" role="menu" id="games-menu">
+              <a role="menuitem" href="../polyrush/" data-i18n="nav.polyrush">Polyrush: Endless Runner</a>
+            </div>
+          </div>
+          <div class="lang-switch" role="group" data-i18n-aria-label="nav.language">
+            <button type="button" class="lang-btn" data-lang-switch="pl" data-i18n="nav.switch.pl" aria-pressed="true">PL</button>
+            <button type="button" class="lang-btn" data-lang-switch="en" data-i18n="nav.switch.en" aria-pressed="false">EN</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section polyrush-hero">
+      <div class="container polyrush-hero-grid">
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="polyrush.hero.eyebrow">Jachsu Games</p>
+          <h1 data-i18n="polyrush.hero.title">Polyrush: Endless Runner</h1>
+          <p class="lead" data-i18n="polyrush.hero.lead">Prosty, casualowy endless runner na Androida. Krótkie sesje, rosnące tempo i czysty skill.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.jachsugames.polyrush" target="_blank" rel="noreferrer noopener" data-i18n="polyrush.hero.ctaStore">Google Play</a>
+            <a class="btn btn-secondary" href="https://play.google.com/store/apps/dev?id=4923254199329031787" target="_blank" rel="noreferrer noopener" data-i18n="polyrush.hero.ctaDev">Profil dewelopera</a>
+            <a class="btn btn-ghost" href="https://sites.google.com/view/polyrush-privacypolicy?usp=sharing" target="_blank" rel="noreferrer noopener" data-i18n="polyrush.hero.ctaPolicy">Privacy Policy</a>
+          </div>
+        </div>
+        <img class="polyrush-hero-banner reveal" src="../assets/pollyrushstore.png" alt="Polyrush: Endless Runner store banner">
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container polyrush-quick">
+        <article class="card reveal">
+          <h2 data-i18n="polyrush.features.title">Gameplay</h2>
+          <p data-i18n="polyrush.features.text">Jedno tapnięcie, szybkie decyzje i coraz wyższe tempo. Idealne na krótkie sesje.</p>
+          <div class="chip-row">
+            <span class="badge">Android</span>
+            <span class="badge">Endless Runner</span>
+            <span class="badge">Casual</span>
+          </div>
+        </article>
+        <article class="card reveal">
+          <h2 data-i18n="polyrush.loop.title">Tryb gry</h2>
+          <ul class="polyrush-list">
+            <li data-i18n="polyrush.loop.item1">Rytmiczne przeszkody i rosnąca prędkość.</li>
+            <li data-i18n="polyrush.loop.item2">Krótka pętla rozgrywki i szybki restart.</li>
+            <li data-i18n="polyrush.loop.item3">Minimalistyczny styl i czytelne kolory.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="polyrush.gallery.title">Galeria</h2>
+        <p class="lead" data-i18n="polyrush.gallery.lead">Materiały promocyjne oraz wybrane ujęcia z gry.</p>
+        <div class="polyrush-gallery">
+          <img src="../assets/polyrushss1.png" alt="Polyrush screenshot 1" loading="lazy" decoding="async">
+          <img src="../assets/polyrushss2.png" alt="Polyrush screenshot 2" loading="lazy" decoding="async">
+          <img src="../assets/polyrushss3.png" alt="Polyrush screenshot 3" loading="lazy" decoding="async">
+          <img src="../assets/polyrushss4.png" alt="Polyrush screenshot 4" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </section>
+
+    <section class="section polyrush-cta">
+      <div class="container">
+        <article class="card reveal">
+          <div>
+            <h2 data-i18n="polyrush.cta.title">Dołącz do biegu</h2>
+            <p data-i18n="polyrush.cta.lead">Sprawdź grę w Google Play i śledź kolejne aktualizacje.</p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.jachsugames.polyrush" target="_blank" rel="noreferrer noopener" data-i18n="polyrush.cta.primary">Pobierz teraz</a>
+              <a class="btn btn-ghost" href="../" data-i18n="polyrush.cta.secondary">Strona główna</a>
+            </div>
+          </div>
+          <a href="https://play.google.com/store/apps/details?id=com.jachsugames.polyrush" target="_blank" rel="noreferrer noopener">
+            <img class="polyrush-cta-image" src="../assets/polyrush.png" alt="Polyrush: Endless Runner graphic" loading="lazy" decoding="async">
+          </a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Jachsu Games · <a href="https://sites.google.com/view/polyrush-privacypolicy?usp=sharing" target="_blank" rel="noreferrer noopener">Privacy Policy</a></p>
+      <p><span data-i18n="footer.contactPrefix">Kontakt:</span> contact.jachsugames@gmail.com</p>
+    </div>
+  </footer>
+</body>
+</html>
+

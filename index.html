@@ -1,75 +1,110 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jachsu Games - Strona Oficjalna</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1a1a1a; /* Ciemne tło */
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify_content: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-        }
-        .container {
-            padding: 20px;
-            max-width: 600px;
-        }
-        h1 {
-            color: #4CAF50; /* Zielony kolor akcentowy */
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        p {
-            font-size: 1.2rem;
-            line-height: 1.6;
-            color: #cccccc;
-        }
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        .btn:hover {
-            background-color: #45a049;
-        }
-        .footer {
-            margin-top: 50px;
-            font-size: 0.8rem;
-            color: #777;
-        }
-        a { color: #4CAF50; text-decoration: none; }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title data-i18n="home.meta.title">Jachsu Games | Indie Game Studio</title>
+  <meta id="meta-description" name="description" content="Niezależne studio tworzące gry mobilne." data-i18n-content="home.meta.description">
+  <meta property="og:title" content="Jachsu Games" data-i18n-content="home.meta.ogTitle">
+  <meta property="og:description" content="Indie studio, gry mobilne i projekty techniczne." data-i18n-content="home.meta.ogDescription">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jaxu12.github.io/">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Jachsu Games" data-i18n-content="home.meta.ogTitle">
+  <meta property="twitter:description" content="Indie studio, gry mobilne i projekty techniczne." data-i18n-content="home.meta.ogDescription">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/pages/home.css">
+  <script defer src="scripts/i18n.js"></script>
+  <script defer src="scripts/main.js"></script>
 </head>
-<body>
-
+<body class="home-page">
+  <header class="site-header">
     <div class="container">
-        <h1>Jachsu Games</h1>
-        
-        <p>
-            Witaj na oficjalnej stronie studia. Tworzymy gry mobilne z pasją.
-            Pobierz nasze produkcje w Google Play!
-        </p>
-
-        <a href="https://sites.google.com/view/polyrush-privacypolicy?usp=sharing" class="btn">Polityka Prywatności</a>
-        
-        <div class="footer">
-            <p>Kontakt: contact.jachsugames@gmail.com</p>
-            <p>&copy; 2026 Jachsu Games. Wszelkie prawa zastrzeżone.</p>
+      <nav class="site-nav" aria-label="Nawigacja glowna" data-i18n-aria-label="nav.primary">
+        <button type="button" class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav-links">Menu</button>
+        <div class="site-nav-links" id="site-nav-links">
+          <a href="./" data-i18n="nav.home">Strona glowna</a>
+          <a href="./portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+          <div class="dropdown">
+            <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="games-menu" data-i18n="nav.games">Gry</button>
+            <div class="dropdown-menu" role="menu" id="games-menu">
+              <a role="menuitem" href="./polyrush/" data-i18n="nav.polyrush">Polyrush: Endless Runner</a>
+            </div>
+          </div>
+          <div class="lang-switch" role="group" data-i18n-aria-label="nav.language">
+            <button type="button" class="lang-btn" data-lang-switch="pl" data-i18n="nav.switch.pl" aria-pressed="true">PL</button>
+            <button type="button" class="lang-btn" data-lang-switch="en" data-i18n="nav.switch.en" aria-pressed="false">EN</button>
+          </div>
         </div>
+      </nav>
     </div>
+  </header>
 
+  <main>
+    <section class="section home-hero">
+      <div class="container home-hero-grid">
+        <div class="reveal">
+          <p class="eyebrow" data-i18n="home.hero.eyebrow">Jachsu Games</p>
+          <h1 data-i18n="home.hero.title">Tworzymy szybkie gry mobilne i dopracowane doświadczenia</h1>
+          <p class="lead" data-i18n="home.hero.lead">Budujemy projekty, które łączą prostą mechanikę, czytelny design i konkretne decyzje produktowe.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="./portfolio/" data-i18n="home.hero.ctaPortfolio">Zobacz portfolio</a>
+            <a class="btn btn-secondary" href="https://play.google.com/store/apps/dev?id=4923254199329031787" target="_blank" rel="noreferrer noopener" data-i18n="home.hero.ctaPlay">Profil Google Play</a>
+          </div>
+          <p class="home-kicker" data-i18n="home.hero.kicker">Skupienie: gameplay loop, UX i iteracyjne wydania.</p>
+        </div>
+        <aside class="home-hero-panel reveal" aria-label="Podglad gry Polyrush: Endless Runner" data-i18n-aria-label="home.hero.previewLabel">
+          <img src="assets/pollyrushstore.png" alt="Polyrush: Endless Runner banner">
+        </aside>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="home.highlights.title">Co dowozimy</h2>
+        <div class="home-highlight-grid">
+          <article class="card reveal">
+            <h3 data-i18n="home.highlights.card1.title">Szybkie prototypy</h3>
+            <p data-i18n="home.highlights.card1.text">Walidacja mechanik i decyzji UX na wczesnym etapie projektu.</p>
+          </article>
+          <article class="card reveal">
+            <h3 data-i18n="home.highlights.card2.title">Techniczne zaplecze</h3>
+            <p data-i18n="home.highlights.card2.text">Od gameplayu po backendowe eksperymenty wspierające rozwój produktu.</p>
+          </article>
+          <article class="card reveal">
+            <h3 data-i18n="home.highlights.card3.title">Jakość release</h3>
+            <p data-i18n="home.highlights.card3.text">Czytelna nawigacja, dostępność i strona gotowa pod mobile-first.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container home-latest">
+        <article class="card card-muted reveal">
+          <h2 data-i18n="home.latest.title">Aktualnie promowane</h2>
+          <p data-i18n="home.latest.text">Polyrush: Endless Runner to prosty, casualowy endless runner na Androida.</p>
+        </article>
+        <a class="btn btn-primary reveal" href="./polyrush/" data-i18n="home.latest.cta">Strona gry</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 data-i18n="home.studio.title">O studiu</h2>
+        <p data-i18n="home.studio.text1">Jachsu Games to niezależne studio skoncentrowane na grach mobilnych i lekkich produktach cyfrowych.</p>
+        <p data-i18n="home.studio.text2">Stack obejmuje m.in. Godot Engine, iteracyjny proces projektowania oraz analityczne podejście do UX.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© Jachsu Games</p>
+      <p><span data-i18n="footer.contactPrefix">Kontakt:</span> contact.jachsugames@gmail.com</p>
+    </div>
+  </footer>
 </body>
 </html>
+

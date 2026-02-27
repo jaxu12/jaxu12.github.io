@@ -1,0 +1,146 @@
+[
+  {
+    "id": "polyrush",
+    "title": {
+      "pl": "Polyrush: Endless Runner",
+      "en": "Polyrush: Endless Runner"
+    },
+    "short": {
+      "pl": "Polyrush: Endless Runner to prosty, casualowy endless runner na Androida.",
+      "en": "Polyrush: Endless Runner is a simple, casual endless runner for Android."
+    },
+    "description": {
+      "pl": "Projekt skupiony na krótkiej, dynamicznej pętli rozgrywki i szybkim restarcie sesji.",
+      "en": "Focused on short, dynamic gameplay loops with instant session restarts."
+    },
+    "role": {
+      "pl": "Design gameplayu, implementacja i iteracyjne wydania.",
+      "en": "Gameplay design, implementation, and iterative releases."
+    },
+    "status": {
+      "pl": "Google Play",
+      "en": "Google Play"
+    },
+    "year": "2025",
+    "stack": [
+      "Android Studio",
+      "Kotlin",
+      "Gameplay Design"
+    ],
+    "categories": [
+      "game"
+    ],
+    "image": "../assets/polyrush.png",
+    "link": "../polyrush/",
+    "external": "https://play.google.com/store/apps/details?id=com.jachsugames.polyrush",
+    "featured": true
+  },
+  {
+    "id": "cosmidle",
+    "title": {
+      "pl": "Cosmidle: Idle Space Shooter",
+      "en": "Cosmidle: Idle Space Shooter"
+    },
+    "short": {
+      "pl": "Casualowy idle space shooter na Androida i iOS.",
+      "en": "A casual idle space shooter for Android and iOS."
+    },
+    "description": {
+      "pl": "Projekt w przygotowaniu z naciskiem na progression loop i czytelny idle gameplay.",
+      "en": "In-development project focused on progression loop design and clear idle gameplay."
+    },
+    "role": {
+      "pl": "Design systemow idle, implementacja i przygotowanie do wydania.",
+      "en": "Idle systems design, implementation, and release preparation."
+    },
+    "status": {
+      "pl": "Coming soon",
+      "en": "Coming soon"
+    },
+    "year": "05/2026",
+    "stack": [
+      "Godot Engine",
+      "Android",
+      "iOS",
+      "Idle Gameplay Design"
+    ],
+    "categories": [
+      "game"
+    ],
+    "image": "../assets/soon.jpg",
+    "comingSoon": true
+  },
+  {
+    "id": "microservices",
+    "title": {
+      "pl": "System mikroserwisowy",
+      "en": "Microservices System"
+    },
+    "short": {
+      "pl": "Projekt backendowy oparty o API Gateway i niezależne serwisy domenowe.",
+      "en": "Backend project built around API Gateway and independent domain services."
+    },
+    "description": {
+      "pl": "Architektura przygotowana pod skalowanie, separację odpowiedzialności i monitoring przepływu danych.",
+      "en": "Architecture prepared for scaling, clear responsibility boundaries, and monitored data flow."
+    },
+    "role": {
+      "pl": "Projekt architektury i implementacja usług API.",
+      "en": "Architecture design and API service implementation."
+    },
+    "status": {
+      "pl": "Prototyp",
+      "en": "Prototype"
+    },
+    "year": "2024",
+    "stack": [
+      "Java",
+      "Spring Boot",
+      "Docker",
+      "PostgreSQL"
+    ],
+    "categories": [
+      "backend"
+    ],
+    "link": "https://github.com/jaxu12/PrzetwarzanieProjekt",
+    "repo": "https://github.com/jaxu12/PrzetwarzanieProjekt",
+    "image": "../assets/mikro.png"
+  },
+  {
+    "id": "website",
+    "title": {
+      "pl": "Jachsu Games — strona",
+      "en": "Jachsu Games — Website"
+    },
+    "short": {
+      "pl": "Statyczna strona studia i portfolio hostowana na GitHub Pages.",
+      "en": "Static studio and portfolio website hosted on GitHub Pages."
+    },
+    "description": {
+      "pl": "Projekt skupiony na wydajnym frontendzie, semantyce HTML i przejrzystej nawigacji mobilnej.",
+      "en": "Focused on performant frontend, semantic HTML, and clean mobile navigation."
+    },
+    "role": {
+      "pl": "Frontend, UX i utrzymanie struktury treści.",
+      "en": "Frontend, UX, and content structure maintenance."
+    },
+    "status": {
+      "pl": "Live",
+      "en": "Live"
+    },
+    "year": "2026",
+    "stack": [
+      "HTML",
+      "CSS",
+      "Vanilla JS",
+      "GitHub Pages"
+    ],
+    "categories": [
+      "web"
+    ],
+    "link": "https://github.com/jaxu12/jaxu12.github.io",
+    "external": "https://jaxu12.github.io/",
+    "repo": "https://github.com/jaxu12/jaxu12.github.io",
+    "image": "../assets/strona.png"
+  }
+]
