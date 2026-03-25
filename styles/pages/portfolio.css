@@ -15,8 +15,8 @@
 }
 
 .metric-card {
-  background: rgba(255, 255, 255, 0.9);
-  border: 1px solid rgba(17, 32, 51, 0.15);
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
   border-radius: 14px;
   padding: 1rem;
 }
@@ -99,18 +99,18 @@
   aspect-ratio: 16 / 9;
   object-fit: cover;
   border-radius: 12px;
-  border: 1px solid rgba(17, 32, 51, 0.14);
+  border: 1px solid var(--line);
 }
 
 .project-image-placeholder {
   width: 100%;
   aspect-ratio: 16 / 9;
   border-radius: 12px;
-  border: 1px dashed rgba(17, 32, 51, 0.3);
+  border: 1px dashed var(--line);
   display: grid;
   place-items: center;
   color: var(--text-muted);
-  background: linear-gradient(145deg, #f8fbff, #edf4fa);
+  background: var(--bg-elevated);
   font-weight: 600;
 }
 
@@ -125,8 +125,8 @@
 
 .stack-list li {
   border-radius: 999px;
-  border: 1px solid rgba(17, 32, 51, 0.16);
-  background: rgba(11, 114, 208, 0.08);
+  border: 1px solid var(--line);
+  background: var(--bg-elevated);
   color: var(--text);
   font-size: 0.78rem;
   padding: 0.22rem 0.55rem;
@@ -152,8 +152,8 @@
 .noscript-fallback {
   margin-top: 1rem;
   border-radius: var(--radius-sm);
-  border: 1px solid rgba(17, 32, 51, 0.15);
-  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
   padding: 1rem;
 }
 
@@ -217,9 +217,9 @@
 }
 
 .about-me-item {
-  border: 1px solid rgba(17, 32, 51, 0.12);
+  border: 1px solid var(--line);
   border-radius: 12px;
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--bg-soft);
   padding: 0.85rem;
 }
 

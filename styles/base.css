@@ -1,21 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
 
 :root {
-  --bg: #f3f7fb;
+  --bg: #f5f8fc;
   --bg-soft: #ffffff;
   --bg-elevated: #f8fbff;
-  --text: #112033;
-  --text-muted: #44556a;
-  --line: #c7d5e4;
-  --accent: #0b72d0;
-  --accent-strong: #04589e;
-  --accent-soft: #d9ecff;
-  --highlight: #f06f4f;
-  --success: #0b9158;
-  --shadow: 0 14px 36px rgba(17, 32, 51, 0.1);
+  --text: #0f172a;
+  --text-muted: #475569;
+  --line: #cbd5e1;
+  --accent: #3b82f6;
+  --accent-strong: #2563eb;
+  --accent-soft: #dbeafe;
+  --highlight: #f43f5e;
+  --success: #10b981;
+  --shadow: 0 14px 36px -10px rgba(15, 23, 42, 0.1);
   --radius-sm: 10px;
   --radius-md: 16px;
   --radius-lg: 24px;
+}
+
+[data-theme="dark"] {
+  --bg: #0f172a;
+  --bg-soft: #1e293b;
+  --bg-elevated: #334155;
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+  --line: #475569;
+  --accent: #3b82f6;
+  --accent-strong: #60a5fa;
+  --accent-soft: #1e3a8a;
+  --highlight: #f43f5e;
+  --success: #10b981;
+  --shadow: 0 14px 36px -10px rgba(0, 0, 0, 0.45);
 }
 
 *,
@@ -33,10 +48,11 @@ body {
   margin: 0;
   font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
   color: var(--text);
+  background: var(--bg);
   background:
-    radial-gradient(circle at 10% -20%, #d5f1ff 0%, rgba(213, 241, 255, 0) 52%),
-    radial-gradient(circle at 88% -10%, #ffe6de 0%, rgba(255, 230, 222, 0) 48%),
-    linear-gradient(180deg, #f6fbff 0%, #f1f6fb 100%);
+    radial-gradient(circle at 10% -20%, rgba(59, 130, 246, 0.15) 0%, rgba(59, 130, 246, 0) 52%),
+    radial-gradient(circle at 88% -10%, rgba(244, 63, 94, 0.12) 0%, rgba(244, 63, 94, 0) 48%),
+    var(--bg);
   line-height: 1.6;
   min-height: 100vh;
 }
@@ -46,11 +62,15 @@ body::before {
   position: fixed;
   inset: 0;
   pointer-events: none;
-  background-image: linear-gradient(to right, rgba(17, 32, 51, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(17, 32, 51, 0.03) 1px, transparent 1px);
-  background-size: 44px 44px;
-  opacity: 0.25;
+  background-image: linear-gradient(to right, var(--text) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--text) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.03;
   z-index: -1;
+}
+
+[data-theme="dark"] body::before {
+  opacity: 0.04;
 }
 
 img {

@@ -19,8 +19,8 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(17, 32, 51, 0.15);
-  background: linear-gradient(155deg, #ecf6ff 0%, #ffffff 70%);
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
   padding: clamp(1rem, 2.5vw, 1.5rem);
   box-shadow: var(--shadow);
 }
@@ -29,15 +29,25 @@
   content: "";
   position: absolute;
   inset: -35% -18% auto auto;
-  width: 210px;
-  height: 210px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(240, 111, 79, 0.4), rgba(240, 111, 79, 0));
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.25), rgba(59, 130, 246, 0) 70%);
+}
+
+[data-theme="dark"] .home-hero-panel {
+  background: var(--bg-elevated);
+}
+[data-theme="dark"] .home-hero-panel::before {
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0) 70%);
 }
 
 .home-hero-panel img {
+  position: relative;
+  z-index: 2;
   border-radius: 14px;
-  border: 1px solid rgba(17, 32, 51, 0.1);
+  border: 1px solid var(--line);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .home-highlight-grid {

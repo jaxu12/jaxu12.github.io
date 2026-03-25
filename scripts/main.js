@@ -1,4 +1,8 @@
 (function () {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+    document.documentElement.setAttribute("data-theme", "dark");
+  }
   document.documentElement.classList.add("js");
 
   function setupNavDropdown() {
@@ -252,11 +256,37 @@
     refreshReveal(detail.root || document);
   });
 
+  function setupThemeToggle() {
+    const toggle = document.getElementById("theme-toggle");
+    if (!toggle) return;
+
+    const sunIcon = toggle.querySelector(".sun-icon");
+    const moonIcon = toggle.querySelector(".moon-icon");
+
+    function applyTheme(theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+      localStorage.setItem("theme", theme);
+      if (theme === "dark") {
+        sunIcon.style.display = "block";
+        moonIcon.style.display = "none";
+      } else {
+        sunIcon.style.display = "none";
+        moonIcon.style.display = "block";
+      }
+    }
+
+    toggle.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      applyTheme(currentTheme === "dark" ? "light" : "dark");
+    });
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     if (window.SiteI18n) window.SiteI18n.init();
     setupLanguageSwitch();
     setupMobileNav();
     setupNavDropdown();
+    setupThemeToggle();
     refreshReveal(document);
   });
 })();
