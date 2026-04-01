@@ -32,7 +32,6 @@
 }
 
 .site-nav a,
-.nav-toggle,
 .dropdown-toggle,
 .lang-btn {
   display: inline-flex;
@@ -50,32 +49,24 @@
 }
 
 .site-nav a:hover,
-.nav-toggle:hover,
 .dropdown-toggle:hover,
 .lang-btn:hover,
 .site-nav a:focus-visible,
-.nav-toggle:focus-visible,
 .dropdown-toggle:focus-visible,
 .lang-btn:focus-visible {
   background: var(--accent-soft);
 }
 
 [data-theme="dark"] .site-nav a:hover,
-[data-theme="dark"] .nav-toggle:hover,
 [data-theme="dark"] .dropdown-toggle:hover,
 [data-theme="dark"] .lang-btn:hover,
 [data-theme="dark"] .theme-toggle:hover,
 [data-theme="dark"] .site-nav a:focus-visible,
-[data-theme="dark"] .nav-toggle:focus-visible,
 [data-theme="dark"] .dropdown-toggle:focus-visible,
 [data-theme="dark"] .lang-btn:focus-visible,
 [data-theme="dark"] .theme-toggle:focus-visible {
   background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.15);
-}
-
-[data-theme="dark"] .nav-toggle {
-  background: rgba(255, 255, 255, 0.05);
 }
 
 .dropdown {
@@ -236,8 +227,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(17, 32, 51, 0.18);
-  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--line);
+  background: var(--bg-soft);
   color: var(--text);
   border-radius: 999px;
   padding: 0.45rem 0.8rem;
@@ -245,6 +236,13 @@
   font-weight: 600;
   cursor: pointer;
   min-height: 42px;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  background: var(--bg-elevated);
+  border-color: var(--text-muted);
 }
 
 .chip.is-active,
@@ -315,28 +313,11 @@
     line-height: 1.15;
   }
 
-  .nav-toggle {
-    display: inline-flex;
-    width: 100%;
-    min-height: 44px;
-  }
-
-  html:not(.js) .nav-toggle {
-    display: none;
-  }
-
   .site-nav-links {
     width: 100%;
     flex-direction: column;
     align-items: stretch;
     padding-top: 0.3rem;
-  }
-
-  .js .site-nav-links {
-    display: none;
-  }
-
-  .js .site-nav.is-open .site-nav-links {
     display: flex;
   }
 
