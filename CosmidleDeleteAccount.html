@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#080c17">
+  <title>Delete Cosmidle Account Data | Jachsu Games</title>
+  <meta name="description" content="Delete your Cosmidle cloud save and developer-managed player data, in the App or by email.">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080c17;
+      --surface: #060a16;
+      --surface-soft: #0e1625;
+      --surface-raised: #132137;
+      --border: #294866;
+      --text: #f0faff;
+      --muted: #a6c2e0;
+      --accent: #7dc7ff;
+      --accent-strong: #b3dcff;
+      --button: #2187e0;
+      --warning: #e69138;
+      --focus: #9ee6ff;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
+    }
+    a { color: var(--accent-strong); }
+    a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-radius: 4px; }
+    .skip-link { position: fixed; z-index: 10; top: 12px; left: 12px; padding: 10px 14px; color: #080c17; background: var(--focus); border-radius: 8px; font-weight: 800; transform: translateY(-160%); transition: transform 0.2s ease; }
+    .skip-link:focus { transform: translateY(0); }
+    .shell { width: min(100% - 32px, 840px); margin: 0 auto; padding: 28px 0 56px; }
+    .topbar { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 28px; }
+    .brand { color: var(--text); font-weight: 800; letter-spacing: 0.04em; text-decoration: none; }
+    .policy-link { font-size: 0.95rem; }
+    main { overflow: hidden; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; box-shadow: 0 12px 32px rgba(0, 0, 0, 0.28); }
+    .hero { padding: clamp(32px, 7vw, 64px); background: var(--surface-raised); border-top: 3px solid #397ab8; border-bottom: 1px solid var(--border); }
+    .eyebrow { margin: 0 0 10px; color: var(--accent); font-size: 0.78rem; font-weight: 800; letter-spacing: 0.13em; text-transform: uppercase; }
+    h1, h2 { line-height: 1.2; }
+    h1 { max-width: 680px; margin: 0; font-size: clamp(2rem, 6vw, 3.5rem); letter-spacing: -0.035em; }
+    h2 { margin: 0 0 14px; font-size: clamp(1.25rem, 3vw, 1.65rem); }
+    p { margin: 0 0 16px; color: var(--muted); }
+    .lead { max-width: 690px; margin: 20px 0 0; font-size: 1.08rem; }
+    .content { padding: clamp(28px, 7vw, 60px); }
+    .method { padding: 26px; background: var(--surface-soft); border: 1px solid var(--border); border-radius: 8px; }
+    .method + .method, .notice, .contact { margin-top: 24px; }
+    ol { margin: 18px 0 12px; padding-left: 24px; }
+    li { margin: 10px 0; color: var(--muted); }
+    strong { color: var(--text); }
+    .button { display: inline-flex; align-items: center; justify-content: center; min-height: 50px; margin-top: 8px; padding: 12px 20px; color: #06131f; background: var(--button); border: 1px solid transparent; border-radius: 7px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24); font-weight: 800; text-decoration: none; transition: transform 0.16s ease, background 0.16s ease; }
+    .button:hover { background: #399bea; transform: translateY(-1px); }
+    .button:active { transform: translateY(0); }
+    .email-fallback { margin: 14px 0 0; font-size: 0.93rem; }
+    .notice { padding: 20px 22px; background: #1d1720; border: 1px solid #754b28; border-left: 4px solid var(--warning); border-radius: 8px; }
+    .notice h2 { color: #f7d39b; font-size: 1.15rem; }
+    .notice p:last-child, .contact p:last-child { margin-bottom: 0; }
+    .contact { padding-top: 28px; border-top: 1px solid var(--border); }
+    .meta { margin: 26px 0 0; color: #829bb0; font-size: 0.82rem; }
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 20px, 840px); padding-top: 18px; }
+      .topbar { align-items: flex-start; margin-inline: 6px; }
+      .policy-link { text-align: right; }
+      main { border-radius: 10px; }
+      .method { padding: 20px; }
+      .button { width: 100%; text-align: center; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to deletion options</a>
+  <div class="shell">
+    <div class="topbar">
+      <a class="brand" href="https://jaxu12.github.io/">JACHSU GAMES</a>
+      <a class="policy-link" href="https://jaxu12.github.io/CosmidlePolicy.html">Privacy Policy</a>
+    </div>
+    <main id="main-content">
+      <header class="hero">
+        <p class="eyebrow">Cosmidle account support</p>
+        <h1>Delete your account and game data</h1>
+        <p class="lead">You can permanently delete your Cosmidle cloud save and developer-managed player data from inside the App. If you no longer have the App, send us a deletion request by email.</p>
+      </header>
+      <div class="content">
+        <section class="method" aria-labelledby="delete-in-app">
+          <h2 id="delete-in-app">Option 1: Delete data in the App</h2>
+          <ol>
+            <li>Open <strong>Settings &rarr; Google Play Games</strong>.</li>
+            <li>Select <strong>Delete cloud &amp; account data</strong>.</li>
+            <li>Read both confirmation screens, then select <strong>Delete My Data</strong>.</li>
+          </ol>
+          <p>This deletes your Google Play Games cloud save, local game save, pseudonymous player-account record, account sessions, Nova Gems balance, developer-managed entitlements, and account-linked telemetry identifiable by the App.</p>
+        </section>
+        <section class="method" aria-labelledby="delete-by-email">
+          <h2 id="delete-by-email">Option 2: Request deletion by email</h2>
+          <p>You can request deletion even if Cosmidle is no longer installed. To help us locate and verify the correct pseudonymous account, include:</p>
+          <ol>
+            <li>the game name, <strong>Cosmidle</strong>;</li>
+            <li>your Google Play Games gamer name; and</li>
+            <li>the approximate date when you last played.</li>
+          </ol>
+          <p>We may request limited additional information needed to verify the request. <strong>We will never ask for your Google password.</strong></p>
+          <a class="button" href="mailto:contact.jachsugames@gmail.com?subject=Cosmidle%20account%20and%20data%20deletion%20request&amp;body=Game%3A%20Cosmidle%0D%0AGoogle%20Play%20Games%20gamer%20name%3A%20%0D%0AApproximate%20date%20last%20played%3A%20%0D%0A%0D%0AI%20request%20deletion%20of%20my%20Cosmidle%20account%20and%20associated%20data.">Create deletion email</a>
+          <p class="email-fallback">If the button does not open your email app, write to <a href="mailto:contact.jachsugames@gmail.com">contact.jachsugames@gmail.com</a>.</p>
+          <p class="meta">Requests are normally completed within 30 days, subject to identity verification and applicable legal requirements.</p>
+        </section>
+        <aside class="notice" aria-labelledby="not-deleted">
+          <h2 id="not-deleted">What deletion does not remove</h2>
+          <p>Deleting Cosmidle data does not delete your Google account, Google Play Games profile, or Google Play purchase history. Consumed Nova Gems are not restored. A non-consumable Ad-Free purchase may be restored separately through Google Play Billing.</p>
+          <p>We may retain minimal, de-linked purchase-verification information where necessary to prevent duplicate fulfillment or fraud, maintain transaction integrity, resolve disputes, or comply with legal obligations.</p>
+        </aside>
+        <section class="contact" aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Contact</h2>
+          <p><strong>Data controller:</strong> Jan Freda, operating as Jachsu Games, Poland<br>
+          <strong>Email:</strong> <a href="mailto:contact.jachsugames@gmail.com">contact.jachsugames@gmail.com</a></p>
+          <p class="meta">Last updated: 5 August 2026</p>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
