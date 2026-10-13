@@ -228,7 +228,7 @@
     bindFilters();
     updateFilterButtons();
 
-    fetch(getProjectsPath() + "?v=20261013-mobile3")
+    fetch(getProjectsPath() + "?v=20261013-featured")
       .then((response) => response.json())
       .then((projects) => {
         state.projects = Array.isArray(projects) ? projects : [];

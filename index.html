@@ -4,20 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-i18n="home.meta.title">Jachsu Games | Indie Game Studio</title>
-  <meta id="meta-description" name="description" content="Niezależne studio tworzące gry mobilne: Polyrush, Cosmidle i Infograf." data-i18n-content="home.meta.description">
+  <meta id="meta-description" name="description" content="Jachsu Games: Infograf — układanki obrazkowe i ciekawostki. Poznaj naszą nową grę oraz Cosmidle." data-i18n-content="home.meta.description">
   <meta property="og:title" content="Jachsu Games" data-i18n-content="home.meta.ogTitle">
-  <meta property="og:description" content="Poznaj gry Jachsu Games: Polyrush, Cosmidle i Infograf." data-i18n-content="home.meta.ogDescription">
+  <meta property="og:description" content="Infograf — układaj obrazki i odkrywaj ciekawostki. Planowana premiera: 22 października 2026." data-i18n-content="home.meta.ogDescription">
+  <meta property="og:image" content="https://jachsugames.com/assets/infograf/banner.webp">
+  <meta property="twitter:image" content="https://jachsugames.com/assets/infograf/banner.webp">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://jachsugames.com/">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:title" content="Jachsu Games" data-i18n-content="home.meta.ogTitle">
-  <meta property="twitter:description" content="Poznaj gry Jachsu Games: Polyrush, Cosmidle i Infograf." data-i18n-content="home.meta.ogDescription">
+  <meta property="twitter:description" content="Infograf — układaj obrazki i odkrywaj ciekawostki. Planowana premiera: 22 października 2026." data-i18n-content="home.meta.ogDescription">
   <link rel="canonical" href="https://jachsugames.com/">
   <link rel="stylesheet" href="styles/base.css?v=20261013-mobile3">
-  <link rel="stylesheet" href="styles/components.css?v=20261013-mobile3">
-  <link rel="stylesheet" href="styles/pages/home.css?v=20261013-mobile3">
-  <script defer src="scripts/i18n.js?v=20261013-mobile3"></script>
-  <script defer src="scripts/main.js?v=20261013-mobile3"></script>
+  <link rel="stylesheet" href="styles/components.css?v=20261013-menu">
+  <link rel="stylesheet" href="styles/pages/home.css?v=20261013-featured">
+  <script defer src="scripts/i18n.js?v=20261013-featured"></script>
+  <script defer src="scripts/main.js?v=20261013-menu"></script>
 </head>
 <body class="home-page">
   <header class="site-header">
@@ -30,9 +32,9 @@
           <div class="dropdown">
             <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="games-menu" data-i18n="nav.games">Gry</button>
             <div class="dropdown-menu" role="menu" id="games-menu">
-              <a role="menuitem" href="./polyrush/" data-i18n="nav.polyrush">Polyrush: Endless Runner</a>
-              <a role="menuitem" href="./cosmidle/" data-i18n="nav.cosmidle">Cosmidle: Idle Space Shooter</a>
               <a role="menuitem" href="./infograf/" data-i18n="nav.infograf">Infograf</a>
+              <a role="menuitem" href="./cosmidle/" data-i18n="nav.cosmidle">Cosmidle: Idle Space Shooter</a>
+              <a role="menuitem" href="./polyrush/" data-i18n="nav.polyrush">Polyrush (archiwum)</a>
             </div>
           </div>
         </div>
@@ -64,17 +66,21 @@
     <section class="section home-hero">
       <div class="container home-hero-grid">
         <div class="reveal">
-          <p class="eyebrow" data-i18n="home.hero.eyebrow">Jachsu Games</p>
-          <h1 data-i18n="home.hero.title">Tworzymy szybkie gry mobilne i dopracowane doświadczenia</h1>
-          <p class="lead" data-i18n="home.hero.lead">Budujemy projekty, które łączą prostą mechanikę, czytelny design i konkretne decyzje produktowe.</p>
-          <div class="btn-row">
-            <a class="btn btn-primary" href="./portfolio/" data-i18n="home.hero.ctaPortfolio">Zobacz portfolio</a>
-            <a class="btn btn-secondary" href="https://play.google.com/store/apps/dev?id=4923254199329031787" target="_blank" rel="noreferrer noopener" data-i18n="home.hero.ctaPlay">Profil Google Play</a>
+          <p class="eyebrow" data-i18n="home.hero.eyebrow">Jachsu Games · Nasza nowa gra</p>
+          <div class="home-feature-title">
+            <img class="home-feature-icon" src="assets/infograf/icon.webp" alt="" width="512" height="512" decoding="async">
+            <h1 data-i18n="home.hero.title">Infograf</h1>
           </div>
-          <p class="home-kicker" data-i18n="home.hero.kicker">Skupienie: gameplay loop, UX i iteracyjne wydania.</p>
+          <span class="badge" data-i18n="infograf.status">Zamknięte testy</span>
+          <p class="lead" data-i18n="home.hero.lead">Układaj obrazki, odkrywaj ciekawostki i buduj własną kolekcję. Spokojna gra logiczna dla dzieci i dorosłych.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="./infograf/" data-i18n="home.hero.ctaGame">Poznaj Infograf</a>
+            <a class="btn btn-secondary" href="#games" data-i18n="home.hero.ctaGames">Zobacz nasze gry</a>
+          </div>
+          <p class="home-kicker" data-i18n="home.hero.kicker">Planowana premiera: 22 października 2026.</p>
         </div>
-        <aside class="home-hero-panel reveal" aria-label="Podglad gry Polyrush: Endless Runner" data-i18n-aria-label="home.hero.previewLabel">
-          <img src="assets/pollyrushstore.png" alt="Polyrush: Endless Runner banner" loading="eager" decoding="async">
+        <aside class="home-hero-panel reveal" aria-label="Infograf — podgląd gry" data-i18n-aria-label="home.hero.previewLabel">
+          <a href="./infograf/"><img src="assets/infograf/banner.webp" alt="Infograf — układanka z leśnym krajobrazem" data-i18n-alt="home.hero.previewAlt" width="1024" height="500" loading="eager" fetchpriority="high" decoding="async"></a>
         </aside>
       </div>
     </section>
@@ -102,21 +108,20 @@
     <section class="section" id="games" aria-labelledby="home-games-title">
       <div class="container">
         <h2 id="home-games-title" data-i18n="home.games.title">Nasze gry</h2>
-        <p class="lead" data-i18n="home.games.lead">Krótki bieg, kosmiczna przygoda czy spokojna układanka — wybierz swoją grę.</p>
+        <p class="lead" data-i18n="home.games.lead">Poznaj Infograf i Cosmidle oraz zajrzyj do archiwum naszych projektów.</p>
         <div class="home-games-grid">
           <article class="card home-game-card reveal">
-            <img src="assets/pollyrushstore.png" alt="Polyrush: Endless Runner" loading="lazy" decoding="async">
-            <span class="badge">Google Play</span>
-            <h3>Polyrush: Endless Runner</h3>
-            <p data-i18n="home.games.polyrush.text">Krótki bieg, szybkie decyzje i coraz większe tempo.</p>
+            <img src="assets/infograf/banner.webp" alt="Infograf" loading="lazy" decoding="async">
+            <span class="badge" data-i18n="home.games.infograf.status">Zamknięte testy</span>
+            <h3>Infograf</h3>
+            <p data-i18n="home.games.infograf.text">Układaj obrazki i odkrywaj ciekawostki. Planowana premiera: 22 października 2026.</p>
             <div class="btn-row">
-              <a class="btn btn-primary" href="./polyrush/" data-i18n="home.games.details">Poznaj grę</a>
-              <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.jachsugames.polyrush" target="_blank" rel="noreferrer noopener" data-i18n="home.games.store">Google Play</a>
+              <a class="btn btn-primary" href="./infograf/" data-i18n="home.games.details">Poznaj grę</a>
             </div>
           </article>
           <article class="card home-game-card reveal">
             <img src="assets/cosmidle/banner.png" alt="Cosmidle: Idle Space Shooter" loading="lazy" decoding="async">
-            <span class="badge">Google Play</span>
+            <span class="badge" data-i18n="home.games.cosmidle.status">Otwarte testy</span>
             <h3>Cosmidle: Idle Space Shooter</h3>
             <p data-i18n="home.games.cosmidle.text">Rozwijaj flotę, zbieraj zasoby i walcz w kosmosie.</p>
             <div class="btn-row">
@@ -125,12 +130,12 @@
             </div>
           </article>
           <article class="card home-game-card reveal">
-            <img src="assets/infograf/banner.webp" alt="Infograf" loading="lazy" decoding="async">
-            <span class="badge" data-i18n="home.games.infograf.status">Zamknięte testy</span>
-            <h3>Infograf</h3>
-            <p data-i18n="home.games.infograf.text">Układaj obrazki i odkrywaj ciekawostki. Planowana premiera: 22 października 2026.</p>
+            <img src="assets/pollyrushstore.png" alt="Polyrush: Endless Runner" loading="lazy" decoding="async">
+            <span class="badge" data-i18n="home.games.polyrush.status">Wycofana ze sklepu</span>
+            <h3>Polyrush: Endless Runner</h3>
+            <p data-i18n="home.games.polyrush.text">Archiwalny endless runner na Androida. Gra została wycofana ze sklepu.</p>
             <div class="btn-row">
-              <a class="btn btn-primary" href="./infograf/" data-i18n="home.games.details">Poznaj grę</a>
+              <a class="btn btn-primary" href="./polyrush/" data-i18n="home.games.archive">Zobacz projekt</a>
             </div>
           </article>
         </div>

@@ -1,38 +1,33 @@
 [
   {
-    "id": "polyrush",
+    "id": "infograf",
     "title": {
-      "pl": "Polyrush: Endless Runner",
-      "en": "Polyrush: Endless Runner"
+      "pl": "Infograf",
+      "en": "Infograf"
     },
     "short": {
-      "pl": "Polyrush: Endless Runner to prosty, casualowy endless runner na Androida.",
-      "en": "Polyrush: Endless Runner is a simple, casual endless runner for Android."
+      "pl": "Gra logiczna łącząca układanie obrazków z odkrywaniem ciekawostek.",
+      "en": "A puzzle game combining picture puzzles with facts to discover."
     },
     "description": {
-      "pl": "Projekt skupiony na krótkiej, dynamicznej pętli rozgrywki i szybkim restarcie sesji.",
-      "en": "Focused on short, dynamic gameplay loops with instant session restarts."
+      "pl": "Obecnie w zamkniętych testach. Planowana premiera: 22 października 2026.",
+      "en": "Currently in closed testing. Planned release: October 22, 2026."
     },
     "role": {
-      "pl": "Design gameplayu, implementacja i iteracyjne wydania.",
-      "en": "Gameplay design, implementation, and iterative releases."
+      "pl": "Projektowanie i rozwój gry, interfejs oraz przygotowanie do premiery.",
+      "en": "Game design and development, interface, and release preparation."
     },
     "status": {
-      "pl": "Google Play",
-      "en": "Google Play"
+      "pl": "Zamknięte testy",
+      "en": "Closed testing"
     },
-    "year": "2025",
-    "stack": [
-      "Android Studio",
-      "Kotlin",
-      "Gameplay Design"
-    ],
+    "year": "2026",
     "categories": [
       "game"
     ],
-    "image": "../assets/polyrush.png",
-    "link": "../polyrush/",
-    "external": "https://play.google.com/store/apps/details?id=com.jachsugames.polyrush",
+    "image": "../assets/infograf/banner.webp",
+    "link": "../infograf/",
+    "policy": "../InfografPolicy.html",
     "featured": true
   },
   {
@@ -70,37 +65,42 @@
     "link": "../cosmidle/",
     "external": "https://play.google.com/store/apps/details?id=com.jachsugames.cosmidle",
     "policy": "../CosmidlePolicy.html",
-    "featured": true
+    "featured": false
   },
   {
-    "id": "infograf",
+    "id": "polyrush",
     "title": {
-      "pl": "Infograf",
-      "en": "Infograf"
+      "pl": "Polyrush: Endless Runner",
+      "en": "Polyrush: Endless Runner"
     },
     "short": {
-      "pl": "Gra logiczna łącząca układanie obrazków z odkrywaniem ciekawostek.",
-      "en": "A puzzle game combining picture puzzles with facts to discover."
+      "pl": "Archiwalny endless runner na Androida. Gra została wycofana ze sklepu.",
+      "en": "An archived endless runner for Android. The game has been removed from the store."
     },
     "description": {
-      "pl": "Obecnie w zamkniętych testach. Planowana premiera: 22 października 2026.",
-      "en": "Currently in closed testing. Planned release: October 22, 2026."
+      "pl": "Projekt skupiony na krótkiej, dynamicznej pętli rozgrywki i szybkim restarcie sesji.",
+      "en": "Focused on short, dynamic gameplay loops with instant session restarts."
     },
     "role": {
-      "pl": "Projektowanie i rozwój gry, interfejs oraz przygotowanie do premiery.",
-      "en": "Game design and development, interface, and release preparation."
+      "pl": "Design gameplayu, implementacja i iteracyjne wydania.",
+      "en": "Gameplay design, implementation, and iterative releases."
     },
     "status": {
-      "pl": "Zamknięte testy",
-      "en": "Closed testing"
+      "pl": "Wycofana ze sklepu",
+      "en": "Removed from store"
     },
-    "year": "2026",
+    "year": "2025",
+    "stack": [
+      "Android Studio",
+      "Kotlin",
+      "Gameplay Design"
+    ],
     "categories": [
       "game"
     ],
-    "image": "../assets/infograf/banner.webp",
-    "link": "../infograf/",
-    "policy": "../InfografPolicy.html"
+    "image": "../assets/polyrush.png",
+    "link": "../polyrush/",
+    "featured": false
   },
   {
     "id": "website",

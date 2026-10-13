@@ -47,13 +47,10 @@
   function setupNavDropdown() {
     const dropdowns = Array.from(document.querySelectorAll(".dropdown"));
     if (!dropdowns.length) return;
+    const closeDropdowns = [];
 
     const closeAll = function () {
-      dropdowns.forEach((dropdown) => {
-        const trigger = dropdown.querySelector(".dropdown-toggle");
-        dropdown.classList.remove("open");
-        if (trigger) trigger.setAttribute("aria-expanded", "false");
-      });
+      closeDropdowns.forEach((close) => close());
     };
 
     dropdowns.forEach((dropdown) => {
@@ -63,6 +60,7 @@
 
       const items = Array.from(menu.querySelectorAll("a, button"));
       let closeTimer = null;
+      let openedByHover = false;
 
       const cancelScheduledClose = function () {
         if (!closeTimer) return;
@@ -70,28 +68,33 @@
         closeTimer = null;
       };
 
-      const open = function () {
+      const open = function (fromHover) {
         cancelScheduledClose();
         closeAll();
         dropdown.classList.add("open");
         trigger.setAttribute("aria-expanded", "true");
+        openedByHover = fromHover === true;
       };
 
       const close = function () {
         cancelScheduledClose();
         dropdown.classList.remove("open");
         trigger.setAttribute("aria-expanded", "false");
+        openedByHover = false;
       };
+      closeDropdowns.push(close);
 
       const scheduleClose = function () {
         cancelScheduledClose();
-        closeTimer = setTimeout(close, 180);
+        closeTimer = setTimeout(function () {
+          if (!dropdown.contains(document.activeElement)) close();
+        }, 180);
       };
 
       trigger.addEventListener("click", function (event) {
         event.preventDefault();
         event.stopPropagation();
-        if (dropdown.classList.contains("open")) close();
+        if (dropdown.classList.contains("open") && !openedByHover) close();
         else open();
       });
 
@@ -132,9 +135,13 @@
         }
       });
 
+      dropdown.addEventListener("focusout", function (event) {
+        if (!dropdown.contains(event.relatedTarget)) close();
+      });
+
       if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
         dropdown.addEventListener("mouseenter", function () {
-          if (window.matchMedia("(min-width: 769px)").matches) open();
+          if (window.matchMedia("(min-width: 769px)").matches) open(true);
         });
         dropdown.addEventListener("mouseleave", function () {
           if (window.matchMedia("(min-width: 769px)").matches) scheduleClose();
