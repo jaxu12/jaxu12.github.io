@@ -30,6 +30,27 @@
   margin-top: 0.35rem;
 }
 
+.cosmidle-gallery {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.gallery-swipe-hint {
+  display: none;
+}
+
+.cosmidle-gallery a {
+  display: block;
+  border-radius: 12px;
+}
+
+.cosmidle-gallery img {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
 .cosmidle-cta .card {
   display: grid;
   gap: 1rem;
@@ -52,6 +73,32 @@
 }
 
 @media (max-width: 768px) {
+  .gallery-swipe-hint {
+    display: block;
+    color: var(--accent-strong);
+    font-size: 0.85rem;
+  }
+
+  .cosmidle-gallery {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: min(72vw, 300px);
+    gap: 0.75rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 0.75rem;
+  }
+
+  .cosmidle-gallery a {
+    scroll-snap-align: start;
+  }
+
+  .cosmidle-gallery::-webkit-scrollbar {
+    display: none;
+  }
+
   .cosmidle-hero-grid,
   .cosmidle-quick,
   .cosmidle-cta .card {

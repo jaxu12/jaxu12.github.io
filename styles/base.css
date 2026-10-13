@@ -57,22 +57,6 @@ body {
   min-height: 100vh;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image: linear-gradient(to right, var(--text) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--text) 1px, transparent 1px);
-  background-size: 50px 50px;
-  opacity: 0.03;
-  z-index: -1;
-}
-
-[data-theme="dark"] body::before {
-  opacity: 0.04;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -163,7 +147,7 @@ p {
 
 @media (max-width: 768px) {
   .container {
-    width: min(1140px, calc(100% - 1.1rem));
+    width: min(1140px, calc(100% - 2.25rem));
   }
 
   .section {
@@ -172,5 +156,22 @@ p {
 
   .lead {
     max-width: 100%;
+    line-height: 1.65;
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 7.5vw, 2.8rem);
+    line-height: 1.16;
+    text-wrap: balance;
+  }
+
+  h2 {
+    line-height: 1.2;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }

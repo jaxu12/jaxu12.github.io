@@ -196,8 +196,36 @@
   }
 
   .portfolio-filters-header .chip {
-    flex: 1 1 calc(50% - 0.25rem);
+    flex: 1 1 0;
     text-align: center;
+  }
+
+  .portfolio-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+
+  .metric-card {
+    padding: 0.75rem;
+  }
+
+  .metric-card:first-child {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .metric-card strong {
+    font-size: 1.15rem;
+  }
+
+  .metric-card:first-child strong {
+    font-size: 1.75rem;
+  }
+
+  .metric-card span {
+    font-size: 0.8rem;
   }
 }
 
@@ -250,7 +278,4 @@
     gap: 0.5rem;
   }
 
-  .portfolio-filters-header .chip {
-    flex-basis: 100%;
-  }
 }

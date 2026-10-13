@@ -4,24 +4,26 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-i18n="home.meta.title">Jachsu Games | Indie Game Studio</title>
-  <meta id="meta-description" name="description" content="Niezależne studio tworzące gry mobilne." data-i18n-content="home.meta.description">
+  <meta id="meta-description" name="description" content="Niezależne studio tworzące gry mobilne: Polyrush, Cosmidle i Infograf." data-i18n-content="home.meta.description">
   <meta property="og:title" content="Jachsu Games" data-i18n-content="home.meta.ogTitle">
-  <meta property="og:description" content="Indie studio, gry mobilne i projekty techniczne." data-i18n-content="home.meta.ogDescription">
+  <meta property="og:description" content="Poznaj gry Jachsu Games: Polyrush, Cosmidle i Infograf." data-i18n-content="home.meta.ogDescription">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jaxu12.github.io/">
+  <meta property="og:url" content="https://jachsugames.com/">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:title" content="Jachsu Games" data-i18n-content="home.meta.ogTitle">
-  <meta property="twitter:description" content="Indie studio, gry mobilne i projekty techniczne." data-i18n-content="home.meta.ogDescription">
-  <link rel="stylesheet" href="styles/base.css">
-  <link rel="stylesheet" href="styles/components.css">
-  <link rel="stylesheet" href="styles/pages/home.css">
-  <script defer src="scripts/i18n.js"></script>
-  <script defer src="scripts/main.js"></script>
+  <meta property="twitter:description" content="Poznaj gry Jachsu Games: Polyrush, Cosmidle i Infograf." data-i18n-content="home.meta.ogDescription">
+  <link rel="canonical" href="https://jachsugames.com/">
+  <link rel="stylesheet" href="styles/base.css?v=20261013-mobile3">
+  <link rel="stylesheet" href="styles/components.css?v=20261013-mobile3">
+  <link rel="stylesheet" href="styles/pages/home.css?v=20261013-mobile3">
+  <script defer src="scripts/i18n.js?v=20261013-mobile3"></script>
+  <script defer src="scripts/main.js?v=20261013-mobile3"></script>
 </head>
 <body class="home-page">
   <header class="site-header">
     <div class="container">
       <nav class="site-nav" aria-label="Nawigacja glowna" data-i18n-aria-label="nav.primary">
+        <a class="site-brand" href="./" aria-label="Jachsu Games">Jachsu<span>Games</span></a>
         <div class="site-nav-links" id="site-nav-links">
           <a href="./" data-i18n="nav.home">Strona glowna</a>
           <a href="./portfolio/" data-i18n="nav.portfolio">Portfolio</a>
@@ -29,14 +31,17 @@
             <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="games-menu" data-i18n="nav.games">Gry</button>
             <div class="dropdown-menu" role="menu" id="games-menu">
               <a role="menuitem" href="./polyrush/" data-i18n="nav.polyrush">Polyrush: Endless Runner</a>
-              <a role="menuitem" href="./cosmidle/" data-i18n="nav.cosmidle">CosmIDLE: Space Shooter</a>
+              <a role="menuitem" href="./cosmidle/" data-i18n="nav.cosmidle">Cosmidle: Idle Space Shooter</a>
+              <a role="menuitem" href="./infograf/" data-i18n="nav.infograf">Infograf</a>
             </div>
           </div>
+        </div>
+        <div class="site-nav-controls">
           <div class="lang-switch" role="group" data-i18n-aria-label="nav.language">
             <button type="button" class="lang-btn" data-lang-switch="pl" data-i18n="nav.switch.pl" aria-pressed="true">PL</button>
             <button type="button" class="lang-btn" data-lang-switch="en" data-i18n="nav.switch.en" aria-pressed="false">EN</button>
           </div>
-          <button type="button" class="theme-toggle" aria-label="Przełącz motyw" id="theme-toggle">
+          <button type="button" class="theme-toggle" aria-label="Przełącz motyw" data-i18n-aria-label="nav.theme" id="theme-toggle">
             <!-- Sun icon for light mode -->
             <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
               <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"></path>
@@ -47,6 +52,10 @@
             </svg>
           </button>
         </div>
+        <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="site-nav-links" aria-label="Otwórz menu" data-i18n-aria-label="nav.menu.open">
+          <svg class="menu-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="close-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
       </nav>
     </div>
   </header>
@@ -80,7 +89,7 @@
           </article>
           <article class="card reveal">
             <h3 data-i18n="home.highlights.card2.title">Techniczne zaplecze</h3>
-            <p data-i18n="home.highlights.card2.text">Od gameplayu po backendowe eksperymenty wspierające rozwój produktu.</p>
+            <p data-i18n="home.highlights.card2.text">Mechaniki, systemy zapisu i integracje wspierające rozwój gier mobilnych.</p>
           </article>
           <article class="card reveal">
             <h3 data-i18n="home.highlights.card3.title">Jakość release</h3>
@@ -90,13 +99,41 @@
       </div>
     </section>
 
-    <section class="section">
-      <div class="container home-latest">
-        <article class="card card-muted reveal">
-          <h2 data-i18n="home.latest.title">Aktualnie promowane</h2>
-          <p data-i18n="home.latest.text">Polyrush: Endless Runner to prosty, casualowy endless runner na Androida.</p>
-        </article>
-        <a class="btn btn-primary reveal" href="./polyrush/" data-i18n="home.latest.cta">Strona gry</a>
+    <section class="section" id="games" aria-labelledby="home-games-title">
+      <div class="container">
+        <h2 id="home-games-title" data-i18n="home.games.title">Nasze gry</h2>
+        <p class="lead" data-i18n="home.games.lead">Krótki bieg, kosmiczna przygoda czy spokojna układanka — wybierz swoją grę.</p>
+        <div class="home-games-grid">
+          <article class="card home-game-card reveal">
+            <img src="assets/pollyrushstore.png" alt="Polyrush: Endless Runner" loading="lazy" decoding="async">
+            <span class="badge">Google Play</span>
+            <h3>Polyrush: Endless Runner</h3>
+            <p data-i18n="home.games.polyrush.text">Krótki bieg, szybkie decyzje i coraz większe tempo.</p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="./polyrush/" data-i18n="home.games.details">Poznaj grę</a>
+              <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.jachsugames.polyrush" target="_blank" rel="noreferrer noopener" data-i18n="home.games.store">Google Play</a>
+            </div>
+          </article>
+          <article class="card home-game-card reveal">
+            <img src="assets/cosmidle/banner.png" alt="Cosmidle: Idle Space Shooter" loading="lazy" decoding="async">
+            <span class="badge">Google Play</span>
+            <h3>Cosmidle: Idle Space Shooter</h3>
+            <p data-i18n="home.games.cosmidle.text">Rozwijaj flotę, zbieraj zasoby i walcz w kosmosie.</p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="./cosmidle/" data-i18n="home.games.details">Poznaj grę</a>
+              <a class="btn btn-secondary" href="https://play.google.com/store/apps/details?id=com.jachsugames.cosmidle" target="_blank" rel="noreferrer noopener" data-i18n="home.games.store">Google Play</a>
+            </div>
+          </article>
+          <article class="card home-game-card reveal">
+            <img src="assets/infograf/banner.webp" alt="Infograf" loading="lazy" decoding="async">
+            <span class="badge" data-i18n="home.games.infograf.status">Zamknięte testy</span>
+            <h3>Infograf</h3>
+            <p data-i18n="home.games.infograf.text">Układaj obrazki i odkrywaj ciekawostki. Planowana premiera: 22 października 2026.</p>
+            <div class="btn-row">
+              <a class="btn btn-primary" href="./infograf/" data-i18n="home.games.details">Poznaj grę</a>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 

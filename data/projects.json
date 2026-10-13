@@ -42,69 +42,65 @@
       "en": "Cosmidle: Idle Space Shooter"
     },
     "short": {
-      "pl": "Casualowy idle space shooter na Androida i iOS.",
-      "en": "A casual idle space shooter for Android and iOS."
+      "pl": "Kosmiczny idle shooter na Androida — rozwijaj flotę i walcz z asteroidami.",
+      "en": "A space idle shooter for Android — grow your fleet and battle asteroids."
     },
     "description": {
-      "pl": "Projekt w przygotowaniu z naciskiem na progression loop i czytelny idle gameplay.",
-      "en": "In-development project focused on progression loop design and clear idle gameplay."
+      "pl": "Łączy automatyczne zbieranie zasobów z aktywną walką, ulepszeniami i systemem prestiżu.",
+      "en": "Combines automatic resource generation with active combat, upgrades, and a prestige system."
     },
     "role": {
-      "pl": "Design systemow idle, implementacja i przygotowanie do wydania.",
-      "en": "Idle systems design, implementation, and release preparation."
+      "pl": "Projektowanie rozgrywki i systemów idle, implementacja oraz publikacja w Google Play.",
+      "en": "Gameplay and idle systems design, implementation, and Google Play publishing."
     },
     "status": {
-      "pl": "Coming soon",
-      "en": "Coming soon"
+      "pl": "Google Play · Otwarte testy",
+      "en": "Google Play · Open testing"
     },
-    "year": "05/2026",
+    "year": "2026",
     "stack": [
       "Godot Engine",
       "Android",
-      "iOS",
       "Idle Gameplay Design"
     ],
     "categories": [
       "game"
     ],
-    "image": "../assets/soon.jpg",
-    "comingSoon": true
+    "image": "../assets/cosmidle/banner.png",
+    "link": "../cosmidle/",
+    "external": "https://play.google.com/store/apps/details?id=com.jachsugames.cosmidle",
+    "policy": "../CosmidlePolicy.html",
+    "featured": true
   },
   {
-    "id": "microservices",
+    "id": "infograf",
     "title": {
-      "pl": "System mikroserwisowy",
-      "en": "Microservices System"
+      "pl": "Infograf",
+      "en": "Infograf"
     },
     "short": {
-      "pl": "Projekt backendowy oparty o API Gateway i niezależne serwisy domenowe.",
-      "en": "Backend project built around API Gateway and independent domain services."
+      "pl": "Gra logiczna łącząca układanie obrazków z odkrywaniem ciekawostek.",
+      "en": "A puzzle game combining picture puzzles with facts to discover."
     },
     "description": {
-      "pl": "Architektura przygotowana pod skalowanie, separację odpowiedzialności i monitoring przepływu danych.",
-      "en": "Architecture prepared for scaling, clear responsibility boundaries, and monitored data flow."
+      "pl": "Obecnie w zamkniętych testach. Planowana premiera: 22 października 2026.",
+      "en": "Currently in closed testing. Planned release: October 22, 2026."
     },
     "role": {
-      "pl": "Projekt architektury i implementacja usług API.",
-      "en": "Architecture design and API service implementation."
+      "pl": "Projektowanie i rozwój gry, interfejs oraz przygotowanie do premiery.",
+      "en": "Game design and development, interface, and release preparation."
     },
     "status": {
-      "pl": "Prototyp",
-      "en": "Prototype"
+      "pl": "Zamknięte testy",
+      "en": "Closed testing"
     },
-    "year": "2024",
-    "stack": [
-      "Java",
-      "Spring Boot",
-      "Docker",
-      "PostgreSQL"
-    ],
+    "year": "2026",
     "categories": [
-      "backend"
+      "game"
     ],
-    "link": "https://github.com/jaxu12/PrzetwarzanieProjekt",
-    "repo": "https://github.com/jaxu12/PrzetwarzanieProjekt",
-    "image": "../assets/mikro.png"
+    "image": "../assets/infograf/banner.webp",
+    "link": "../infograf/",
+    "policy": "../InfografPolicy.html"
   },
   {
     "id": "website",
@@ -139,7 +135,7 @@
       "web"
     ],
     "link": "https://github.com/jaxu12/jaxu12.github.io",
-    "external": "https://jaxu12.github.io/",
+    "external": "https://jachsugames.com/",
     "repo": "https://github.com/jaxu12/jaxu12.github.io",
     "image": "../assets/strona.png"
   }

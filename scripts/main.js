@@ -5,6 +5,45 @@
   }
   document.documentElement.classList.add("js");
 
+  function setupMobileNav() {
+    const nav = document.querySelector(".site-nav");
+    const toggle = document.querySelector(".mobile-nav-toggle");
+    const links = document.getElementById("site-nav-links");
+    if (!nav || !toggle || !links) return;
+
+    const mobile = window.matchMedia("(max-width: 768px)");
+    const setOpen = function (open) {
+      nav.classList.toggle("is-menu-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      const label = open ? "nav.menu.close" : "nav.menu.open";
+      toggle.dataset.i18nAriaLabel = label;
+      toggle.setAttribute("aria-label", window.SiteI18n ? window.SiteI18n.t(label) : label);
+      if (!open) {
+        links.querySelectorAll(".dropdown").forEach((dropdown) => {
+          dropdown.classList.remove("open");
+          dropdown.querySelector(".dropdown-toggle").setAttribute("aria-expanded", "false");
+        });
+      }
+    };
+
+    toggle.addEventListener("click", function () {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
+    links.addEventListener("click", function (event) {
+      if (mobile.matches && event.target.closest("a")) setOpen(false);
+    });
+    document.addEventListener("click", function (event) {
+      if (mobile.matches && !nav.contains(event.target)) setOpen(false);
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && nav.classList.contains("is-menu-open")) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+    mobile.addEventListener("change", function () { setOpen(false); });
+  }
+
   function setupNavDropdown() {
     const dropdowns = Array.from(document.querySelectorAll(".dropdown"));
     if (!dropdowns.length) return;
@@ -94,8 +133,12 @@
       });
 
       if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-        dropdown.addEventListener("mouseenter", open);
-        dropdown.addEventListener("mouseleave", scheduleClose);
+        dropdown.addEventListener("mouseenter", function () {
+          if (window.matchMedia("(min-width: 769px)").matches) open();
+        });
+        dropdown.addEventListener("mouseleave", function () {
+          if (window.matchMedia("(min-width: 769px)").matches) scheduleClose();
+        });
         menu.addEventListener("mouseenter", cancelScheduledClose);
         menu.addEventListener("mouseleave", scheduleClose);
       }
@@ -202,6 +245,7 @@
   document.addEventListener("DOMContentLoaded", function () {
     if (window.SiteI18n) window.SiteI18n.init();
     setupLanguageSwitch();
+    setupMobileNav();
     setupNavDropdown();
     setupThemeToggle();
     refreshReveal(document);

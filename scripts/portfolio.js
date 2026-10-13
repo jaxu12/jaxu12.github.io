@@ -66,7 +66,6 @@
     const description = toLocalized(project.description, lang);
     const role = toLocalized(project.role, lang);
     const status = toLocalized(project.status, lang);
-    const comingSoon = project.comingSoon === true || String(status).toLowerCase().includes("coming soon");
     const year = project.year || "";
 
     const header = document.createElement("div");
@@ -162,22 +161,13 @@
       actions.appendChild(createLink(label, href, variant));
     };
 
-    if (comingSoon) {
-      const disabled = document.createElement("button");
-      disabled.type = "button";
-      disabled.className = "btn btn-disabled";
-      disabled.textContent = text("portfolio.actions.comingSoon");
-      disabled.disabled = true;
-      disabled.setAttribute("aria-disabled", "true");
-      actions.appendChild(disabled);
-    } else {
-      const detailsHref = project.link || project.external || project.repo;
-      const detailsLabelKey = isGithubUrl(detailsHref) ? "portfolio.actions.github" : "portfolio.actions.details";
-      appendAction(text(detailsLabelKey), detailsHref, "btn-primary");
-      const externalLabelKey = isGooglePlayUrl(project.external) ? "portfolio.actions.live" : "portfolio.actions.link";
-      appendAction(text(externalLabelKey), project.external, "btn-secondary");
-      appendAction(text("portfolio.actions.repo"), project.repo, "btn-ghost");
-    }
+    const detailsHref = project.link || project.external || project.repo;
+    const detailsLabelKey = isGithubUrl(detailsHref) ? "portfolio.actions.github" : "portfolio.actions.details";
+    appendAction(text(detailsLabelKey), detailsHref, "btn-primary");
+    const externalLabelKey = isGooglePlayUrl(project.external) ? "portfolio.actions.live" : "portfolio.actions.link";
+    appendAction(text(externalLabelKey), project.external, "btn-secondary");
+    appendAction(text("portfolio.actions.repo"), project.repo, "btn-ghost");
+    appendAction(text("portfolio.actions.policy"), project.policy, "btn-ghost");
 
     if (actions.childNodes.length) {
       article.appendChild(actions);
@@ -238,7 +228,7 @@
     bindFilters();
     updateFilterButtons();
 
-    fetch(getProjectsPath())
+    fetch(getProjectsPath() + "?v=20261013-mobile3")
       .then((response) => response.json())
       .then((projects) => {
         state.projects = Array.isArray(projects) ? projects : [];

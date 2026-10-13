@@ -4,25 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title data-i18n="portfolio.meta.title">Portfolio | Jan Freda | Jachsu Games</title>
-  <meta name="description" content="Portfolio projektów: gry mobilne i backend." data-i18n-content="portfolio.meta.description">
+  <meta name="description" content="Portfolio Jana Fredy: Polyrush, Cosmidle, Infograf i strona Jachsu Games." data-i18n-content="portfolio.meta.description">
   <meta property="og:title" content="Portfolio Jana Fredy" data-i18n-content="portfolio.meta.ogTitle">
-  <meta property="og:description" content="Gry mobilne, backend i design produktu." data-i18n-content="portfolio.meta.ogDescription">
+  <meta property="og:description" content="Gry mobilne, projektowanie rozgrywki i produkty cyfrowe." data-i18n-content="portfolio.meta.ogDescription">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://jaxu12.github.io/portfolio/">
+  <meta property="og:url" content="https://jachsugames.com/portfolio/">
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:title" content="Portfolio Jana Fredy" data-i18n-content="portfolio.meta.ogTitle">
-  <meta property="twitter:description" content="Gry mobilne, backend i design produktu." data-i18n-content="portfolio.meta.ogDescription">
-  <link rel="stylesheet" href="../styles/base.css">
-  <link rel="stylesheet" href="../styles/components.css">
-  <link rel="stylesheet" href="../styles/pages/portfolio.css">
-  <script defer src="../scripts/i18n.js"></script>
-  <script defer src="../scripts/main.js"></script>
-  <script defer src="../scripts/portfolio.js"></script>
+  <meta property="twitter:description" content="Gry mobilne, projektowanie rozgrywki i produkty cyfrowe." data-i18n-content="portfolio.meta.ogDescription">
+  <link rel="canonical" href="https://jachsugames.com/portfolio/">
+  <link rel="stylesheet" href="../styles/base.css?v=20261013-mobile3">
+  <link rel="stylesheet" href="../styles/components.css?v=20261013-mobile3">
+  <link rel="stylesheet" href="../styles/pages/portfolio.css?v=20261013-mobile3">
+  <script defer src="../scripts/i18n.js?v=20261013-mobile3"></script>
+  <script defer src="../scripts/main.js?v=20261013-mobile3"></script>
+  <script defer src="../scripts/portfolio.js?v=20261013-mobile3"></script>
 </head>
 <body class="portfolio-page">
   <header class="site-header">
     <div class="container">
       <nav class="site-nav" aria-label="Nawigacja glowna" data-i18n-aria-label="nav.primary">
+        <a class="site-brand" href="../" aria-label="Jachsu Games">Jachsu<span>Games</span></a>
         <div class="site-nav-links" id="site-nav-links">
           <a href="../" data-i18n="nav.home">Strona glowna</a>
           <a href="../portfolio/" data-i18n="nav.portfolio">Portfolio</a>
@@ -30,14 +32,17 @@
             <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="games-menu" data-i18n="nav.games">Gry</button>
             <div class="dropdown-menu" role="menu" id="games-menu">
               <a role="menuitem" href="../polyrush/" data-i18n="nav.polyrush">Polyrush: Endless Runner</a>
-              <a role="menuitem" href="../cosmidle/" data-i18n="nav.cosmidle">CosmIDLE: Space Shooter</a>
+              <a role="menuitem" href="../cosmidle/" data-i18n="nav.cosmidle">Cosmidle: Idle Space Shooter</a>
+              <a role="menuitem" href="../infograf/" data-i18n="nav.infograf">Infograf</a>
             </div>
           </div>
+        </div>
+        <div class="site-nav-controls">
           <div class="lang-switch" role="group" data-i18n-aria-label="nav.language">
             <button type="button" class="lang-btn" data-lang-switch="pl" data-i18n="nav.switch.pl" aria-pressed="true">PL</button>
             <button type="button" class="lang-btn" data-lang-switch="en" data-i18n="nav.switch.en" aria-pressed="false">EN</button>
           </div>
-          <button type="button" class="theme-toggle" aria-label="Przełącz motyw" id="theme-toggle">
+          <button type="button" class="theme-toggle" aria-label="Przełącz motyw" data-i18n-aria-label="nav.theme" id="theme-toggle">
             <!-- Sun icon for light mode -->
             <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="display: none;">
               <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0-.39.39-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0 .39-.39.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41-.39-.39-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41.39.39 1.03.39 1.41 0l1.06-1.06z"></path>
@@ -48,6 +53,10 @@
             </svg>
           </button>
         </div>
+        <button type="button" class="mobile-nav-toggle" aria-expanded="false" aria-controls="site-nav-links" aria-label="Otwórz menu" data-i18n-aria-label="nav.menu.open">
+          <svg class="menu-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="close-icon" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+        </button>
       </nav>
     </div>
   </header>
@@ -66,7 +75,7 @@
         </div>
         <aside class="portfolio-metrics reveal" aria-label="Metryki portfolio" data-i18n-aria-label="portfolio.metrics.label">
           <article class="metric-card">
-            <strong data-i18n="portfolio.metrics.projects.label">4+</strong>
+            <strong data-i18n="portfolio.metrics.projects.label">4</strong>
             <span data-i18n="portfolio.metrics.projects.desc">Aktywne projekty</span>
           </article>
           <article class="metric-card">
@@ -74,8 +83,8 @@
             <span data-i18n="portfolio.metrics.focus.desc">Od UX po implementację</span>
           </article>
           <article class="metric-card">
-            <strong data-i18n="portfolio.metrics.stack.label">Mobile / Backend</strong>
-            <span data-i18n="portfolio.metrics.stack.desc">Godot, API, frontend</span>
+            <strong data-i18n="portfolio.metrics.stack.label">Mobile / Web</strong>
+            <span data-i18n="portfolio.metrics.stack.desc">Gry mobilne i frontend</span>
           </article>
         </aside>
       </div>
@@ -88,7 +97,6 @@
           <div class="chip-row" role="toolbar" data-i18n-aria-label="portfolio.filters.toolbarLabel">
             <button type="button" class="chip is-active" data-filter="all" aria-pressed="true" data-i18n="portfolio.filters.all">Wszystkie</button>
             <button type="button" class="chip" data-filter="game" aria-pressed="false" data-i18n="portfolio.filters.game">Gry</button>
-            <button type="button" class="chip" data-filter="backend" aria-pressed="false" data-i18n="portfolio.filters.backend">Backend</button>
             <button type="button" class="chip" data-filter="web" aria-pressed="false" data-i18n="portfolio.filters.web">Web</button>
           </div>
         </div>
@@ -100,8 +108,8 @@
             <p data-i18n="portfolio.noscript.title">Podstawowa lista projektów (tryb bez JavaScript):</p>
             <ul>
               <li><a href="../polyrush/">Polyrush: Endless Runner</a></li>
-              <li><a href="../cosmidle/">CosmIDLE: Space Shooter</a></li>
-              <li><a href="https://github.com/jaxu12/PrzetwarzanieProjekt">System mikroserwisowy</a></li>
+              <li><a href="../cosmidle/">Cosmidle: Idle Space Shooter</a></li>
+              <li><a href="../infograf/">Infograf</a></li>
               <li><a href="https://github.com/jaxu12/jaxu12.github.io">Strona Jachsu Games</a></li>
             </ul>
           </div>
@@ -114,15 +122,15 @@
         <article class="card about-me-card reveal">
           <p class="eyebrow" data-i18n="portfolio.aboutme.eyebrow">About Me</p>
           <h2 data-i18n="portfolio.aboutme.title">Kim jestem</h2>
-          <p class="lead" data-i18n="portfolio.aboutme.lead">Nazywam sie Jan Freda. Tworze gry i produkty cyfrowe laczace gameplay, UX i architekture backend.</p>
+          <p class="lead" data-i18n="portfolio.aboutme.lead">Nazywam się Jan Freda. Tworzę gry i produkty cyfrowe łączące gameplay, UX i systemy progresji.</p>
           <div class="about-me-grid">
             <article class="about-me-item">
               <h3 data-i18n="portfolio.aboutme.point1.title">Gameplay i product</h3>
               <p data-i18n="portfolio.aboutme.point1.text">Projektuje petle rozgrywki i flow produktu tak, aby decyzje designu mialy realny wplyw na retencje.</p>
             </article>
             <article class="about-me-item">
-              <h3 data-i18n="portfolio.aboutme.point2.title">Backend i architektura</h3>
-              <p data-i18n="portfolio.aboutme.point2.text">Buduje zaplecze API i strukture projektu tak, by mozna bylo szybko iterowac bez dlugu technicznego.</p>
+              <h3 data-i18n="portfolio.aboutme.point2.title">Systemy i integracje</h3>
+              <p data-i18n="portfolio.aboutme.point2.text">Systemy progresji i zapisu, integracje platformowe oraz czytelna struktura projektu ułatwiająca rozwój gry.</p>
             </article>
             <article class="about-me-item">
               <h3 data-i18n="portfolio.aboutme.point3.title">Sposob pracy</h3>
