@@ -1,8 +1,7 @@
 (function () {
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme === "dark" || (!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-    document.documentElement.setAttribute("data-theme", "dark");
-  }
+  let savedTheme = "dark";
+  try { savedTheme = localStorage.getItem("theme") || "dark"; } catch (error) { /* Use the default when storage is unavailable. */ }
+  document.documentElement.setAttribute("data-theme", savedTheme === "light" ? "light" : "dark");
   document.documentElement.classList.add("js");
 
   function setupMobileNav() {
@@ -233,7 +232,7 @@
 
     function applyTheme(theme) {
       document.documentElement.setAttribute("data-theme", theme);
-      localStorage.setItem("theme", theme);
+      try { localStorage.setItem("theme", theme); } catch (error) { /* Theme changes still work without storage. */ }
       if (theme === "dark") {
         sunIcon.style.display = "block";
         moonIcon.style.display = "none";
@@ -243,10 +242,59 @@
       }
     }
 
+    applyTheme(document.documentElement.getAttribute("data-theme") || "dark");
+
     toggle.addEventListener("click", () => {
       const currentTheme = document.documentElement.getAttribute("data-theme");
       applyTheme(currentTheme === "dark" ? "light" : "dark");
     });
+  }
+
+  function setupStoreGallery() {
+    const gallery = document.getElementById("store-gallery");
+    if (!gallery) return;
+    const previous = document.querySelector("[data-gallery-prev]");
+    const next = document.querySelector("[data-gallery-next]");
+    const viewer = document.querySelector(".screenshot-viewer");
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    function updateArrows() {
+      previous.disabled = gallery.scrollLeft <= 2;
+      next.disabled = gallery.scrollLeft >= gallery.scrollWidth - gallery.clientWidth - 2;
+    }
+    function move(direction) {
+      const first = gallery.querySelector("a");
+      if (!first) return;
+      const step = first.getBoundingClientRect().width + parseFloat(getComputedStyle(gallery).columnGap || 0);
+      gallery.scrollBy({ left: direction * step, behavior: reduceMotion.matches ? "instant" : "smooth" });
+    }
+    previous.addEventListener("click", () => move(-1));
+    next.addEventListener("click", () => move(1));
+    gallery.addEventListener("scroll", updateArrows, { passive: true });
+    window.addEventListener("resize", updateArrows);
+    gallery.addEventListener("keydown", (event) => {
+      if (event.target !== gallery) return;
+      if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+        event.preventDefault(); move(event.key === "ArrowRight" ? 1 : -1);
+      }
+    });
+    if (viewer && typeof viewer.showModal === "function") {
+      gallery.addEventListener("click", (event) => {
+        const link = event.target.closest("a");
+        if (!link || event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        const image = viewer.querySelector("img");
+        image.src = link.href;
+        image.alt = link.querySelector("img").alt;
+        viewer.showModal();
+      });
+      viewer.querySelector("button").addEventListener("click", () => viewer.close());
+      viewer.addEventListener("click", (event) => {
+        if (event.target !== viewer) return;
+        const rect = viewer.getBoundingClientRect();
+        if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) viewer.close();
+      });
+    }
+    updateArrows();
   }
 
   document.addEventListener("DOMContentLoaded", function () {
@@ -255,6 +303,7 @@
     setupMobileNav();
     setupNavDropdown();
     setupThemeToggle();
+    setupStoreGallery();
     refreshReveal(document);
   });
 })();

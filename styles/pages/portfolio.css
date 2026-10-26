@@ -279,3 +279,24 @@
   }
 
 }
+
+/* About and project browsing share the same mobile reading rhythm. */
+.portfolio-hero { padding-block: 3rem; }
+.portfolio-hero-grid { gap: 3rem; }
+.portfolio-hero h1 { max-width: 17ch; }
+.portfolio-aboutme { padding-top: 1rem; }
+.about-me-card { padding: clamp(1.3rem,4vw,3rem); }
+.about-me-card h2 { max-width: 26ch; }
+.about-me-item { padding: 1.2rem 0 0; border-width: 1px 0 0; border-radius: 0; background: transparent; }
+.portfolio-next-contact { overflow-wrap: anywhere; }
+.portfolio-metrics .metric-card { background: transparent; border-width: 0 0 1px; border-radius: 0; padding: 1rem 0; }
+.project-image, .home-game-card img { object-fit: contain; background: var(--navy); }
+@media (max-width:768px) {
+  .portfolio-hero { padding-block: 2rem; }
+  .portfolio-hero-grid { gap: 1rem; }
+  .portfolio-hero h1 { max-width: 20ch; }
+  .portfolio-metrics { gap: .75rem; }
+  .portfolio-metrics .metric-card:first-child { grid-column: auto; display: block; }
+  .portfolio-metrics .metric-card:last-child { grid-column: 1/-1; }
+  .project-card .btn-row .btn { flex-basis: 7rem; }
+}

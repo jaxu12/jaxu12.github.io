@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pl">
+<html lang="pl" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,13 +13,14 @@
   <meta property="twitter:title" content="Polyrush: Endless Runner" data-i18n-content="polyrush.meta.ogTitle">
   <meta property="twitter:description" content="Archiwum projektu Polyrush: Endless Runner. Gra została wycofana ze sklepu." data-i18n-content="polyrush.meta.ogDescription">
   <link rel="canonical" href="https://jachsugames.com/polyrush/">
-  <link rel="stylesheet" href="../styles/base.css?v=20261013-cursor">
-  <link rel="stylesheet" href="../styles/components.css?v=20261013-menu">
-  <link rel="stylesheet" href="../styles/pages/polyrush.css?v=20261013-mobile3">
-  <script defer src="../scripts/i18n.js?v=20261026-infograf-release"></script>
-  <script defer src="../scripts/main.js?v=20261013-menu"></script>
+  <link rel="stylesheet" href="../styles/base.css?v=20261026-forest">
+  <link rel="stylesheet" href="../styles/components.css?v=20261026-forest">
+  <link rel="stylesheet" href="../styles/pages/polyrush.css?v=20261026-forest">
+  <script defer src="../scripts/i18n.js?v=20261026-forest"></script>
+  <script defer src="../scripts/main.js?v=20261026-forest"></script>
 </head>
 <body class="polyrush-page">
+  <a class="skip-link" href="#main-content" data-i18n="nav.skip">Przejdź do treści</a>
   <header class="site-header">
     <div class="container">
       <nav class="site-nav" aria-label="Nawigacja glowna" data-i18n-aria-label="nav.primary">
@@ -27,6 +28,7 @@
         <div class="site-nav-links" id="site-nav-links">
           <a href="../" data-i18n="nav.home">Strona glowna</a>
           <a href="../portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+          <a href="../portfolio/#about" data-i18n="nav.about">O mnie</a>
           <div class="dropdown">
             <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="games-menu" data-i18n="nav.games">Gry</button>
             <div class="dropdown-menu" role="menu" id="games-menu">
@@ -60,7 +62,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="section polyrush-hero">
       <div class="container polyrush-hero-grid">
         <div class="reveal">

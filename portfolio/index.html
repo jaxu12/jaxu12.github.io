@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pl">
+<html lang="pl" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,21 +13,23 @@
   <meta property="twitter:title" content="Portfolio Jana Fredy" data-i18n-content="portfolio.meta.ogTitle">
   <meta property="twitter:description" content="Gry mobilne, projektowanie rozgrywki i produkty cyfrowe." data-i18n-content="portfolio.meta.ogDescription">
   <link rel="canonical" href="https://jachsugames.com/portfolio/">
-  <link rel="stylesheet" href="../styles/base.css?v=20261013-cursor">
-  <link rel="stylesheet" href="../styles/components.css?v=20261013-menu">
-  <link rel="stylesheet" href="../styles/pages/portfolio.css?v=20261013-mobile3">
-  <script defer src="../scripts/i18n.js?v=20261026-infograf-release"></script>
-  <script defer src="../scripts/main.js?v=20261013-menu"></script>
-  <script defer src="../scripts/portfolio.js?v=20261026-infograf-release"></script>
+  <link rel="stylesheet" href="../styles/base.css?v=20261026-forest">
+  <link rel="stylesheet" href="../styles/components.css?v=20261026-forest">
+  <link rel="stylesheet" href="../styles/pages/portfolio.css?v=20261026-forest">
+  <script defer src="../scripts/i18n.js?v=20261026-forest"></script>
+  <script defer src="../scripts/main.js?v=20261026-forest"></script>
+  <script defer src="../scripts/portfolio.js?v=20261026-forest"></script>
 </head>
 <body class="portfolio-page">
+  <a class="skip-link" href="#main-content" data-i18n="nav.skip">Przejdź do treści</a>
   <header class="site-header">
     <div class="container">
       <nav class="site-nav" aria-label="Nawigacja glowna" data-i18n-aria-label="nav.primary">
         <a class="site-brand" href="../" aria-label="Jachsu Games">Jachsu<span>Games</span></a>
         <div class="site-nav-links" id="site-nav-links">
           <a href="../" data-i18n="nav.home">Strona glowna</a>
-          <a href="../portfolio/" data-i18n="nav.portfolio">Portfolio</a>
+          <a href="../portfolio/" aria-current="page" data-i18n="nav.portfolio">Portfolio</a>
+          <a href="../portfolio/#about" data-i18n="nav.about">O mnie</a>
           <div class="dropdown">
             <button type="button" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="games-menu" data-i18n="nav.games">Gry</button>
             <div class="dropdown-menu" role="menu" id="games-menu">
@@ -61,7 +63,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="section portfolio-hero">
       <div class="container portfolio-hero-grid">
         <div class="reveal">
@@ -87,6 +89,30 @@
             <span data-i18n="portfolio.metrics.stack.desc">Gry mobilne i frontend</span>
           </article>
         </aside>
+      </div>
+    </section>
+
+    <section class="section portfolio-aboutme" id="about">
+      <div class="container">
+        <article class="card about-me-card reveal">
+          <p class="eyebrow" data-i18n="portfolio.aboutme.eyebrow">O mnie · Jachsu Games</p>
+          <h2 data-i18n="portfolio.aboutme.title">Cześć, jestem Jan. Tworzę Jachsu Games.</h2>
+          <p class="lead" data-i18n="portfolio.aboutme.lead">Projektuję i rozwijam gry mobilne — od pierwszego pomysłu i mechanik po interfejs, testy i publikację w Google Play.</p>
+          <div class="about-me-grid">
+            <article class="about-me-item">
+              <h3 data-i18n="portfolio.aboutme.point1.title">Gameplay i product</h3>
+              <p data-i18n="portfolio.aboutme.point1.text">Projektuje petle rozgrywki i flow produktu tak, aby decyzje designu mialy realny wplyw na retencje.</p>
+            </article>
+            <article class="about-me-item">
+              <h3 data-i18n="portfolio.aboutme.point2.title">Systemy i integracje</h3>
+              <p data-i18n="portfolio.aboutme.point2.text">Systemy progresji i zapisu, integracje platformowe oraz czytelna struktura projektu ułatwiająca rozwój gry.</p>
+            </article>
+            <article class="about-me-item">
+              <h3 data-i18n="portfolio.aboutme.point3.title">Sposob pracy</h3>
+              <p data-i18n="portfolio.aboutme.point3.text">Lacze szybkie prototypowanie z testami i dopracowaniem detali, zeby dowozic stabilne wydania.</p>
+            </article>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -117,12 +143,14 @@
       </div>
     </section>
 
-    <section class="section portfolio-aboutme">
+
+
+    <section class="section portfolio-aboutme" id="about">
       <div class="container">
         <article class="card about-me-card reveal">
-          <p class="eyebrow" data-i18n="portfolio.aboutme.eyebrow">About Me</p>
-          <h2 data-i18n="portfolio.aboutme.title">Kim jestem</h2>
-          <p class="lead" data-i18n="portfolio.aboutme.lead">Nazywam się Jan Freda. Tworzę gry i produkty cyfrowe łączące gameplay, UX i systemy progresji.</p>
+          <p class="eyebrow" data-i18n="portfolio.aboutme.eyebrow">O mnie · Jachsu Games</p>
+          <h2 data-i18n="portfolio.aboutme.title">Cześć, jestem Jan. Tworzę Jachsu Games.</h2>
+          <p class="lead" data-i18n="portfolio.aboutme.lead">Projektuję i rozwijam gry mobilne — od pierwszego pomysłu i mechanik po interfejs, testy i publikację w Google Play.</p>
           <div class="about-me-grid">
             <article class="about-me-item">
               <h3 data-i18n="portfolio.aboutme.point1.title">Gameplay i product</h3>
