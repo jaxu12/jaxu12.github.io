@@ -2,8 +2,8 @@
   {
     "id": "infograf",
     "title": {
-      "pl": "Infograf",
-      "en": "Infograf"
+      "pl": "Infograf Puzzle",
+      "en": "Infograf Puzzle"
     },
     "short": {
       "pl": "Gra logiczna łącząca układanie obrazków z odkrywaniem ciekawostek.",
@@ -99,7 +99,7 @@
     "categories": [
       "game"
     ],
-    "image": "../assets/polyrush.png",
+    "image": "../assets/pollyrushstore.png",
     "link": "../polyrush/",
     "featured": false
   },

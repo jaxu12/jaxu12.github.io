@@ -60,6 +60,7 @@
   function buildProjectCard(project, lang) {
     const article = document.createElement("article");
     article.className = "card project-card reveal";
+    article.dataset.project = project.id;
 
     const title = toLocalized(project.title, lang);
     const short = toLocalized(project.short, lang);
@@ -100,6 +101,8 @@
       image.alt = title;
       image.loading = "lazy";
       image.decoding = "async";
+      image.width = 1024;
+      image.height = 576;
       article.appendChild(image);
     } else {
       const placeholder = document.createElement("div");
@@ -228,7 +231,7 @@
     bindFilters();
     updateFilterButtons();
 
-    fetch(getProjectsPath() + "?v=20261026-forest")
+    fetch(getProjectsPath() + "?v=20261026-portfolio-fix")
       .then((response) => response.json())
       .then((projects) => {
         state.projects = Array.isArray(projects) ? projects : [];

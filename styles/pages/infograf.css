@@ -1,6 +1,6 @@
 .infograf-hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; gap: 5rem; }
 .infograf-title { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
-.infograf-title h1 { font-size: clamp(3.4rem,6.5vw,5.5rem); letter-spacing: -.065em; margin: 0; }
+.infograf-title h1 { font-size: clamp(2.8rem,5.7vw,4.8rem); letter-spacing: -.065em; margin: 0; }
 .infograf-icon { width: 64px; height: 64px; flex: 0 0 64px; border-radius: 18px; }
 .infograf-cover { width: min(100%,300px); margin-inline: auto; border-radius: 22px; border: 1px solid var(--line); box-shadow: var(--shadow); transform: rotate(3deg); }
 .infograf-status { margin-bottom: 1rem; }
@@ -30,7 +30,7 @@ body:has(.screenshot-viewer[open]) { overflow: hidden; }
 @media (max-width:768px) {
   .infograf-hero-grid { grid-template-columns: 1fr; gap: 2rem; }
   .infograf-title { gap: .8rem; }
-  .infograf-title h1 { font-size: clamp(3rem,13vw,4.5rem); }
+  .infograf-title h1 { font-size: clamp(2.55rem,11vw,3.4rem); }
   .infograf-icon { width: 54px; height: 54px; flex-basis: 54px; border-radius: 15px; }
   .infograf-cover { width: min(66vw,270px); transform: rotate(2deg); }
   .infograf-features { grid-template-columns: 1fr; gap: 1.4rem; }
