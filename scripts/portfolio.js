@@ -228,7 +228,7 @@
     bindFilters();
     updateFilterButtons();
 
-    fetch(getProjectsPath() + "?v=20261013-featured")
+    fetch(getProjectsPath() + "?v=20261026-infograf-release")
       .then((response) => response.json())
       .then((projects) => {
         state.projects = Array.isArray(projects) ? projects : [];

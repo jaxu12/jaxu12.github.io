@@ -10,16 +10,16 @@
       "en": "A puzzle game combining picture puzzles with facts to discover."
     },
     "description": {
-      "pl": "Obecnie w zamkniętych testach. Planowana premiera: 22 października 2026.",
-      "en": "Currently in closed testing. Planned release: October 22, 2026."
+      "pl": "Dostępna w Google Play od 25 października 2026.",
+      "en": "Available on Google Play since October 25, 2026."
     },
     "role": {
       "pl": "Projektowanie i rozwój gry, interfejs oraz przygotowanie do premiery.",
       "en": "Game design and development, interface, and release preparation."
     },
     "status": {
-      "pl": "Zamknięte testy",
-      "en": "Closed testing"
+      "pl": "Dostępna w Google Play",
+      "en": "Available on Google Play"
     },
     "year": "2026",
     "categories": [
@@ -27,6 +27,7 @@
     ],
     "image": "../assets/infograf/banner.webp",
     "link": "../infograf/",
+    "external": "https://play.google.com/store/apps/details?id=com.jachsugames.infograf",
     "policy": "../InfografPolicy.html",
     "featured": true
   },
