@@ -6,6 +6,7 @@
 .site-nav-controls { display: flex; align-items: center; gap: .65rem; }
 .site-nav-links > a, .dropdown-toggle { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; padding: .65rem .85rem; min-height: 44px; color: var(--text-muted); font-size: .87rem; font-weight: 500; text-decoration: none; background: transparent; border: 1px solid transparent; border-radius: 10px; line-height: 1.3; }
 .site-nav-links > a:hover, .site-nav-links > a[aria-current="page"], .dropdown-toggle:hover, .dropdown.open .dropdown-toggle { color: var(--text); background: var(--accent-soft); }
+[data-theme="light"] .site-nav-links > a[aria-current="page"] { color: var(--action-text); background: var(--action-bg); }
 .dropdown { position: relative; }
 .dropdown-toggle::after { content: ""; width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); }
 .dropdown::after { content: ""; position: absolute; top: 100%; inset-inline: 0; height: .5rem; }
@@ -15,15 +16,15 @@
 .dropdown-menu a:hover { background: var(--accent-soft); }
 .lang-switch { display: inline-flex; padding: 3px; gap: 2px; border: 1px solid var(--line); border-radius: 12px; }
 .lang-btn { display: inline-flex; justify-content: center; align-items: center; min-width: 42px; min-height: 38px; padding: .35rem .5rem; border: 0; border-radius: 8px; font-size: .75rem; font-weight: 600; background: transparent; color: var(--text-muted); }
-.lang-btn[aria-pressed="true"] { background: var(--gold); color: var(--navy); }
+.lang-btn[aria-pressed="true"] { background: var(--action-bg); color: var(--action-text); }
 .theme-toggle { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; padding: .65rem; border: 1px solid var(--line); border-radius: 12px; background: transparent; color: var(--text-muted); }
 .theme-toggle svg { width: 20px; height: 20px; fill: currentColor; }
 .theme-toggle:hover { color: var(--text); background: var(--accent-soft); }
 .mobile-nav-toggle, .close-icon { display: none; }
 .btn-row { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.4rem; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 50px; padding: .8rem 1.25rem; border-radius: 12px; border: 1px solid transparent; font-size: .9rem; font-weight: 600; line-height: 1.3; text-align: center; text-decoration: none; transition: background-color 160ms ease,border-color 160ms ease,transform 160ms ease; }
-.btn-primary { background: var(--gold); color: var(--navy); border-color: var(--gold); }
-.btn-primary:hover { background: #EFDBB9; border-color: #EFDBB9; transform: translateY(-2px); }
+.btn-primary { background: var(--action-bg); color: var(--action-text); border-color: var(--action-bg); }
+.btn-primary:hover { background: var(--action-hover); border-color: var(--action-hover); transform: translateY(-2px); }
 .btn-secondary { background: var(--bg-soft); color: var(--text); border-color: var(--line); }
 .btn-secondary:hover { background: var(--bg-elevated); border-color: var(--text-muted); }
 .btn-ghost { color: var(--text-muted); border-color: var(--line); background: transparent; }
@@ -32,7 +33,7 @@
 .chip-row { display: flex; flex-wrap: wrap; gap: .5rem; }
 .chip { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .5rem 1rem; border: 1px solid var(--line); border-radius: 100px; background: transparent; color: var(--text-muted); font-size: .83rem; font-weight: 500; }
 .chip:hover { background: var(--bg-elevated); }
-.chip.is-active, .chip[aria-pressed="true"] { color: var(--navy); background: var(--gold); border-color: var(--gold); }
+.chip.is-active, .chip[aria-pressed="true"] { color: var(--action-text); background: var(--action-bg); border-color: var(--action-bg); }
 .card { min-width: 0; padding: clamp(1.2rem,2.5vw,1.8rem); border: 1px solid var(--line); border-radius: var(--radius-md); background: var(--bg-soft); }
 .card-muted { background: var(--bg-elevated); }
 .badge { display: inline-flex; align-items: center; gap: .45rem; min-height: 28px; padding: .3rem .7rem; border: 1px solid var(--line); border-radius: 100px; background: var(--accent-soft); color: var(--text); font-size: .69rem; font-weight: 500; line-height: 1.3; }
@@ -46,9 +47,10 @@
 .site-footer { margin-top: 2rem; border-top: 1px solid var(--line); }
 .site-footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .6rem 2rem; padding-block: 2rem; color: var(--text-muted); font-size: .8rem; }
 .site-footer p { margin: 0; overflow-wrap: anywhere; }
-.footer-social-links { display: flex; flex-wrap: wrap; gap: .5rem; flex: 0 0 100%; width: 100%; min-width: 0; padding-top: .8rem; border-top: 1px solid var(--line); }
-.footer-social-links a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .5rem .85rem; border: 1px solid var(--line); border-radius: 10px; text-decoration: none; }
-.footer-social-links a:hover { color: var(--text); background: var(--accent-soft); }
+.footer-social-links { display: flex; flex-wrap: wrap; gap: .25rem; flex: 0 0 100%; width: 100%; min-width: 0; padding-top: .25rem; }
+.footer-social-links a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex: 0 0 44px; border-radius: 50%; color: var(--text-muted); text-decoration: none; transition: color 160ms ease,background-color 160ms ease; }
+.footer-social-links svg { display: block; width: 22px; height: 22px; fill: currentColor; }
+.footer-social-links a:hover, .footer-social-links a:focus-visible { color: var(--accent-strong); background: var(--accent-soft); }
 @media (max-width:980px) {
   .site-nav { gap: .9rem; }
   .site-nav-links > a, .dropdown-toggle { padding-inline: .65rem; font-size: .8rem; }
@@ -81,6 +83,8 @@
   .site-footer .container { flex-direction: column; align-items: flex-start; padding-block: 1.5rem; }
 }
 @media (max-width:350px) {
+  .footer-social-links { gap: .15rem; }
+  .footer-social-links a { width: 38px; flex-basis: 38px; }
   .site-nav { gap: .3rem; }
   .site-nav-controls { gap: .2rem; }
   .lang-btn { min-width: 32px; }

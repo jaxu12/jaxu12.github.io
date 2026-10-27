@@ -3,24 +3,28 @@
 :root, [data-theme="dark"] {
   color-scheme: dark;
   --cream: #F6F2E9; --green: #326A59; --navy: #17272D; --gold: #E3C799;
+  --action-bg: var(--gold); --action-text: var(--navy); --action-hover: #EFDBB9;
   --bg: #172D29; --bg-soft: #1E3933; --bg-elevated: #284A40;
   --text: #F6F2E9; --text-muted: #BECDC4; --line: #476257;
   --accent: #E3C799; --accent-strong: #EDDBB9; --accent-soft: #304F42;
   --highlight: #E3C799; --success: #A4C5A7; --nav-bg: rgba(23,45,41,.96);
   --shadow: 0 20px 60px -32px rgba(0,0,0,.5);
+  --page-glow: rgba(50,106,89,.27);
   --radius-sm: 12px; --radius-md: 20px; --radius-lg: 28px;
 }
 [data-theme="light"] {
   color-scheme: light;
-  --bg: #F6F2E9; --bg-soft: #FFFCF6; --bg-elevated: #EAE8DC;
-  --text: #17272D; --text-muted: #506158; --line: #C9CFC0;
-  --accent: #326A59; --accent-strong: #285444; --accent-soft: #E1E8DC;
-  --success: #326A59; --nav-bg: rgba(246,242,233,.96);
-  --shadow: 0 20px 60px -32px rgba(23,39,45,.2);
+  --bg: #E0EDD6; --bg-soft: #EFF5E7; --bg-elevated: #D6E5CA;
+  --action-bg: #326A59; --action-text: #F2F7EB; --action-hover: #285444;
+  --text: #20392C; --text-muted: #465B42; --line: #B0C3A1;
+  --accent: #326A59; --accent-strong: #285444; --accent-soft: #C4DAB7;
+  --success: #326A59; --nav-bg: rgba(224,237,214,.96);
+  --shadow: 0 20px 60px -32px rgba(32,57,44,.18);
+  --page-glow: rgba(87,137,71,.08);
 }
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 110px; }
-body { margin: 0; font-family: "IBM Plex Sans", "Segoe UI", sans-serif; color: var(--text); background: var(--bg); background-image: radial-gradient(ellipse at 85% 0%, rgba(50,106,89,.27), transparent 44rem); line-height: 1.65; min-height: 100vh; -webkit-font-smoothing: antialiased; }
+body { margin: 0; font-family: "IBM Plex Sans", "Segoe UI", sans-serif; color: var(--text); background: var(--bg); background-image: radial-gradient(ellipse at 85% 0%, var(--page-glow), transparent 44rem); line-height: 1.65; min-height: 100vh; -webkit-font-smoothing: antialiased; }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; text-underline-offset: .2em; }
 a, button { -webkit-tap-highlight-color: transparent; }
