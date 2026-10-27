@@ -46,6 +46,9 @@
 .site-footer { margin-top: 2rem; border-top: 1px solid var(--line); }
 .site-footer .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .6rem 2rem; padding-block: 2rem; color: var(--text-muted); font-size: .8rem; }
 .site-footer p { margin: 0; overflow-wrap: anywhere; }
+.footer-social-links { display: flex; flex-wrap: wrap; gap: .5rem; flex: 0 0 100%; width: 100%; min-width: 0; padding-top: .8rem; border-top: 1px solid var(--line); }
+.footer-social-links a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: .5rem .85rem; border: 1px solid var(--line); border-radius: 10px; text-decoration: none; }
+.footer-social-links a:hover { color: var(--text); background: var(--accent-soft); }
 @media (max-width:980px) {
   .site-nav { gap: .9rem; }
   .site-nav-links > a, .dropdown-toggle { padding-inline: .65rem; font-size: .8rem; }

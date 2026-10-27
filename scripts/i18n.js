@@ -29,6 +29,7 @@
       "nav.switch.en": "EN",
       "nav.infograf": "Infograf Puzzle",
       "footer.contactPrefix": "Kontakt:",
+      "footer.socialLabel": "Media społecznościowe",
 
       "home.meta.title": "Jachsu Games | Indie Game Studio",
       "home.meta.description": "Jachsu Games: Infograf — układanki obrazkowe i ciekawostki. Poznaj naszą nową grę oraz Cosmidle.",
@@ -226,6 +227,7 @@
       "nav.switch.en": "EN",
       "nav.infograf": "Infograf Puzzle",
       "footer.contactPrefix": "Contact:",
+      "footer.socialLabel": "Social media",
 
       "home.meta.title": "Jachsu Games | Indie Game Studio",
       "home.meta.description": "Jachsu Games: Infograf — picture puzzles and facts. Discover our new game and Cosmidle.",
