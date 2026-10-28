@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f6f2e9"><meta name="description" content="Infograf game demo — eight double-sided puzzles.">
+<title>Infograf — demo</title><style>@font-face{font-family:Manrope;src:url('assets/fonts/Manrope.ttf') format('truetype');font-weight:200 800;font-display:swap}@font-face{font-family:Lora;src:url('assets/fonts/Lora.ttf') format('truetype');font-weight:400 700;font-display:swap}@font-face{font-family:Kaushan;src:url('assets/fonts/KaushanScript.ttf') format('truetype');font-display:swap}@font-face{font-family:SpecialElite;src:url('assets/fonts/SpecialElite.ttf') format('truetype');font-display:swap}
+:root{--bg:#f6f2e9;--ink:#283d3a;--muted:#687c76;--accent:#326a59;--on-accent:#fffdf7;--line:#d9e1d6;--glass:#fffdf7a8;--paper:#fcf8ec}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden}body{background:var(--bg);color:var(--ink);font:500 16px Manrope,sans-serif}body.dark{--bg:#17272d;--ink:#f7efdf;--muted:#a8bbb8;--accent:#e3c799;--on-accent:#203239;--line:#3b5156;--glass:#24383fb0}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;color:inherit;cursor:pointer;min-height:48px;border:0}button:disabled{opacity:.45;cursor:default}button:active:not(:disabled){transform:translateY(1px)}button:focus-visible,a:focus-visible,canvas:focus-visible{outline:3px solid #c9a561;outline-offset:3px}a{color:var(--accent)}[hidden]{display:none!important}.app,.home-screen,.play,.selection-screen{width:100%;height:100%;position:relative}.glass,.primary{border-radius:22px;padding:14px 24px;border:1px solid var(--line);box-shadow:inset 0 1px 0 #ffffff70,0 4px 12px #17272d09;background:linear-gradient(150deg,#ffffff35,transparent),var(--glass);backdrop-filter:blur(12px);font-weight:600}.primary{background:var(--accent);color:var(--on-accent);border-color:transparent}.icon-button{height:48px;width:48px;min-height:48px;border-radius:50%;padding:0;display:grid;place-items:center;flex-shrink:0;background:var(--glass);font-size:25px;font-weight:400}.home-center{width:min(370px,calc(100% - 64px));height:100%;margin:auto;display:flex;flex-direction:column;justify-content:center;padding-bottom:65px}.logo{display:flex;align-items:baseline;justify-content:center;font-weight:400;white-space:nowrap;font-size:clamp(44px,8vw,65px);line-height:1.3;margin:0}.logo>span{font-family:SpecialElite,serif}.logo>i{font-family:Kaushan,cursive;font-size:1.13em;color:var(--accent);font-style:normal}.home-actions{display:grid;gap:16px;margin-top:clamp(65px,21dvh,210px)}.home-actions button{width:100%;font-size:17px;min-height:54px}.home-corners{position:absolute;bottom:max(22px,env(safe-area-inset-bottom));left:max(22px,env(safe-area-inset-left));right:max(22px,env(safe-area-inset-right));display:flex;align-items:center;justify-content:space-between}.demo-label{font-size:9px;letter-spacing:2px;color:var(--muted);opacity:.7}.selection-screen{padding:74px 24px 32px;overflow:auto;scrollbar-width:none}.selection-screen::-webkit-scrollbar{display:none}.selection-screen>h1{text-align:center;font-size:27px;font-weight:600;margin:4px 0 24px}.category-list{display:grid;gap:12px;max-width:360px;margin:auto}.category-list .card{width:100%;text-align:center;min-height:50px;font-size:17px}.category-list .card small{font-size:11px;opacity:.6;margin-left:10px}.demo-note{font-size:10px;color:var(--muted);text-align:center;line-height:1.8;margin:20px 0 0}.corner-left{position:fixed;top:max(18px,env(safe-area-inset-top));left:max(18px,env(safe-area-inset-left));z-index:2}.play-top{position:absolute;top:max(18px,env(safe-area-inset-top));left:max(18px,env(safe-area-inset-left));right:max(18px,env(safe-area-inset-right));display:flex;justify-content:space-between;z-index:2;pointer-events:none}.play-top>button{pointer-events:auto}.board-wrap{position:absolute;inset:74px 4px 70px;background:transparent;overflow:hidden}canvas{width:100%;height:100%;display:block;touch-action:none;cursor:grab}canvas:active{cursor:grabbing}.play-demo{position:absolute;bottom:22px;left:50%;transform:translateX(-50%)}.loading{position:absolute;inset:0;display:grid;place-items:center;background:var(--bg);font-size:13px}.solved{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;gap:12px;align-items:center;width:min(320px,calc(100% - 48px))}.solved>button{width:100%;min-height:48px}.solved>span{color:var(--accent);font-size:23px}.finished .board-wrap{bottom:215px}.finished .play-demo{display:none}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}dialog{border:1px solid var(--line);border-radius:24px;padding:44px 30px 28px;background:var(--bg);color:var(--ink);max-width:min(480px,calc(100vw - 32px));max-height:calc(100dvh - 32px);box-shadow:0 20px 80px #0003;scrollbar-width:none}dialog::backdrop{background:#17272d70;backdrop-filter:blur(5px)}.dialog-close{position:absolute;right:8px;top:8px;background:transparent;font-size:28px}.eyebrow{font-size:10px;letter-spacing:1px;color:var(--muted)}dialog h2{font-size:24px;font-weight:600;text-align:center;margin:9px 0 24px}dialog p{font-size:12px;line-height:1.8;color:var(--muted)}.dialog-actions{display:grid;gap:12px;margin-top:20px}.level-options{display:grid;gap:12px;margin:20px 0}.level-options>button{border:1px solid var(--line);border-radius:22px;background:var(--glass);padding:13px 24px;min-height:48px}.level-options>button.active{background:var(--accent);color:var(--on-accent)}.level-options small{font-size:11px;opacity:.7;margin-left:10px}.keyboard-note{font-size:10px!important;margin-top:20px}.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,12px);opacity:0;pointer-events:none;background:var(--ink);color:var(--bg);padding:12px 20px;border-radius:24px;font-size:11px;transition:opacity .2s,transform .2s;z-index:10;max-width:90vw;text-align:center}.toast.visible{opacity:1;transform:translate(-50%,0)}.preview-image{display:block;max-width:100%;max-height:70dvh;margin:auto;object-fit:contain}#dialog.preview-dialog{max-width:min(900px,94vw);padding:50px 18px 18px}.source-links a{display:block;min-height:44px;padding:10px 0;font-size:12px}.license-text{font:10px/1.6 monospace;white-space:pre-wrap;overflow-wrap:anywhere}.collection-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.collection-grid button{background:transparent;padding:0}.collection-grid img{display:block;width:100%;aspect-ratio:1;object-fit:cover;border-radius:10px}.collection-grid span{display:block;font-size:11px;margin-top:8px}
+@media(min-width:750px) and (max-height:600px){.home-center{max-width:330px;padding-bottom:35px}.home-actions{margin-top:45px;gap:12px}.finished .board-wrap{right:330px;bottom:50px}.solved{left:auto;right:24px;top:50%;bottom:auto;transform:translateY(-50%);width:260px}.selection-screen{padding-top:32px}.category-list{grid-template-columns:1fr 1fr;max-width:650px}}
+@media(max-width:600px){.home-center{width:calc(100% - 70px);max-width:350px}.home-actions{margin-top:clamp(55px,18dvh,160px)}.category-list{gap:10px}.category-list .card{min-height:48px}.selection-screen{padding-top:62px}.selection-screen>h1{font-size:24px;margin-bottom:20px}.solved{gap:9px;bottom:22px}.finished .board-wrap{bottom:195px}.board-wrap{inset:73px 2px 63px}.home-corners{bottom:20px;left:20px;right:20px}}
+@media(max-height:500px){.home-actions{margin-top:40px;gap:12px}.home-actions button{min-height:48px}.logo{font-size:45px}.home-center{padding-bottom:50px}.finished .board-wrap{bottom:175px}.solved{gap:6px;bottom:18px}.solved>button{min-height:44px;padding:10px 24px}.solved>span{font-size:18px}.play-top{top:12px;left:12px;right:12px}.board-wrap{top:65px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;animation:none!important}}
+/* Match the native control drawings, menu pages and 550-weight Manrope. */
+body,button{font-weight:550}.glass,.primary{font-weight:550}.icon-button [data-icon]{display:block;width:100%;height:100%}.icon-button svg{width:100%;height:100%;display:block}.home-actions button,.category-list .card{font-size:16px}.home-store{display:flex;align-items:center;flex-direction:column;gap:1px}.home-store a{font-size:10px;text-decoration:none;min-height:44px;display:flex;align-items:center;text-align:center}.home-store a:hover{text-decoration:underline}.store-button{display:flex;justify-content:center;align-items:center;min-height:48px;text-align:center;text-decoration:none;font-size:14px}.level-options .glass{font-size:16px;font-weight:550}.app::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(var(--menu-shade),var(--menu-shade)),var(--menu-backdrop,none) center/cover no-repeat}body{--menu-shade:#f6f2e9ad}body.dark{--menu-shade:#17272d99}body.playing .app::before{display:none}
+dialog:not(.preview-dialog){width:100%;height:100%;max-width:100%;max-height:100%;padding:80px 24px 40px;border:0;border-radius:0;box-shadow:none;margin:0;background:var(--bg)}dialog:not(.preview-dialog)[open]{display:flex;align-items:center}dialog:not(.preview-dialog)::backdrop{background:var(--bg);backdrop-filter:none}#dialog-content{max-width:360px;width:100%;margin:auto}.dialog-close{position:fixed;left:18px;right:auto;top:18px;background:var(--glass)}dialog h2{font-size:27px;font-weight:550;margin-bottom:24px}dialog.reading-dialog[open]{display:block}dialog.reading-dialog #dialog-content{max-width:600px}.preview-dialog #dialog-content{max-width:none}.preview-dialog .dialog-close{position:fixed}.level-options{gap:16px}.level-options>button{min-height:52px}
+.play-badge{display:flex;align-items:center;justify-content:center;padding:12px;text-decoration:none}.play-badge img{display:block;width:144px;height:auto;aspect-ratio:478/142}.settings-badge{margin:10px auto;padding:15px}.settings-badge img{width:180px}.home-store .play-badge{min-height:0}.home-store{gap:0}.home-store .demo-label{font-size:8px}
+@media(max-height:430px){.home-center{padding-bottom:100px}.home-actions{margin-top:20px;gap:8px}.home-actions button{min-height:44px;padding-top:10px;padding-bottom:10px}.logo{font-size:38px}}
+/* Use the actual frame size, keeping all storage cells inside the playable area. */
+.board-wrap{inset:72px 0 8px}.play-demo{display:none}.finished .board-wrap{bottom:180px}
+@media(max-height:500px){.board-wrap{top:65px;bottom:4px}.finished .board-wrap{bottom:164px}}
+@media(min-aspect-ratio:7/5){.board-wrap{inset:4px 72px}.finished .board-wrap{inset:4px 72px 76px}.solved{left:72px;right:72px;top:auto;bottom:12px;transform:none;width:auto;max-width:600px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}.solved>span{display:none}.solved>button{min-height:48px;width:100%}}
+.audio-corner{position:absolute;top:18px;right:18px}.volume-control{display:block;margin:24px 0;font-size:16px}.volume-control>span{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.volume-control output{font-size:12px;color:var(--muted)}.volume-control input{display:block;width:100%;height:44px;accent-color:var(--accent);cursor:pointer;margin:0}.sound-credits{font-size:11px;line-height:1.8;color:var(--muted)}.sound-credits a{display:inline-block;min-height:44px;padding:10px 0}.sound-credits summary{cursor:pointer;min-height:44px;padding:10px 0}
+</style>
+</head>
+<body>
+<main class="app">
+  <section id="home" class="home-screen">
+    <button class="icon-button glass audio-corner" id="audio" aria-label="Sound" title="Sound"><span data-icon="sound"></span></button>
+    <div class="home-center"><h1 class="logo" aria-label="Infograf"><span>Info</span><i>graf</i></h1><div class="home-actions"><button id="resume-home" class="primary" hidden>Continue</button><button id="random-home" class="primary">Random</button><button id="categories-home" class="glass">Categories</button></div></div>
+    <div class="home-corners"><button class="icon-button glass" id="theme" aria-label="Theme: System" title="Theme: System"><span data-icon="sun"></span></button><div class="home-store"><span class="demo-label">DEMO</span><a class="play-badge" href="https://play.google.com/store/apps/details?id=com.jachsugames.infograf" target="_blank" rel="noopener noreferrer"><img src="assets/google-play-badge-en.png" width="144" height="43" alt="Get it on Google Play"></a></div><button class="icon-button glass" id="collection" aria-label="Gallery" title="Gallery"><span data-icon="gallery"></span></button></div>
+  </section>
+  <section id="gallery" class="selection-screen" hidden><button class="icon-button glass corner-left" id="selection-back" aria-label="Main menu"><span data-icon="back"></span></button><h1>Categories</h1><div id="cards" class="category-list"></div><p id="collection-count" class="demo-note">Demo · one picture per category</p></section>
+  <section id="play" class="play" hidden>
+    <div class="play-top"><button class="icon-button glass" id="pause" aria-label="Pause" title="Pause"><span data-icon="pause"></span></button><div class="visually-hidden"><span id="category"></span><h1 id="card-title"></h1></div><button class="icon-button glass" id="flip" aria-label="Flip card" title="Flip card"><span data-icon="flip"></span><span class="visually-hidden" id="flip-label">Flip card</span></button></div>
+    <div id="board-wrap" class="board-wrap"><canvas id="board" tabindex="0" role="application" aria-label="Puzzle board. Drag pieces to move them. Keyboard: arrows select a group, Space picks it up, arrows move it, Enter drops it, Escape cancels."></canvas><div class="loading" id="loading">Preparing picture…</div></div>
+    <div id="solved" class="solved" hidden><span>✓</span><button class="glass" id="solved-flip">Flip card</button><button class="primary" id="next">Next</button></div>
+    <span class="play-demo demo-label">DEMO</span>
+    <div hidden><button id="back">Main menu</button><button id="preview">View picture</button><button id="hint">Hint</button><button id="credits">Image credits</button><span id="group-stat"></span><span id="moves-stat"></span><div id="progress-bar"></div><span id="board-caption"></span></div>
+  </section>
+</main>
+<dialog id="dialog"><button class="icon-button glass dialog-close" id="close-dialog" aria-label="Back"><span data-icon="back"></span></button><div id="dialog-content"></div></dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>const DEMO_CARDS = [{"id": "red_panda", "title": "Red panda", "text": "The red panda lives among the trees and bamboo of cool mountain forests in Asia. Curved claws help it grip branches, while its long, ringed tail provides balance as it moves above the ground. An enlarged wrist bone acts like an extra thumb, helping it hold bamboo while feeding. Although it belongs to the order that includes many meat-eating mammals, bamboo makes up most of its diet. It has its own animal family, separate from the giant panda and other bears.", "category": "Animals", "grids": [[5, 2], [7, 4], [8, 5]], "aspect": 1.509433962264151, "image": "assets/images/red_panda.jpg", "author": "Mathias Appel", "license": "CC0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "source": "https://commons.wikimedia.org/w/index.php?oldid=1278871703", "sourceSha256": "4f025f4d641206e671d7ea8c2f2403c0439afe7532371b2b48dfad3dd53b8bd5", "adaptation": "Full image preserved; resized to a maximum of 1200 px and compressed as JPEG for this demo."}, {"id": "sunflower_close", "title": "Sunflower", "text": "A sunflower looks like one enormous flower, but its head is a community of many smaller flowers. The bright outer rays surround a central disc packed with tiny florets, arranged in intersecting spirals. As the head matures, it becomes a rich source of seeds for birds and other wildlife. The common sunflower is an annual plant with a tall, rough stem and large leaves. Garden varieties range from compact plants to towering stems, and their flower heads can be yellow, red, bronze, or even pale white.", "category": "Plants", "grids": [[5, 2], [7, 4], [8, 5]], "aspect": 1.26, "image": "assets/images/sunflower_close.jpg", "author": "Don McCulley", "license": "CC0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "source": "https://commons.wikimedia.org/w/index.php?oldid=1053774562", "sourceSha256": "3e2f7dcc69e6fd59ecc83ecb146f06a8adc7221df9a4d24ce6fc388efd921413", "adaptation": "Full image preserved; resized to a maximum of 1200 px and compressed as JPEG for this demo."}, {"id": "saturn", "title": "Saturn", "text": "Saturn is the sixth planet from the Sun and the second largest in our solar system. From a distance, its rings look like a single band, but they are actually made of countless pieces of ice, rock, and dust circling the planet. Each piece follows its own orbit, so the rings are a vast collection of separate objects. Saturn is a gas giant and has no solid surface that you could stand on.", "category": "Space", "grids": [[2, 5], [4, 7], [5, 8]], "aspect": 0.6457461645746164, "image": "assets/images/saturn.jpg", "author": "NASA/JPL — Voyager 2", "license": "Public domain (USA; PD-USGov-NASA)", "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-USGov-NASA", "source": "https://commons.wikimedia.org/w/index.php?oldid=1140983316", "sourceSha256": "dc75a95700261f66ff14306ab56e9fb8e43150163b8318d9703a685e70fdd83d", "adaptation": "Full image preserved; resized to a maximum of 1200 px and compressed as JPEG for this demo."}, {"id": "yosemite_falls", "title": "Yosemite Falls", "text": "Yosemite Falls descends from the granite cliffs of California's Yosemite Valley in three sections: an upper fall, a series of middle cascades, and a lower fall. Together, these drops form one of the world's tallest waterfalls. The flow changes dramatically through the year. Melting mountain snow feeds the streams in spring, often producing the strongest display in late spring. By late summer, the falls can become much quieter or dry up, before autumn storms and the next winter's snowfall renew the cycle.", "category": "Landscapes", "grids": [[2, 5], [4, 7], [5, 8]], "aspect": 0.75, "image": "assets/images/yosemite_falls.jpg", "author": "Alex Demas, U.S. Geological Survey", "license": "CC0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "source": "https://commons.wikimedia.org/w/index.php?oldid=1221793507", "sourceSha256": "b45667436256dbfbb4be4908db8a24d46f50ee4c3e0af51ebe210b9015a3c916", "adaptation": "Full image preserved; resized to a maximum of 1200 px and compressed as JPEG for this demo."}, {"id": "quartz", "title": "Quartz", "text": "Quartz is made of silicon and oxygen and occurs in many kinds of rock. It can be clear, cloudy, or colored, and it does not always appear as a neat, pointed crystal. In many rocks, quartz grains have no well-developed outer faces because they grew among other minerals. This specimen from Texas is unusually large, measuring about eighteen centimeters along its longest dimension. Its broad crystal faces offer a different view of a mineral that is common across the Earth.", "category": "Minerals", "grids": [[5, 2], [7, 4], [8, 5]], "aspect": 1.3879957127545552, "image": "assets/images/quartz.jpg", "author": "Twyla Baker", "license": "CC0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "source": "https://commons.wikimedia.org/w/index.php?oldid=1263136269", "sourceSha256": "06442fcde95feae6628890a6ae165be4e6d8474fc2d91758485e7bb03e194b21", "adaptation": "Full image preserved; resized to a maximum of 1200 px and compressed as JPEG for this demo."}, {"id": "marie_curie", "title": "Marie Curie", "text": "Marie Curie studied radioactivity, a property that allows some elements to give off energy from within their atoms. Working with Pierre Curie, she investigated minerals and helped discover polonium and radium. Born Maria Skłodowska in Warsaw, she later continued her studies in Paris. She shared the Nobel Prize in Physics in 1903 and received the Nobel Prize in Chemistry in 1911, becoming the first person to receive two Nobel Prizes.", "category": "People", "grids": [[2, 5], [4, 7], [5, 8]], "aspect": 0.6452719255267026, "image": "assets/images/marie_curie.jpg", "author": "Henri Manuel / Wellcome Collection", "license": "CC BY 4.0", "licenseUrl": "https://creativecommons.org/licenses/by/4.0/", "source": "https://commons.wikimedia.org/w/index.php?oldid=1131488390", "sourceSha256": "ea0ba2928a092c44c6e58065c085abb8abe1d7143e6aa5e222b7d9a78f8565d3", "adaptation": "Full image preserved; resized to a maximum of 1200 px and compressed as JPEG for this demo."}, {"id": "starry_night_over_the_rhone", "title": "Starry Night over the Rhône", "text": "“Starry Night over the Rhône” shows a night scene painted by Vincent van Gogh in Arles in 1888. Bright lights along the riverbank stretch into long reflections on the water, while stars glow above the blue landscape. Two figures stand near the foreground, giving the broad view a human scale. Van Gogh explored how color could convey the atmosphere of night. This river scene is different from his later painting of a swirling sky above Saint-Rémy.", "category": "Art", "grids": [[5, 2], [7, 4], [8, 5]], "aspect": 1.2943813508667066, "image": "assets/images/starry_night_over_the_rhone.jpg", "author": "Vincent van Gogh; Musée d’Orsay; reprodukcja Google Arts & Culture", "license": "Public domain (szczegółowa podstawa w license_basis)", "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-Art", "source": "https://commons.wikimedia.org/w/index.php?oldid=1166741669", "sourceSha256": "3d87c7270b0e4be125c9d0db98aee77f010144384137948e1217806dede62892", "adaptation": "Full image preserved; resized to a maximum of 1200 px and compressed as JPEG for this demo."}, {"id": "cma_169914", "title": "Pyramids of Giza", "text": "“Pyramids of Giza” presents architecture through an artist’s choices of viewpoint, scale and the handling of light. The pyramids rise above a broad, open landscape, making their geometric outlines especially clear. Lithography transfers a drawn design from a prepared surface. Its marks can preserve the freedom of a sketch while allowing several impressions of the same image.", "category": "Architecture", "grids": [[5, 2], [7, 4], [8, 5]], "aspect": 1.4072847682119205, "image": "assets/images/cma_169914.jpg", "author": "Louis Haghe (British, 1806–1885) [artist]; F. G. Moon, 20 Threadneedle Street, London [published by]; David Roberts (Scottish, 1796–1864) [artist; after]", "license": "CC0 1.0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "source": "https://clevelandart.org/art/2012.155", "sourceSha256": "625b3f69213156197c31393ef3c88d76d45b22e95cd9e1937f0b1d55ee5c6c39", "adaptation": "Full image preserved; resized to a maximum of 1200 px and compressed as JPEG for this demo."}];
+const DEMO_FONT_LICENSES = {"Manrope": "Copyright 2018 The Manrope Project Authors (https://github.com/googlefonts/manrope)\n\nThis Font Software is licensed under the SIL Open Font License, Version 1.1.\nThis license is copied below, and is also available with a FAQ at:\nhttp://scripts.sil.org/OFL\n\n\n-----------------------------------------------------------\nSIL OPEN FONT LICENSE Version 1.1 - 26 February 2007\n-----------------------------------------------------------\n\nPREAMBLE\nThe goals of the Open Font License (OFL) are to stimulate worldwide\ndevelopment of collaborative font projects, to support the font creation\nefforts of academic and linguistic communities, and to provide a free and\nopen framework in which fonts may be shared and improved in partnership\nwith others.\n\nThe OFL allows the licensed fonts to be used, studied, modified and\nredistributed freely as long as they are not sold by themselves. The\nfonts, including any derivative works, can be bundled, embedded,\nredistributed and/or sold with any software provided that any reserved\nnames are not used by derivative works. The fonts and derivatives,\nhowever, cannot be released under any other type of license. The\nrequirement for fonts to remain under this license does not apply\nto any document created using the fonts or their derivatives.\n\nDEFINITIONS\n\"Font Software\" refers to the set of files released by the Copyright\nHolder(s) under this license and clearly marked as such. This may\ninclude source files, build scripts and documentation.\n\n\"Reserved Font Name\" refers to any names specified as such after the\ncopyright statement(s).\n\n\"Original Version\" refers to the collection of Font Software components as\ndistributed by the Copyright Holder(s).\n\n\"Modified Version\" refers to any derivative made by adding to, deleting,\nor substituting -- in part or in whole -- any of the components of the\nOriginal Version, by changing formats or by porting the Font Software to a\nnew environment.\n\n\"Author\" refers to any designer, engineer, programmer, technical\nwriter or other person who contributed to the Font Software.\n\nPERMISSION & CONDITIONS\nPermission is hereby granted, free of charge, to any person obtaining\na copy of the Font Software, to use, study, copy, merge, embed, modify,\nredistribute, and sell modified and unmodified copies of the Font\nSoftware, subject to the following conditions:\n\n1) Neither the Font Software nor any of its individual components,\nin Original or Modified Versions, may be sold by itself.\n\n2) Original or Modified Versions of the Font Software may be bundled,\nredistributed and/or sold with any software, provided that each copy\ncontains the above copyright notice and this license. These can be\nincluded either as stand-alone text files, human-readable headers or\nin the appropriate machine-readable metadata fields within text or\nbinary files as long as those fields can be easily viewed by the user.\n\n3) No Modified Version of the Font Software may use the Reserved Font\nName(s) unless explicit written permission is granted by the corresponding\nCopyright Holder. This restriction only applies to the primary font name as\npresented to the users.\n\n4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font\nSoftware shall not be used to promote, endorse or advertise any\nModified Version, except to acknowledge the contribution(s) of the\nCopyright Holder(s) and the Author(s) or with their explicit written\npermission.\n\n5) The Font Software, modified or unmodified, in part or in whole,\nmust be distributed entirely under this license, and must not be\ndistributed under any other license. The requirement for fonts to\nremain under this license does not apply to any document created\nusing the Font Software.\n\nTERMINATION\nThis license becomes null and void if any of the above conditions are\nnot met.\n\nDISCLAIMER\nTHE FONT SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT\nOF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE\nCOPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nINCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL\nDAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM\nOTHER DEALINGS IN THE FONT SOFTWARE.\n", "Lora": "Copyright 2011 The Lora Project Authors (https://github.com/cyrealtype/Lora-Cyrillic), with Reserved Font Name \"Lora\".\n\nThis Font Software is licensed under the SIL Open Font License, Version 1.1.\nThis license is copied below, and is also available with a FAQ at:\nhttps://scripts.sil.org/OFL\n\n\n-----------------------------------------------------------\nSIL OPEN FONT LICENSE Version 1.1 - 26 February 2007\n-----------------------------------------------------------\n\nPREAMBLE\nThe goals of the Open Font License (OFL) are to stimulate worldwide\ndevelopment of collaborative font projects, to support the font creation\nefforts of academic and linguistic communities, and to provide a free and\nopen framework in which fonts may be shared and improved in partnership\nwith others.\n\nThe OFL allows the licensed fonts to be used, studied, modified and\nredistributed freely as long as they are not sold by themselves. The\nfonts, including any derivative works, can be bundled, embedded,\nredistributed and/or sold with any software provided that any reserved\nnames are not used by derivative works. The fonts and derivatives,\nhowever, cannot be released under any other type of license. The\nrequirement for fonts to remain under this license does not apply\nto any document created using the fonts or their derivatives.\n\nDEFINITIONS\n\"Font Software\" refers to the set of files released by the Copyright\nHolder(s) under this license and clearly marked as such. This may\ninclude source files, build scripts and documentation.\n\n\"Reserved Font Name\" refers to any names specified as such after the\ncopyright statement(s).\n\n\"Original Version\" refers to the collection of Font Software components as\ndistributed by the Copyright Holder(s).\n\n\"Modified Version\" refers to any derivative made by adding to, deleting,\nor substituting -- in part or in whole -- any of the components of the\nOriginal Version, by changing formats or by porting the Font Software to a\nnew environment.\n\n\"Author\" refers to any designer, engineer, programmer, technical\nwriter or other person who contributed to the Font Software.\n\nPERMISSION & CONDITIONS\nPermission is hereby granted, free of charge, to any person obtaining\na copy of the Font Software, to use, study, copy, merge, embed, modify,\nredistribute, and sell modified and unmodified copies of the Font\nSoftware, subject to the following conditions:\n\n1) Neither the Font Software nor any of its individual components,\nin Original or Modified Versions, may be sold by itself.\n\n2) Original or Modified Versions of the Font Software may be bundled,\nredistributed and/or sold with any software, provided that each copy\ncontains the above copyright notice and this license. These can be\nincluded either as stand-alone text files, human-readable headers or\nin the appropriate machine-readable metadata fields within text or\nbinary files as long as those fields can be easily viewed by the user.\n\n3) No Modified Version of the Font Software may use the Reserved Font\nName(s) unless explicit written permission is granted by the corresponding\nCopyright Holder. This restriction only applies to the primary font name as\npresented to the users.\n\n4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font\nSoftware shall not be used to promote, endorse or advertise any\nModified Version, except to acknowledge the contribution(s) of the\nCopyright Holder(s) and the Author(s) or with their explicit written\npermission.\n\n5) The Font Software, modified or unmodified, in part or in whole,\nmust be distributed entirely under this license, and must not be\ndistributed under any other license. The requirement for fonts to\nremain under this license does not apply to any document created\nusing the Font Software.\n\nTERMINATION\nThis license becomes null and void if any of the above conditions are\nnot met.\n\nDISCLAIMER\nTHE FONT SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT\nOF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE\nCOPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nINCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL\nDAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM\nOTHER DEALINGS IN THE FONT SOFTWARE.\n", "KaushanScript": "Copyright (c) 2011, Pablo Impallari (www.impallari.com|impallari@gmail.com),\nCopyright (c) 2011, Igino Marini. (www.ikern.com|mail@iginomarini.com),\nwith Reserved Font Name Kaushan Script.\n\nThis Font Software is licensed under the SIL Open Font License, Version 1.1.\nThis license is copied below, and is also available with a FAQ at:\nhttp://scripts.sil.org/OFL\n\n\n-----------------------------------------------------------\nSIL OPEN FONT LICENSE Version 1.1 - 26 February 2007\n-----------------------------------------------------------\n\nPREAMBLE\nThe goals of the Open Font License (OFL) are to stimulate worldwide\ndevelopment of collaborative font projects, to support the font creation\nefforts of academic and linguistic communities, and to provide a free and\nopen framework in which fonts may be shared and improved in partnership\nwith others.\n\nThe OFL allows the licensed fonts to be used, studied, modified and\nredistributed freely as long as they are not sold by themselves. The\nfonts, including any derivative works, can be bundled, embedded, \nredistributed and/or sold with any software provided that any reserved\nnames are not used by derivative works. The fonts and derivatives,\nhowever, cannot be released under any other type of license. The\nrequirement for fonts to remain under this license does not apply\nto any document created using the fonts or their derivatives.\n\nDEFINITIONS\n\"Font Software\" refers to the set of files released by the Copyright\nHolder(s) under this license and clearly marked as such. This may\ninclude source files, build scripts and documentation.\n\n\"Reserved Font Name\" refers to any names specified as such after the\ncopyright statement(s).\n\n\"Original Version\" refers to the collection of Font Software components as\ndistributed by the Copyright Holder(s).\n\n\"Modified Version\" refers to any derivative made by adding to, deleting,\nor substituting -- in part or in whole -- any of the components of the\nOriginal Version, by changing formats or by porting the Font Software to a\nnew environment.\n\n\"Author\" refers to any designer, engineer, programmer, technical\nwriter or other person who contributed to the Font Software.\n\nPERMISSION & CONDITIONS\nPermission is hereby granted, free of charge, to any person obtaining\na copy of the Font Software, to use, study, copy, merge, embed, modify,\nredistribute, and sell modified and unmodified copies of the Font\nSoftware, subject to the following conditions:\n\n1) Neither the Font Software nor any of its individual components,\nin Original or Modified Versions, may be sold by itself.\n\n2) Original or Modified Versions of the Font Software may be bundled,\nredistributed and/or sold with any software, provided that each copy\ncontains the above copyright notice and this license. These can be\nincluded either as stand-alone text files, human-readable headers or\nin the appropriate machine-readable metadata fields within text or\nbinary files as long as those fields can be easily viewed by the user.\n\n3) No Modified Version of the Font Software may use the Reserved Font\nName(s) unless explicit written permission is granted by the corresponding\nCopyright Holder. This restriction only applies to the primary font name as\npresented to the users.\n\n4) The name(s) of the Copyright Holder(s) or the Author(s) of the Font\nSoftware shall not be used to promote, endorse or advertise any\nModified Version, except to acknowledge the contribution(s) of the\nCopyright Holder(s) and the Author(s) or with their explicit written\npermission.\n\n5) The Font Software, modified or unmodified, in part or in whole,\nmust be distributed entirely under this license, and must not be\ndistributed under any other license. The requirement for fonts to\nremain under this license does not apply to any document created\nusing the Font Software.\n\nTERMINATION\nThis license becomes null and void if any of the above conditions are\nnot met.\n\nDISCLAIMER\nTHE FONT SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT\nOF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE\nCOPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\nINCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL\nDAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\nFROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM\nOTHER DEALINGS IN THE FONT SOFTWARE.\n", "SpecialElite": "\n                                 Apache License\n                           Version 2.0, January 2004\n                        http://www.apache.org/licenses/\n\n   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION\n\n   1. Definitions.\n\n      \"License\" shall mean the terms and conditions for use, reproduction,\n      and distribution as defined by Sections 1 through 9 of this document.\n\n      \"Licensor\" shall mean the copyright owner or entity authorized by\n      the copyright owner that is granting the License.\n\n      \"Legal Entity\" shall mean the union of the acting entity and all\n      other entities that control, are controlled by, or are under common\n      control with that entity. For the purposes of this definition,\n      \"control\" means (i) the power, direct or indirect, to cause the\n      direction or management of such entity, whether by contract or\n      otherwise, or (ii) ownership of fifty percent (50%) or more of the\n      outstanding shares, or (iii) beneficial ownership of such entity.\n\n      \"You\" (or \"Your\") shall mean an individual or Legal Entity\n      exercising permissions granted by this License.\n\n      \"Source\" form shall mean the preferred form for making modifications,\n      including but not limited to software source code, documentation\n      source, and configuration files.\n\n      \"Object\" form shall mean any form resulting from mechanical\n      transformation or translation of a Source form, including but\n      not limited to compiled object code, generated documentation,\n      and conversions to other media types.\n\n      \"Work\" shall mean the work of authorship, whether in Source or\n      Object form, made available under the License, as indicated by a\n      copyright notice that is included in or attached to the work\n      (an example is provided in the Appendix below).\n\n      \"Derivative Works\" shall mean any work, whether in Source or Object\n      form, that is based on (or derived from) the Work and for which the\n      editorial revisions, annotations, elaborations, or other modifications\n      represent, as a whole, an original work of authorship. For the purposes\n      of this License, Derivative Works shall not include works that remain\n      separable from, or merely link (or bind by name) to the interfaces of,\n      the Work and Derivative Works thereof.\n\n      \"Contribution\" shall mean any work of authorship, including\n      the original version of the Work and any modifications or additions\n      to that Work or Derivative Works thereof, that is intentionally\n      submitted to Licensor for inclusion in the Work by the copyright owner\n      or by an individual or Legal Entity authorized to submit on behalf of\n      the copyright owner. For the purposes of this definition, \"submitted\"\n      means any form of electronic, verbal, or written communication sent\n      to the Licensor or its representatives, including but not limited to\n      communication on electronic mailing lists, source code control systems,\n      and issue tracking systems that are managed by, or on behalf of, the\n      Licensor for the purpose of discussing and improving the Work, but\n      excluding communication that is conspicuously marked or otherwise\n      designated in writing by the copyright owner as \"Not a Contribution.\"\n\n      \"Contributor\" shall mean Licensor and any individual or Legal Entity\n      on behalf of whom a Contribution has been received by Licensor and\n      subsequently incorporated within the Work.\n\n   2. Grant of Copyright License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      copyright license to reproduce, prepare Derivative Works of,\n      publicly display, publicly perform, sublicense, and distribute the\n      Work and such Derivative Works in Source or Object form.\n\n   3. Grant of Patent License. Subject to the terms and conditions of\n      this License, each Contributor hereby grants to You a perpetual,\n      worldwide, non-exclusive, no-charge, royalty-free, irrevocable\n      (except as stated in this section) patent license to make, have made,\n      use, offer to sell, sell, import, and otherwise transfer the Work,\n      where such license applies only to those patent claims licensable\n      by such Contributor that are necessarily infringed by their\n      Contribution(s) alone or by combination of their Contribution(s)\n      with the Work to which such Contribution(s) was submitted. If You\n      institute patent litigation against any entity (including a\n      cross-claim or counterclaim in a lawsuit) alleging that the Work\n      or a Contribution incorporated within the Work constitutes direct\n      or contributory patent infringement, then any patent licenses\n      granted to You under this License for that Work shall terminate\n      as of the date such litigation is filed.\n\n   4. Redistribution. You may reproduce and distribute copies of the\n      Work or Derivative Works thereof in any medium, with or without\n      modifications, and in Source or Object form, provided that You\n      meet the following conditions:\n\n      (a) You must give any other recipients of the Work or\n          Derivative Works a copy of this License; and\n\n      (b) You must cause any modified files to carry prominent notices\n          stating that You changed the files; and\n\n      (c) You must retain, in the Source form of any Derivative Works\n          that You distribute, all copyright, patent, trademark, and\n          attribution notices from the Source form of the Work,\n          excluding those notices that do not pertain to any part of\n          the Derivative Works; and\n\n      (d) If the Work includes a \"NOTICE\" text file as part of its\n          distribution, then any Derivative Works that You distribute must\n          include a readable copy of the attribution notices contained\n          within such NOTICE file, excluding those notices that do not\n          pertain to any part of the Derivative Works, in at least one\n          of the following places: within a NOTICE text file distributed\n          as part of the Derivative Works; within the Source form or\n          documentation, if provided along with the Derivative Works; or,\n          within a display generated by the Derivative Works, if and\n          wherever such third-party notices normally appear. The contents\n          of the NOTICE file are for informational purposes only and\n          do not modify the License. You may add Your own attribution\n          notices within Derivative Works that You distribute, alongside\n          or as an addendum to the NOTICE text from the Work, provided\n          that such additional attribution notices cannot be construed\n          as modifying the License.\n\n      You may add Your own copyright statement to Your modifications and\n      may provide additional or different license terms and conditions\n      for use, reproduction, or distribution of Your modifications, or\n      for any such Derivative Works as a whole, provided Your use,\n      reproduction, and distribution of the Work otherwise complies with\n      the conditions stated in this License.\n\n   5. Submission of Contributions. Unless You explicitly state otherwise,\n      any Contribution intentionally submitted for inclusion in the Work\n      by You to the Licensor shall be under the terms and conditions of\n      this License, without any additional terms or conditions.\n      Notwithstanding the above, nothing herein shall supersede or modify\n      the terms of any separate license agreement you may have executed\n      with Licensor regarding such Contributions.\n\n   6. Trademarks. This License does not grant permission to use the trade\n      names, trademarks, service marks, or product names of the Licensor,\n      except as required for reasonable and customary use in describing the\n      origin of the Work and reproducing the content of the NOTICE file.\n\n   7. Disclaimer of Warranty. Unless required by applicable law or\n      agreed to in writing, Licensor provides the Work (and each\n      Contributor provides its Contributions) on an \"AS IS\" BASIS,\n      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or\n      implied, including, without limitation, any warranties or conditions\n      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A\n      PARTICULAR PURPOSE. You are solely responsible for determining the\n      appropriateness of using or redistributing the Work and assume any\n      risks associated with Your exercise of permissions under this License.\n\n   8. Limitation of Liability. In no event and under no legal theory,\n      whether in tort (including negligence), contract, or otherwise,\n      unless required by applicable law (such as deliberate and grossly\n      negligent acts) or agreed to in writing, shall any Contributor be\n      liable to You for damages, including any direct, indirect, special,\n      incidental, or consequential damages of any character arising as a\n      result of this License or out of the use or inability to use the\n      Work (including but not limited to damages for loss of goodwill,\n      work stoppage, computer failure or malfunction, or any and all\n      other commercial damages or losses), even if such Contributor\n      has been advised of the possibility of such damages.\n\n   9. Accepting Warranty or Additional Liability. While redistributing\n      the Work or Derivative Works thereof, You may choose to offer,\n      and charge a fee for, acceptance of support, warranty, indemnity,\n      or other liability obligations and/or rights consistent with this\n      License. However, in accepting such obligations, You may act only\n      on Your own behalf and on Your sole responsibility, not on behalf\n      of any other Contributor, and only if You agree to indemnify,\n      defend, and hold each Contributor harmless for any liability\n      incurred by, or claims asserted against, such Contributor by reason\n      of your accepting any such warranty or additional liability.\n\n   END OF TERMS AND CONDITIONS\n\n   APPENDIX: How to apply the Apache License to your work.\n\n      To apply the Apache License to your work, attach the following\n      boilerplate notice, with the fields enclosed by brackets \"[]\"\n      replaced with your own identifying information. (Don't include\n      the brackets!)  The text should be enclosed in the appropriate\n      comment syntax for the file format. We also recommend that a\n      file or class name and description of purpose be included on the\n      same \"printed page\" as the copyright notice for easier\n      identification within third-party archives.\n\n   Copyright [yyyy] [name of copyright owner]\n\n   Licensed under the Apache License, Version 2.0 (the \"License\");\n   you may not use this file except in compliance with the License.\n   You may obtain a copy of the License at\n\n       http://www.apache.org/licenses/LICENSE-2.0\n\n   Unless required by applicable law or agreed to in writing, software\n   distributed under the License is distributed on an \"AS IS\" BASIS,\n   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\n   See the License for the specific language governing permissions and\n   limitations under the License.\n"};
+const DEMO_PLAY_BADGE = "assets/google-play-badge-en.png";
+const DEMO_AUDIO = {"music": {"path": "assets/audio/Contemplation.ogg", "title": "Contemplation", "author": "Joth", "source": "https://opengameart.org/content/contemplation-0", "license": "CC0 1.0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sha256": "ed667ccdf4afb70c7b5ce83213da2b8dc43bda6b8744769c591467c53bef9ba4"}, "join": {"path": "assets/audio/zpapierem.ogg", "title": "87 Clickety Clips", "author": "OwlishMedia", "source": "https://opengameart.org/content/87-clickety-clips", "license": "CC0 1.0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sha256": "d1183ff80c7601a720fa7cf7d56adf9a16b9bb6408238c95a94c1c167f1564ab"}, "move": {"path": "assets/audio/bezpapierem.ogg", "title": "87 Clickety Clips", "author": "OwlishMedia", "source": "https://opengameart.org/content/87-clickety-clips", "license": "CC0 1.0", "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/", "sha256": "c83c097e2eb802e197c45bfcdcc66f50a4123876e3296912d08e7b49190c77f1"}, "complete": {"path": "assets/audio/puzzle_complete.wav", "title": "Puzzle completion", "author": "Infograf", "source": "tools/generate_completion_sound.gd", "license": "Original procedural sound created for Infograf; no third-party recordings or samples", "licenseUrl": null, "sha256": "2baf340dc79fabdf4509c502d32dd69765574d426797ba265306c27269e5f892"}};</script><script>/* Shared, DOM-free rules for the HTML demo. Coordinates include two spare rows. */
+class PuzzleEngine {
+  constructor(cols, rows, positions) {
+    this.cols = cols; this.rows = rows; this.count = cols * rows;
+    this.positions = positions ? positions.map(p => ({...p})) : Array.from({length: this.count}, (_, i) => ({x: i % cols, y: 1 + Math.floor(i / cols)}));
+    if (!this.valid()) throw new Error('Invalid puzzle positions');
+  }
+  valid() {
+    return this.positions.length === this.count && this.positions.every(p => Number.isInteger(p.x) && Number.isInteger(p.y) && p.x >= 0 && p.x < this.cols && p.y >= 0 && p.y < this.rows + 2) && new Set(this.positions.map(p => `${p.x},${p.y}`)).size === this.count;
+  }
+  groups() {
+    const groups = [], seen = new Set();
+    for (let i = 0; i < this.count; i++) {
+      if (seen.has(i)) continue;
+      const group = [i]; seen.add(i);
+      for (let k = 0; k < group.length; k++) {
+        const a = group[k], ax = a % this.cols, ay = Math.floor(a / this.cols);
+        for (const b of [a - 1, a + 1, a - this.cols, a + this.cols]) {
+          if (b < 0 || b >= this.count || seen.has(b)) continue;
+          const bx = b % this.cols, by = Math.floor(b / this.cols);
+          if (Math.abs(ax - bx) + Math.abs(ay - by) !== 1) continue;
+          if (this.positions[b].x - this.positions[a].x === bx - ax && this.positions[b].y - this.positions[a].y === by - ay) {seen.add(b); group.push(b);}
+        }
+      }
+      groups.push(group);
+    }
+    return groups;
+  }
+  solved() { return this.groups().length === 1; }
+  plan(id, dx, dy) {
+    if (!Number.isInteger(id) || id < 0 || id >= this.count || !Number.isInteger(dx) || !Number.isInteger(dy) || (!dx && !dy)) return null;
+    const groups = this.groups(), moving = groups.find(g => g.includes(id));
+    const moved = new Set(moving), key = p => `${p.x},${p.y}`;
+    const inside = p => p.x >= 0 && p.x < this.cols && p.y >= 0 && p.y < this.rows + 2;
+    const next = this.positions.map(p => ({...p}));
+    for (const i of moving) { next[i] = {x: next[i].x + dx, y: next[i].y + dy}; if (!inside(next[i])) return null; }
+    const targets = new Set(moving.map(i => key(next[i])));
+    const hit = groups.filter(g => g !== moving && g.some(i => targets.has(key(this.positions[i]))));
+    if (hit.some(g => g.length > this.count / 2)) return null;
+    const affected = new Set([...moving, ...hit.flat()]);
+    const occupied = new Set(this.positions.flatMap((p, i) => affected.has(i) ? [] : [key(p)]));
+    for (const i of moving) occupied.add(key(next[i]));
+    hit.sort((a,b) => b.length - a.length);
+    let budget = 4000;
+    const pack = index => {
+      if (index === hit.length) return true;
+      if (--budget <= 0) return false;
+      const g = hit[index], first = this.positions[g[0]], candidates = [];
+      for (let y = 0; y < this.rows + 2; y++) for (let x = 0; x < this.cols; x++) {
+        const sx = x - first.x, sy = y - first.y;
+        const ps = g.map(i => ({x: this.positions[i].x + sx, y: this.positions[i].y + sy}));
+        if (ps.every(p => inside(p) && !occupied.has(key(p)))) candidates.push({ps, cost: Math.abs(sx + dx) + Math.abs(sy + dy)});
+      }
+      candidates.sort((a,b) => a.cost - b.cost);
+      for (const c of candidates) {
+        c.ps.forEach(p => occupied.add(key(p)));
+        g.forEach((i,j) => {next[i] = c.ps[j];});
+        if (pack(index + 1)) return true;
+        c.ps.forEach(p => occupied.delete(key(p)));
+      }
+      return false;
+    };
+    return pack(0) ? next : null;
+  }
+  move(id, dx, dy) { const next = this.plan(id, dx, dy); if (!next) return false; this.positions = next; return true; }
+  joiningHint() {
+    const groups = this.groups(); let best = null;
+    for (const a of groups) for (const b of groups) {
+      if (a === b) continue;
+      const i = a[0], j = b[0];
+      const dx = this.positions[j].x - j % this.cols - (this.positions[i].x - i % this.cols);
+      const dy = this.positions[j].y - Math.floor(j / this.cols) - (this.positions[i].y - Math.floor(i / this.cols));
+      const next = this.plan(i, dx, dy); if (!next) continue;
+      const trial = new PuzzleEngine(this.cols, this.rows, next), remaining = trial.groups().length;
+      if (remaining >= groups.length) continue;
+      const score = (groups.length - remaining) * 100 + Math.max(...trial.groups().map(g => g.length)) - (Math.abs(dx) + Math.abs(dy)) / 10;
+      if (!best || score > best.score) best = {id: i, dx, dy, score};
+    }
+    return best;
+  }
+  hint() {
+    const direct = this.joiningHint(); if (direct) return direct;
+    // A joining move can require making room first. Keep every intermediate move legal.
+    let best = null;
+    for (const group of this.groups()) for (let dy = -this.rows-1; dy <= this.rows+1; dy++) for (let dx = -this.cols+1; dx < this.cols; dx++) {
+      const id = group[0], next = this.plan(id,dx,dy); if (!next) continue;
+      const future = new PuzzleEngine(this.cols,this.rows,next).joiningHint();
+      if (future && (!best || future.score > best.score)) best = {id,dx,dy,score:future.score,preparation:true};
+    }
+    return best;
+  }
+  static shuffled(cols, rows, random = Math.random) {
+    const cells = Array.from({length: cols * rows}, (_,i) => ({x: i % cols, y: 1 + Math.floor(i / cols)}));
+    let result;
+    for (let tries = 0; tries < 100; tries++) {
+      for (let i = cells.length - 1; i > 0; i--) {const j = Math.floor(random() * (i + 1)); [cells[i], cells[j]] = [cells[j], cells[i]];}
+      result = new PuzzleEngine(cols, rows, cells);
+      if (Math.max(...result.groups().map(g => g.length)) <= Math.ceil(cols * rows / 3)) break;
+    }
+    return result;
+  }
+}
+if (typeof module !== 'undefined') module.exports = PuzzleEngine;
+</script><script>// Browser media playback starts only after a user gesture; all resources are local.
+class DemoAudio {
+  constructor(assets, musicVolume=1, effectsVolume=1) {
+    this.music=new Audio(assets.music.path);this.music.loop=true;this.music.preload='none';
+    this.effects=Object.fromEntries(['join','move','complete'].map(key=>{const a=new Audio(assets[key].path);a.preload='none';return[key,a];}));
+    this.unlocked=false;this.blocked=false;this.setVolumes(musicVolume,effectsVolume);
+  }
+  static clamp(value){return Number.isFinite(value)?Math.min(1,Math.max(0,value)):1;}
+  setVolumes(music,effects){
+    this.musicVolume=DemoAudio.clamp(music);this.effectsVolume=DemoAudio.clamp(effects);
+    this.music.volume=this.musicVolume*.2;
+    for(const [key,a] of Object.entries(this.effects))a.volume=this.effectsVolume*(key==='complete'?.316:.5);
+    if(!this.effectsVolume)this.stopEffects();this.sync();
+  }
+  play(media){try{const result=media.play();if(result&&result.catch)result.catch(()=>{});}catch(_){} }
+  unlock(){this.unlocked=true;this.sync();}
+  sync(){if(this.unlocked&&!this.blocked&&this.musicVolume>0){if(this.music.paused)this.play(this.music);}else this.music.pause();}
+  setBlocked(value){this.blocked=Boolean(value);if(this.blocked)this.stopEffects();this.sync();}
+  stopEffects(){for(const a of Object.values(this.effects)){a.pause();a.currentTime=0;}}
+  effect(key){if(!this.unlocked||this.blocked||!this.effectsVolume||!this.effects[key])return;this.stopEffects();this.play(this.effects[key]);}
+}
+if(typeof module!=='undefined')module.exports=DemoAudio;
+</script><script>'use strict';
+const $ = id => document.getElementById(id);
+const canvas = $('board'), ctx = canvas.getContext('2d'), dialog = $('dialog');
+const STORE = 'infograf-html-demo-v1';
+let saved = {sessions: {}, completed: [], theme: 'system', musicVolume:1, effectsVolume:1};
+try {const v = JSON.parse(localStorage.getItem(STORE)); if (v && v.version === 1) {saved.sessions = v.sessions && typeof v.sessions === 'object' ? v.sessions : {}; saved.completed = Array.isArray(v.completed) ? v.completed.filter(id => DEMO_CARDS.some(c => c.id === id)) : []; saved.theme = ['system','light','dark'].includes(v.themeMode)?v.themeMode:'system';saved.musicVolume=DemoAudio.clamp(v.musicVolume);saved.effectsVolume=DemoAudio.clamp(v.effectsVolume);}} catch (_) {}
+let current = null, engine = null, front = null, back = null, side = 'front', moves = 0, level = 0, drag = null, selected = 0;
+let geometry = null, visual = [], animation = 0, loadRevision = 0, paused = false, toastTimer;
+let keyboardMode = false;
+// Paths and proportions taken from scripts/icon_button.gd (88-unit drawing space).
+const NATIVE_ICONS = {
+  sun: '<circle r="9" stroke-width="3"/><path d="'+Array.from({length:8},(_,i)=>{const a=i*Math.PI/4;return`M${Math.cos(a)*15} ${Math.sin(a)*15}L${Math.cos(a)*21} ${Math.sin(a)*21}`;}).join('')+'" stroke-width="3"/>',
+  moon: '<polygon fill="currentColor" stroke="none" points="'+[...Array.from({length:25},(_,i)=>{const a=.8+i*4.6/24;return`${Math.cos(a)*19},${Math.sin(a)*19}`;}),...Array.from({length:25},(_,i)=>{const a=-1.65-i*2.98/24;return`${12+Math.cos(a)*15},${Math.sin(a)*15}`;})].join(' ')+'"/>',
+  sound: '<path d="M-22-8H-12L1-20V20L-12 8H-22ZM10-9Q20 0 10 9M17-17Q35 0 17 17" stroke-width="3"/>',
+  pause: '<path d="M-8-14V14M8-14V14" stroke-width="5"/>',
+  flip: '<path d="M-22-10H22M13-19L22-10 13-1M22 10H-22M-13 1L-22 10-13 19" stroke-width="3.5"/>',
+  back: '<path d="M12 0H-14M-3-11L-14 0-3 11" stroke-width="3"/>',
+  gallery: '<path d="M-23 9V-19H11V-15M-15-11H19V17H-15Z" stroke-width="3"/><circle cx="9" cy="-3" r="3" fill="currentColor" stroke="none"/><path d="M-11 12-3 2 4 9 9 4 15 12" stroke-width="2.5"/>',
+  settings: '<polygon points="' + Array.from({length:32},(_,step)=>{const r=step%4<2?22:17,a=step*Math.PI/16;return `${Math.cos(a)*r},${Math.sin(a)*r}`;}).join(' ') + '" stroke-width="3"/><circle r="8" stroke-width="3"/>'
+};
+document.querySelectorAll('[data-icon]').forEach(el=>{el.innerHTML=`<svg viewBox="-44 -44 88 88" fill="none" stroke="currentColor" stroke-linejoin="round" aria-hidden="true">${NATIVE_ICONS[el.dataset.icon]}</svg>`;});
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const systemTheme=matchMedia('(prefers-color-scheme: dark)');
+const audio=new DemoAudio(DEMO_AUDIO,saved.musicVolume,saved.effectsVolume);
+for(const [key,media] of [['music',audio.music],...Object.entries(audio.effects)]){media.hidden=true;media.dataset.demoAudio=key;document.body.append(media);}
+let audioFocused=typeof document.hasFocus==='function'?document.hasFocus():true;
+function applyTheme(){
+  const dark=saved.theme==='dark'||(saved.theme==='system'&&systemTheme.matches);
+  document.body.classList.toggle('dark',dark);
+  const name=saved.theme[0].toUpperCase()+saved.theme.slice(1),button=$('theme');
+  button.title=`Theme: ${name}`;button.setAttribute('aria-label',button.title);
+  button.querySelector('[data-icon]').innerHTML=`<svg viewBox="-44 -44 88 88" fill="none" stroke="currentColor" aria-hidden="true">${NATIVE_ICONS[dark?'moon':'sun']}</svg>`;
+  if(engine)draw();
+}
+applyTheme();
+systemTheme.addEventListener?.('change',()=>{if(saved.theme==='system')applyTheme();});
+const syncAudio=()=>audio.setBlocked(Boolean(document.hidden)||!audioFocused);
+const unlockAudio=()=>{audioFocused=true;syncAudio();audio.unlock();};
+document.addEventListener('pointerdown',unlockAudio,{capture:true});
+document.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' ')unlockAudio();},{capture:true});
+window.addEventListener('focus',()=>{audioFocused=true;syncAudio();});
+window.addEventListener('blur',()=>{audioFocused=false;syncAudio();});
+syncAudio();
+function persist() {
+  if (current && engine) saved.sessions[current.id] = {level, cols:engine.cols, rows:engine.rows, positions: engine.positions, side, moves};
+  try {localStorage.setItem(STORE, JSON.stringify({...saved, themeMode:saved.theme, version: 1}));} catch (_) { /* A private browser can disallow storage; play remains available. */ }
+}
+function toast(message) {clearTimeout(toastTimer); $('toast').textContent = message; $('toast').classList.add('visible'); toastTimer = setTimeout(() => $('toast').classList.remove('visible'), 3500);}
+function showDialog(html, preview = false) {
+  cancelDrag(); paused = true; $('dialog-content').innerHTML = html; dialog.classList.toggle('preview-dialog', preview); dialog.classList.toggle('reading-dialog',html.includes('source-links')||html.includes('collection-grid')||html.includes('volume-control')); if (!dialog.open) dialog.showModal();
+}
+function closeDialog() {dialog.close(); paused = false; canvas.focus({preventScroll:true});}
+$('close-dialog').onclick = closeDialog;
+dialog.addEventListener('close', () => {paused = false;});
+dialog.addEventListener('click', e => {if (e.target === dialog) {const r = dialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) closeDialog();}});
+function gallery() {
+  cancelDrag(); persist(); ++loadRevision; current = null; engine = null; front = back = null;
+  $('gallery').hidden = false; $('play').hidden = true; document.body.classList.remove('playing', 'finished');
+  $('home').hidden = true;
+  $('collection-count').textContent = 'Demo · one picture per category';
+  $('cards').replaceChildren();
+  DEMO_CARDS.forEach((c,i) => {
+    const button = document.createElement('button'); button.className = 'card glass';
+    button.innerHTML = `${c.category}${saved.completed.includes(c.id) ? '<small>✓</small>' : ''}`;
+    button.onclick = () => choose(c); $('cards').append(button);
+  });
+}
+function home() {
+  gallery(); $('gallery').hidden = true; $('home').hidden = false;
+  const latest = DEMO_CARDS.find(c => saved.sessions[c.id] && !isSessionSolved(c));
+  $('resume-home').hidden = !latest;
+  $('resume-home').onclick = () => {if(latest)start(latest,saved.sessions[latest.id].level,true);};
+  $('random-home').className = latest ? 'glass' : 'primary';
+  const collected=DEMO_CARDS.find(c=>saved.completed.includes(c.id));
+  document.body.style.setProperty('--menu-backdrop',collected?`url("${collected.image}")`:'none');
+}
+function isSessionSolved(card) {
+  try {return restoreEngine(card,saved.sessions[card.id]).solved();}catch(_){return false;}
+}
+function restoreEngine(card,session){
+  if(!session||!Number.isInteger(session.level)||!card.grids[session.level]||!Array.isArray(session.positions))throw new Error('Invalid saved puzzle');
+  let grid=card.grids[session.level];
+  if(Number.isInteger(session.cols)&&Number.isInteger(session.rows)&&session.cols>0&&session.rows>0&&session.cols*session.rows<=64)grid=[session.cols,session.rows];
+  else if(session.positions.length!==grid[0]*grid[1]){
+    const legacy=(card.aspect<.9?[[2,3],[3,5],[4,6]]:[[3,2],[4,3],[5,4]])[session.level];
+    if(legacy[0]*legacy[1]===session.positions.length)grid=legacy;
+  }
+  return new PuzzleEngine(grid[0],grid[1],session.positions);
+}
+function choose(card) {
+  showDialog(`<h2>Choose difficulty</h2><div class="level-options">${['Easy','Medium','Hard'].map((v,i) => `<button class="glass" data-level="${i}">${v}</button>`).join('')}</div><div class="dialog-actions">${saved.sessions[card.id] && !isSessionSolved(card) ? '<button class="glass" id="resume">Resume puzzle</button>' : ''}</div>`);
+  dialog.querySelectorAll('[data-level]').forEach(b => b.onclick = () => {const chosen=Number(b.dataset.level);closeDialog();start(card,chosen,false);});
+  if ($('resume')) $('resume').onclick = () => {closeDialog(); start(card, saved.sessions[card.id].level, true);};
+}
+function loadImage(src) {return new Promise((resolve,reject) => {const i = new Image(); i.onload = () => resolve(i); i.onerror = reject; i.src = src;});}
+async function start(card, difficulty = 0, resume = false) {
+  cancelDrag(); persist(); const revision = ++loadRevision;
+  current = card; level = Number.isInteger(difficulty) && difficulty >= 0 && difficulty <= 2 ? difficulty : 0;
+  front = back = null; $('loading').hidden = false; $('loading').textContent = 'Preparing picture…';
+  $('home').hidden = true; $('gallery').hidden = true; $('play').hidden = false; document.body.classList.add('playing'); document.body.classList.remove('finished');
+  $('card-title').textContent = card.title; $('category').textContent = card.category;
+  const [cols, rows] = card.grids[level]; engine = PuzzleEngine.shuffled(cols, rows); moves = 0; side = 'front';
+  const session = saved.sessions[card.id];
+  if (resume && session) {
+    try { engine = restoreEngine(card,session); side = session.side === 'back' ? 'back' : 'front'; moves = Number.isInteger(session.moves) && session.moves >= 0 ? session.moves : 0; }
+    catch (_) {toast('This save could not be read. A new puzzle is ready.');}
+  }
+  visual = engine.positions.map(p => ({...p})); selected = 0;
+  updateUI(); resize();
+  try {
+    await document.fonts.ready;
+    const image = await loadImage(card.image);
+    if (revision !== loadRevision) return;
+    front = image; back = renderBack(card.text, image.naturalWidth / image.naturalHeight);
+    $('loading').hidden = true; resize(); updateUI(); persist();
+  } catch (_) {if (revision === loadRevision) {$('loading').textContent = 'Could not prepare the picture. Return to the menu and try again.';}}
+}
+function renderBack(text, aspect) {
+  const c = document.createElement('canvas'); c.width = Math.round(1536*Math.min(1,aspect)); c.height = Math.round(1536/Math.max(1,aspect));
+  const x = c.getContext('2d'); x.fillStyle = '#efe1bf'; x.fillRect(0,0,c.width,c.height);
+  const margin = 66, maxWidth = c.width - 2 * margin;
+  let font = 72, lines, lineHeight;
+  do {
+    x.font = `400 ${font}px Lora`; lines = []; let line = '';
+    for (const word of text.split(/\s+/)) {const test = line ? line + ' ' + word : word; if (line && x.measureText(test).width > maxWidth) {lines.push(line); line = word;} else line = test;}
+    if (line) lines.push(line); lineHeight = font * 1.28 + 8;
+    if (lines.length * lineHeight <= c.height - margin * 2 || font === 44) break;
+    font-=4;
+  } while (font >= 44);
+  x.fillStyle = '#263932'; x.textBaseline = 'top';
+  lines.forEach((line,i) => {
+    const words=line.split(' '),extra=i<lines.length-1&&words.length>1?(maxWidth-x.measureText(line).width)/(words.length-1):0;
+    let left=margin; for(const word of words){x.fillText(word,left,margin+i*lineHeight);left+=x.measureText(word+' ').width+extra;}
+  });
+  return c;
+}
+function resize() {
+  if (!engine || $('play').hidden) return;
+  cancelDrag(); const r = canvas.getBoundingClientRect(), dpr = Math.min(devicePixelRatio || 1, 2);
+  if (!r.width || !r.height) return;
+  canvas.width = Math.round(r.width * dpr); canvas.height = Math.round(r.height * dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
+  const aspect = front ? front.naturalWidth / front.naturalHeight : current.aspect;
+  const ratio = aspect * engine.rows / engine.cols;
+  const workspaceRows = engine.solved() ? engine.rows : engine.rows + 2;
+  const th = Math.min((r.height - 4) / workspaceRows, (r.width - 4) / (engine.cols * ratio));
+  const tw = th * ratio;
+  geometry = {tw, th, x: (r.width - tw * engine.cols) / 2, y: (r.height - th * workspaceRows) / 2 - (engine.solved() ? th : 0), width:r.width, height:r.height};
+  draw();
+}
+new ResizeObserver(resize).observe($('board-wrap'));
+function draw() {
+  if (!engine || !geometry) return;
+  const {tw,th,x,y,width,height} = geometry; ctx.clearRect(0,0,width,height);
+  if (!front || !back) return;
+  const source = side === 'front' ? front : back;
+  const sw = (source.naturalWidth || source.width) / engine.cols, sh = (source.naturalHeight || source.height) / engine.rows;
+  const groups = engine.groups(), groupIndex = new Map(); groups.forEach((g,i) => g.forEach(id => groupIndex.set(id,i)));
+  const held = new Set(drag ? drag.ids : []);
+  const at=id=>{const p=visual[id]||engine.positions[id];return{x:x+p.x*tw+(held.has(id)?drag.ox:0),y:y+p.y*th+(held.has(id)?drag.oy:0)};};
+  const paintGroup=group=>{
+    const first=group[0],p=at(first),originX=p.x-(first%engine.cols)*tw,originY=p.y-Math.floor(first/engine.cols)*th;
+    const aligned=group.every(id=>{const q=at(id);return Math.abs(q.x-(id%engine.cols)*tw-originX)<.01&&Math.abs(q.y-Math.floor(id/engine.cols)*th-originY)<.01;});
+    if(!aligned){
+      // Newly joined pieces can still be settling. Preserve their visible positions.
+      for(const id of group){const q=at(id);ctx.drawImage(source,(id%engine.cols)*sw,Math.floor(id/engine.cols)*sh,sw,sh,q.x,q.y,tw+.15,th+.15);}
+      return;
+    }
+    // One scaled image per connected group eliminates independent resampling seams.
+    ctx.save();ctx.beginPath();
+    for(const id of group)ctx.rect(originX+(id%engine.cols)*tw,originY+Math.floor(id/engine.cols)*th,tw,th);
+    ctx.clip();ctx.drawImage(source,originX,originY,tw*engine.cols,th*engine.rows);ctx.restore();
+  };
+  const outline=(group,lifted)=>{
+    if(engine.solved())return;
+    const rejected=lifted&&drag&&drag.invalid;
+    ctx.save();ctx.beginPath();
+    for(const id of group){
+      const p=at(id),col=id%engine.cols,row=Math.floor(id/engine.cols);
+      for(const [dx,dy,n] of [[-1,0,id-1],[1,0,id+1],[0,-1,id-engine.cols],[0,1,id+engine.cols]]){
+        const same=n>=0&&n<engine.count&&Math.abs(n%engine.cols-col)+Math.abs(Math.floor(n/engine.cols)-row)===1&&groupIndex.get(n)===groupIndex.get(id);
+        if(same)continue;
+        if(dx){ctx.moveTo(p.x+(dx>0?tw:0),p.y);ctx.lineTo(p.x+(dx>0?tw:0),p.y+th);}
+        else{ctx.moveTo(p.x,p.y+(dy>0?th:0));ctx.lineTo(p.x+tw,p.y+(dy>0?th:0));}
+      }
+    }
+    if(rejected){ctx.setLineDash([6,6]);ctx.strokeStyle='#d57860';ctx.lineWidth=2;ctx.stroke();}
+    else{ctx.strokeStyle='#52656b';ctx.lineWidth=lifted?3.2:1.85;ctx.stroke();ctx.strokeStyle=lifted?'#ecd8a2':'#dce5e8';ctx.lineWidth=lifted?2:.65;ctx.stroke();}
+    ctx.restore();
+  };
+  // Complete the stationary layer first. Its borders must never cover a held piece.
+  const stationary=groups.filter(g=>!held.has(g[0]));
+  stationary.forEach(paintGroup);
+  const highlighted=g=>keyboardMode&&document.activeElement===canvas&&groupIndex.get(g[0])===selected;
+  stationary.sort((a,b)=>Number(highlighted(a))-Number(highlighted(b))).forEach(g=>outline(g,highlighted(g)));
+  if(drag){
+    // A single shadow pass under the entire group prevents seams between joined pieces.
+    if(drag.active||drag.keyboard){ctx.fillStyle='rgba(0,0,0,.3)';for(const id of drag.ids){const p=at(id);ctx.fillRect(p.x,p.y+3,tw,th);}}
+    paintGroup(drag.ids);outline(drag.ids,true);
+  }
+}
+function animate() {
+  cancelAnimationFrame(animation); const from = visual.map(p => ({...p})), to = engine.positions.map(p => ({...p})), began = performance.now();
+  const frame = now => {const t = reducedMotion ? 1 : Math.min(1,(now-began)/170), ease = 1-Math.pow(1-t,3); visual = to.map((p,i) => ({x:from[i].x+(p.x-from[i].x)*ease,y:from[i].y+(p.y-from[i].y)*ease})); draw(); if(t<1) animation=requestAnimationFrame(frame);};
+  animation=requestAnimationFrame(frame);
+}
+function updateUI() {
+  if (!engine) return;
+  const groups = engine.groups(), largest = Math.max(...groups.map(g=>g.length)), solved = groups.length === 1;
+  $('group-stat').textContent = `${largest} / ${engine.count}`; $('moves-stat').textContent = moves;
+  $('progress-bar').style.width = `${(engine.count - groups.length)/(engine.count-1)*100}%`;
+  $('flip-label').textContent = side === 'front' ? 'Flip card' : 'Flip card';
+  $('board-caption').textContent = `${side === 'front' ? 'PICTURE' : 'STORY'} · ${solved ? 'COLLECTED' : engine.count + ' PIECES'}`;
+  $('solved').hidden = !solved; $('hint').disabled = solved; document.body.classList.toggle('finished',solved);
+  if (solved && !saved.completed.includes(current.id)) {saved.completed.push(current.id); toast('Collected! Saved to your gallery.');}
+  selected = Math.min(selected, groups.length-1);
+}
+function commit(next) {
+  const groupsBefore=engine.groups().length;
+  engine.positions = next; moves++; drag = null;
+  if(engine.solved()) engine.positions = engine.positions.map((_,i) => ({x:i%engine.cols,y:1+Math.floor(i/engine.cols)}));
+  audio.effect(engine.solved()?'complete':engine.groups().length<groupsBefore?'join':'move');
+  updateUI(); persist(); animate();
+}
+function cancelDrag() {if (drag) {drag=null; if(engine&&visual.length===engine.count)animate();else draw();}}
+function point(e) {const r=canvas.getBoundingClientRect(); return {x:e.clientX-r.left,y:e.clientY-r.top};}
+canvas.addEventListener('pointerdown', e => {
+  if (!front || paused || drag || engine.solved() || e.button !== 0) return;
+  const q = point(e), {tw,th,x,y} = geometry;
+  let id=-1;for(let i=visual.length-1;i>=0;i--){const p=visual[i];if(q.x>=x+p.x*tw&&q.x<x+(p.x+1)*tw&&q.y>=y+p.y*th&&q.y<y+(p.y+1)*th){id=i;break;}}
+  if(id<0) return; e.preventDefault(); cancelAnimationFrame(animation); keyboardMode=false;
+  const groups=engine.groups(); selected=groups.findIndex(g=>g.includes(id));
+  drag={id,ids:groups[selected],pointer:e.pointerId,start:q,ox:0,oy:0,dx:0,dy:0,active:false,invalid:false}; canvas.setPointerCapture(e.pointerId); canvas.focus({preventScroll:true}); draw();
+});
+canvas.addEventListener('pointermove', e => {
+  if (!drag || drag.pointer!==e.pointerId) return;
+  const q=point(e), {tw,th}=geometry;
+  if(!drag.active&&Math.hypot(q.x-drag.start.x,q.y-drag.start.y)<Math.min(6,tw*.2,th*.2))return;
+  drag.active=true;drag.ox=q.x-drag.start.x; drag.oy=q.y-drag.start.y;
+  const minX=Math.min(...drag.ids.map(i=>visual[i].x)),maxX=Math.max(...drag.ids.map(i=>visual[i].x));
+  const minY=Math.min(...drag.ids.map(i=>visual[i].y)),maxY=Math.max(...drag.ids.map(i=>visual[i].y));
+  drag.ox=Math.max(-minX*tw,Math.min((engine.cols-1-maxX)*tw,drag.ox)); drag.oy=Math.max(-minY*th,Math.min((engine.rows+1-maxY)*th,drag.oy));
+  const dx=Math.round(visual[drag.id].x-engine.positions[drag.id].x+drag.ox/tw),dy=Math.round(visual[drag.id].y-engine.positions[drag.id].y+drag.oy/th);
+  if(dx!==drag.dx || dy!==drag.dy) {drag.dx=dx;drag.dy=dy;drag.invalid=Boolean((dx||dy)&&!engine.plan(drag.id,dx,dy));}
+  draw();
+});
+canvas.addEventListener('pointerup', e => {
+  if(!drag || drag.pointer!==e.pointerId) return;
+  const d=drag,q=point(e),r=canvas.getBoundingClientRect();
+  if(q.x<0||q.y<0||q.x>r.width||q.y>r.height) {cancelDrag();return;}
+  if(!d.active || (!d.dx&&!d.dy)) {cancelDrag();return;}
+  const next=engine.plan(d.id,d.dx,d.dy); if(next) commit(next); else {cancelDrag();toast('This group needs more room. Try an empty row.');}
+});
+canvas.addEventListener('pointercancel',cancelDrag); canvas.addEventListener('lostpointercapture',cancelDrag);
+window.addEventListener('blur',cancelDrag); document.addEventListener('visibilitychange',()=>{cancelDrag();persist();syncAudio();});
+canvas.addEventListener('focus',draw); canvas.addEventListener('blur',()=>{cancelDrag();draw();});
+canvas.addEventListener('keydown', e => {
+  if(!engine || !front || paused || engine.solved())return;
+  if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown',' ','Enter','Escape'].includes(e.key))return;
+  e.preventDefault(); const groups=engine.groups();
+  keyboardMode=true;
+  if(e.key==='Escape'){cancelDrag();return;}
+  if(!drag) {
+    if(e.key==='ArrowRight'||e.key==='ArrowDown')selected=(selected+1)%groups.length;
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp')selected=(selected+groups.length-1)%groups.length;
+    if(e.key===' '||e.key==='Enter')drag={id:groups[selected][0],ids:groups[selected],dx:0,dy:0,ox:0,oy:0,keyboard:true};
+  } else if(drag.keyboard) {
+    if(e.key==='Enter'||e.key===' '){const next=engine.plan(drag.id,drag.dx,drag.dy);if(next)commit(next);else cancelDrag();return;}
+    const dx=drag.dx+(e.key==='ArrowRight'?1:e.key==='ArrowLeft'?-1:0),dy=drag.dy+(e.key==='ArrowDown'?1:e.key==='ArrowUp'?-1:0);
+    const inside=drag.ids.every(i=>{const p=engine.positions[i];return p.x+dx>=0&&p.x+dx<engine.cols&&p.y+dy>=0&&p.y+dy<engine.rows+2;});
+    if(inside){drag.dx=dx;drag.dy=dy;drag.ox=dx*geometry.tw;drag.oy=dy*geometry.th;drag.invalid=!!(dx||dy)&&!engine.plan(drag.id,dx,dy);}
+  }
+  draw();
+});
+$('flip').onclick=()=>{cancelDrag();if(!front)return;side=side==='front'?'back':'front';updateUI();persist();draw();};
+$('preview').onclick=()=>{if(!front)return;const image=side==='front'?current.image:back.toDataURL();showDialog(`<img class="preview-image" src="${image}" alt="${side==='front'?current.title:'The complete story'}"><p style="text-align:center">${side==='front'?current.title:'The complete story · the same pieces as the picture'}</p>`,true);};
+$('hint').onclick=()=>{cancelDrag();if(!engine||engine.solved())return;const hint=engine.hint();if(hint){commit(engine.plan(hint.id,hint.dx,hint.dy));if(!engine.solved())toast(hint.preparation?'Made room for the next connection.':'Matching pieces joined. Your turn.');}else toast('Make room by moving a group to an empty row above or below the picture.');};
+$('back').onclick=home;
+$('selection-back').onclick=home;
+$('categories-home').onclick=gallery;
+$('random-home').onclick=()=>choose(DEMO_CARDS[Math.floor(Math.random()*DEMO_CARDS.length)]);
+$('collection').onclick=()=>{
+  const cards=DEMO_CARDS.filter(c=>saved.completed.includes(c.id));
+  showDialog(`<h2>Gallery</h2>${cards.length?'<div class="collection-grid">'+cards.map(c=>`<button data-card="${c.id}"><img src="${c.image}" alt="${c.title}"><span>${c.title}</span></button>`).join('')+'</div>':'<p>Your completed pictures will appear here.</p>'}<p class="demo-note">Demo · ${cards.length} / ${DEMO_CARDS.length}</p>`);
+  dialog.querySelectorAll('[data-card]').forEach(b=>b.onclick=()=>{const card=DEMO_CARDS.find(c=>c.id===b.dataset.card);closeDialog();choose(card);});
+};
+$('solved-flip').onclick=()=>$('flip').click();
+function audioSettings(){
+  showDialog(`<h2>Sound</h2><label class="volume-control" for="music-volume"><span>Music <output id="music-value">${Math.round(saved.musicVolume*100)}%</output></span><input id="music-volume" type="range" min="0" max="100" value="${Math.round(saved.musicVolume*100)}"></label><label class="volume-control" for="effects-volume"><span>Sound effects <output id="effects-value">${Math.round(saved.effectsVolume*100)}%</output></span><input id="effects-volume" type="range" min="0" max="100" value="${Math.round(saved.effectsVolume*100)}"></label><details class="sound-credits"><summary>Audio credits</summary>${Object.values(DEMO_AUDIO).map(a=>`<p>${a.title} — ${a.author}<br>${a.license}${a.source.startsWith('https://')?`<br><a href="${a.source}" target="_blank" rel="noopener noreferrer">Source</a>`:''}</p>`).join('')}</details><p class="demo-note">Google Play and the Google Play logo are trademarks of Google LLC.</p>`);
+  for(const [id,key] of [['music','musicVolume'],['effects','effectsVolume']])$(id+'-volume').oninput=e=>{saved[key]=Number(e.target.value)/100;$(id+'-value').textContent=Math.round(saved[key]*100)+'%';audio.setVolumes(saved.musicVolume,saved.effectsVolume);persist();};
+}
+$('audio').onclick=audioSettings;
+$('theme').onclick=()=>{const modes=['system','light','dark'];saved.theme=modes[(modes.indexOf(saved.theme)+1)%modes.length];applyTheme();persist();toast($('theme').title);};
+$('pause').onclick=()=>{
+  showDialog(`<h2>${engine.solved()?'Collected!':'Paused'}</h2><div class="dialog-actions"><button class="primary" id="continue">${engine.solved()?'View picture':'Resume puzzle'}</button><button class="glass" id="pause-settings">Sound</button><button class="glass" id="to-gallery">Main menu</button><button class="glass" id="pause-credits">Image credits</button></div>`);
+  $('continue').onclick=closeDialog;
+  $('pause-settings').onclick=audioSettings;
+  $('pause-credits').onclick=()=>{$('credits').click();};
+  $('to-gallery').onclick=()=>{closeDialog();home();};
+};
+$('credits').onclick=()=>{const c=current;showDialog(`<h2>Image credits</h2><p>${c.title}</p><p>${c.author}</p><p>${c.license}</p><div class="source-links"><a href="${c.source}" target="_blank" rel="noopener noreferrer">Image source ↗</a><a href="${c.licenseUrl}" target="_blank" rel="noopener noreferrer">License information ↗</a></div><p>${c.adaptation} Story from the original English Infograf catalog.</p><details><summary>Font licenses</summary><pre class="license-text" id="font-licenses"></pre></details>`);$('font-licenses').textContent=Object.entries(DEMO_FONT_LICENSES).map(([name,text])=>name+'\n'+text).join('\n\n');};
+$('next').onclick=()=>{const i=DEMO_CARDS.indexOf(current),next=DEMO_CARDS[(i+1)%DEMO_CARDS.length];choose(next);};
+window.addEventListener('pagehide',persist);
+home();
+</script>
+</body></html>

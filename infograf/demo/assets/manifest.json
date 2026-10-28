@@ -1,0 +1,127 @@
+{
+  "locale": "en",
+  "assets": {
+    "assets/images/red_panda.jpg": {
+      "size_bytes": 177068,
+      "sha256": "aeca8f0b2bdc0e9ea054c8eae29520c66d9361e481ace50ed74b3503d575df88"
+    },
+    "assets/images/sunflower_close.jpg": {
+      "size_bytes": 181363,
+      "sha256": "05d8b22791f42fa10153a80349bc8feaabfb8185a6cce0d4c1dfdcbe1b0f0628"
+    },
+    "assets/images/saturn.jpg": {
+      "size_bytes": 52469,
+      "sha256": "1f7d5ccc2fc372ed3ea9c62415dbb993cd9a91c331381117419694a13d0c7a1f"
+    },
+    "assets/images/yosemite_falls.jpg": {
+      "size_bytes": 440278,
+      "sha256": "2fd2fc2e04fee07ed77cb40ba88e61509e38ea3036fdb796bfd671781742bd26"
+    },
+    "assets/images/quartz.jpg": {
+      "size_bytes": 209014,
+      "sha256": "d1f348dc1f3963e3be19791286714b0337031e5352b5bd96a5f1ad71638d9374"
+    },
+    "assets/images/marie_curie.jpg": {
+      "size_bytes": 260774,
+      "sha256": "edbd0ee7b54eb33698b4e34eb4438cc6c3d27eacc19b2762e530fb37dc9505f3"
+    },
+    "assets/images/starry_night_over_the_rhone.jpg": {
+      "size_bytes": 506146,
+      "sha256": "b8cfc6a989aadf5a6878bd5a52018f0f46303287c28a3d4035b914c33a59ee5e"
+    },
+    "assets/images/cma_169914.jpg": {
+      "size_bytes": 127809,
+      "sha256": "426a42ea7ea7ff9d02b41c01d9bef7ad0fd4a8723ba8ca05fbef377fe2a85d21"
+    },
+    "assets/fonts/Manrope.ttf": {
+      "size_bytes": 164700,
+      "sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6"
+    },
+    "assets/fonts/Manrope-OFL.txt": {
+      "size_bytes": 4386,
+      "sha256": "d6a309fcfb963d329a93baf9df66fa5f3c23a4be2b5f67edf24d6cafecde12ac"
+    },
+    "assets/fonts/Lora.ttf": {
+      "size_bytes": 212196,
+      "sha256": "822a6621ccbe8d97d20ac88c1c41f5615c9c2c202eaa75f272cd452aac6475a7"
+    },
+    "assets/fonts/Lora-OFL.txt": {
+      "size_bytes": 4422,
+      "sha256": "6d6bc7bbb828514925dabcaf89e4771398d12c60dd1cb2bbb90eea129535d0f4"
+    },
+    "assets/fonts/KaushanScript.ttf": {
+      "size_bytes": 210672,
+      "sha256": "6d8d379d9bba98178bee476d68114c8f83812c18005ecccf679e70f60e03d8f6"
+    },
+    "assets/fonts/KaushanScript-OFL.txt": {
+      "size_bytes": 4492,
+      "sha256": "3336bf5d4e7eedba48ecb831f37bf676e901c39f2e6a422cceadd9d2ffa55be8"
+    },
+    "assets/fonts/SpecialElite.ttf": {
+      "size_bytes": 166180,
+      "sha256": "a776fcb4ceb8bdf03e2967688ebdad42680de5b91a7e62c17e718ae212d14bc4"
+    },
+    "assets/fonts/SpecialElite-LICENSE.txt": {
+      "size_bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    "assets/google-play-badge-en.png": {
+      "size_bytes": 10454,
+      "sha256": "a7dbeba4623dd255798dd1159e543cdbeeb9e43faa6db7f859b0f9ed3699932c"
+    },
+    "assets/audio/Contemplation.ogg": {
+      "size_bytes": 1397167,
+      "sha256": "ed667ccdf4afb70c7b5ce83213da2b8dc43bda6b8744769c591467c53bef9ba4"
+    },
+    "assets/audio/zpapierem.ogg": {
+      "size_bytes": 17127,
+      "sha256": "d1183ff80c7601a720fa7cf7d56adf9a16b9bb6408238c95a94c1c167f1564ab"
+    },
+    "assets/audio/bezpapierem.ogg": {
+      "size_bytes": 8061,
+      "sha256": "c83c097e2eb802e197c45bfcdcc66f50a4123876e3296912d08e7b49190c77f1"
+    },
+    "assets/audio/puzzle_complete.wav": {
+      "size_bytes": 101472,
+      "sha256": "2baf340dc79fabdf4509c502d32dd69765574d426797ba265306c27269e5f892"
+    }
+  },
+  "audio": {
+    "music": {
+      "path": "assets/audio/Contemplation.ogg",
+      "title": "Contemplation",
+      "author": "Joth",
+      "source": "https://opengameart.org/content/contemplation-0",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "ed667ccdf4afb70c7b5ce83213da2b8dc43bda6b8744769c591467c53bef9ba4"
+    },
+    "join": {
+      "path": "assets/audio/zpapierem.ogg",
+      "title": "87 Clickety Clips",
+      "author": "OwlishMedia",
+      "source": "https://opengameart.org/content/87-clickety-clips",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "d1183ff80c7601a720fa7cf7d56adf9a16b9bb6408238c95a94c1c167f1564ab"
+    },
+    "move": {
+      "path": "assets/audio/bezpapierem.ogg",
+      "title": "87 Clickety Clips",
+      "author": "OwlishMedia",
+      "source": "https://opengameart.org/content/87-clickety-clips",
+      "license": "CC0 1.0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sha256": "c83c097e2eb802e197c45bfcdcc66f50a4123876e3296912d08e7b49190c77f1"
+    },
+    "complete": {
+      "path": "assets/audio/puzzle_complete.wav",
+      "title": "Puzzle completion",
+      "author": "Infograf",
+      "source": "tools/generate_completion_sound.gd",
+      "license": "Original procedural sound created for Infograf; no third-party recordings or samples",
+      "licenseUrl": null,
+      "sha256": "2baf340dc79fabdf4509c502d32dd69765574d426797ba265306c27269e5f892"
+    }
+  }
+}
