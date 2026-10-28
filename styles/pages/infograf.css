@@ -4,6 +4,13 @@
 .infograf-icon { width: 64px; height: 64px; flex: 0 0 64px; border-radius: 18px; }
 .infograf-cover { width: min(100%,300px); margin-inline: auto; border-radius: 22px; border: 1px solid var(--line); box-shadow: var(--shadow); transform: rotate(3deg); }
 .infograf-status { margin-bottom: 1rem; }
+.infograf-downloads { flex-wrap: wrap; gap: .75rem; }
+.infograf-recognition { display: inline-flex; align-items: center; max-width: 250px; }
+.infograf-recognition img { display: block; width: 250px; max-width: 100%; height: auto; }
+.infograf-recognition .pixelpicked-badge-light { display: none; }
+[data-theme="light"] .infograf-recognition .pixelpicked-badge-dark { display: none; }
+[data-theme="light"] .infograf-recognition .pixelpicked-badge-light { display: block; }
+@media (max-width:480px) { .infograf-downloads .store-badge img.google-play-badge { width: 140px; } .infograf-downloads .infograf-recognition { max-width: 150px; } }
 .infograf-release { color: var(--text-muted); font-size: .83rem; margin: 1rem 0; }
 .infograf-release strong { font-weight: 500; color: var(--text); }
 .infograf-features { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
