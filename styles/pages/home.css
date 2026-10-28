@@ -25,6 +25,9 @@
 .home-game-card h3 { font-size: 1.25rem; }
 .home-game-card p { color: var(--text-muted); font-size: .9rem; }
 .home-game-card .btn-row { margin-top: auto; padding-top: .3rem; width: 100%; }
+.home-game-actions { width: 100%; margin-top: auto; }
+.home-game-actions .btn-row { margin-top: 0; padding-top: 0; }
+.home-game-actions .store-download { margin-top: 1rem; padding-top: .5rem; }
 .home-game-card .btn { flex: 1 1 auto; padding-inline: .75rem; font-size: .8rem; }
 .home-studio { border-top: 1px solid var(--line); }
 .home-studio-grid { display: grid; grid-template-columns: .7fr 1.3fr; gap: 4rem; }

@@ -231,7 +231,7 @@
     bindFilters();
     updateFilterButtons();
 
-    fetch(getProjectsPath() + "?v=20261026-site-preview")
+    fetch(getProjectsPath() + "?v=20261028-release-date")
       .then((response) => response.json())
       .then((projects) => {
         state.projects = Array.isArray(projects) ? projects : [];

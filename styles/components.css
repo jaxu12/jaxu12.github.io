@@ -22,7 +22,7 @@
 .theme-toggle:hover { color: var(--text); background: var(--accent-soft); }
 .mobile-nav-toggle, .close-icon { display: none; }
 .btn-row { display: flex; flex-wrap: wrap; gap: .65rem; margin-top: 1.4rem; }
-.btn-row:has(.store-badge) { align-items: center; }
+.store-download { display: flex; align-items: center; width: 100%; margin-top: 1.5rem; padding-top: .75rem; border-top: 1px solid var(--line); }
 .store-badge { display: inline-flex; flex: 0 0 auto; max-width: 100%; padding: 13px; border-radius: 8px; }
 .store-badge img.google-play-badge { width: 168px; height: auto; aspect-ratio: 478/142; object-fit: contain; border-radius: 0; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; min-height: 50px; padding: .8rem 1.25rem; border-radius: 12px; border: 1px solid transparent; font-size: .9rem; font-weight: 600; line-height: 1.3; text-align: center; text-decoration: none; transition: background-color 160ms ease,border-color 160ms ease,transform 160ms ease; }
