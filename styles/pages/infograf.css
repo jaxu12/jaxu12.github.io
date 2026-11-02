@@ -13,6 +13,7 @@
 @media (max-width:480px) { .infograf-downloads .store-badge img.google-play-badge { width: 140px; } .infograf-downloads .infograf-recognition { max-width: 150px; } }
 .infograf-release { color: var(--text-muted); font-size: .83rem; margin: 1rem 0; }
 .infograf-release strong { font-weight: 500; color: var(--text); }
+.infograf-trailer { display: block; width: 100%; height: auto; aspect-ratio: 16/9; border: 1px solid var(--line); border-radius: 18px; background: #000; }
 .infograf-features { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; }
 .infograf-features .card { background: transparent; border-width: 1px 0 0; border-radius: 0; padding: 1.5rem 1rem 0 0; }
 .infograf-features p, .infograf-launch p { color: var(--text-muted); margin-bottom: 0; }
