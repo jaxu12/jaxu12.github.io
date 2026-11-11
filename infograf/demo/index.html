@@ -19,20 +19,43 @@ dialog:not(.preview-dialog){width:100%;height:100%;max-width:100%;max-height:100
 @media(max-height:500px){.board-wrap{top:65px;bottom:4px}.finished .board-wrap{bottom:164px}}
 @media(min-aspect-ratio:7/5){.board-wrap{inset:4px 72px}.finished .board-wrap{inset:4px 72px 76px}.solved{left:72px;right:72px;top:auto;bottom:12px;transform:none;width:auto;max-width:600px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:12px}.solved>span{display:none}.solved>button{min-height:48px;width:100%}}
 .audio-corner{position:absolute;top:18px;right:18px}.volume-control{display:block;margin:24px 0;font-size:16px}.volume-control>span{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.volume-control output{font-size:12px;color:var(--muted)}.volume-control input{display:block;width:100%;height:44px;accent-color:var(--accent);cursor:pointer;margin:0}.sound-credits{font-size:11px;line-height:1.8;color:var(--muted)}.sound-credits a{display:inline-block;min-height:44px;padding:10px 0}.sound-credits summary{cursor:pointer;min-height:44px;padding:10px 0}
+
+.challenge-home .home-center{padding-bottom:42px}
+.challenge-actions{gap:10px;margin-top:clamp(12px,4dvh,32px);text-align:center}
+.challenge-actions h2{font-size:clamp(18px,5vw,24px);margin:0}
+.challenge-actions p{color:var(--muted);font-size:14px;margin:0 0 8px}
+.solved .store-button{width:100%;min-height:48px}
+@media(max-height:430px){
+  .challenge-home .home-center{padding-bottom:52px}
+  .challenge-actions{gap:6px}
+  .challenge-actions p{font-size:13px;margin-bottom:2px}
+}
 </style>
 </head>
 <body>
 <main class="app">
   <section id="home" class="home-screen">
     <button class="icon-button glass audio-corner" id="audio" aria-label="Sound" title="Sound"><span data-icon="sound"></span></button>
-    <div class="home-center"><h1 class="logo" aria-label="Infograf"><span>Info</span><i>graf</i></h1><div class="home-actions"><button id="resume-home" class="primary" hidden>Continue</button><button id="random-home" class="primary">Random</button><button id="categories-home" class="glass">Categories</button></div></div>
+    <div class="home-center">
+      <h1 class="logo" aria-label="Infograf"><span>Info</span><i>graf</i></h1>
+      <div class="home-actions" id="home-actions"><button id="resume-home" class="primary" hidden>Continue</button><button id="random-home" class="primary">Random</button><button id="categories-home" class="glass">Categories</button></div>
+      <div class="home-actions challenge-actions" id="challenge-actions" hidden>
+        <h2>Can you piece together a red panda?</h2>
+        <p>Six pieces. If you get stuck, flip the card and match the words.</p>
+        <button id="start-challenge" class="primary">Play the puzzle</button>
+        <button id="browse-demo" class="glass">Browse the demo</button>
+      </div>
+    </div>
     <div class="home-corners"><button class="icon-button glass" id="theme" aria-label="Theme: System" title="Theme: System"><span data-icon="sun"></span></button><div class="home-store"><span class="demo-label">DEMO</span><a class="play-badge" href="https://play.google.com/store/apps/details?id=com.jachsugames.infograf" target="_blank" rel="noopener noreferrer"><img src="assets/google-play-badge-en.png" width="144" height="43" alt="Get it on Google Play"></a></div><button class="icon-button glass" id="collection" aria-label="Gallery" title="Gallery"><span data-icon="gallery"></span></button></div>
   </section>
   <section id="gallery" class="selection-screen" hidden><button class="icon-button glass corner-left" id="selection-back" aria-label="Main menu"><span data-icon="back"></span></button><h1>Categories</h1><div id="cards" class="category-list"></div><p id="collection-count" class="demo-note">Demo · one picture per category</p></section>
   <section id="play" class="play" hidden>
     <div class="play-top"><button class="icon-button glass" id="pause" aria-label="Pause" title="Pause"><span data-icon="pause"></span></button><div class="visually-hidden"><span id="category"></span><h1 id="card-title"></h1></div><button class="icon-button glass" id="flip" aria-label="Flip card" title="Flip card"><span data-icon="flip"></span><span class="visually-hidden" id="flip-label">Flip card</span></button></div>
     <div id="board-wrap" class="board-wrap"><canvas id="board" tabindex="0" role="application" aria-label="Puzzle board. Drag pieces to move them. Keyboard: arrows select a group, Space picks it up, arrows move it, Enter drops it, Escape cancels."></canvas><div class="loading" id="loading">Preparing picture…</div></div>
-    <div id="solved" class="solved" hidden><span>✓</span><button class="glass" id="solved-flip">Flip card</button><button class="primary" id="next">Next</button></div>
+    <div id="solved" class="solved" hidden>
+      <span>✓</span><button class="glass" id="solved-flip">Flip card</button><button class="primary" id="next">Next</button>
+      <a id="challenge-store" class="primary store-button" href="https://play.google.com/store/apps/details?id=com.jachsugames.infograf&amp;referrer=utm_source%3Dweb_demo%26utm_campaign%3Dred_panda_challenge" target="_blank" rel="noopener noreferrer" hidden>Full game on Google Play</a>
+    </div>
     <span class="play-demo demo-label">DEMO</span>
     <div hidden><button id="back">Main menu</button><button id="preview">View picture</button><button id="hint">Hint</button><button id="credits">Image credits</button><span id="group-stat"></span><span id="moves-stat"></span><div id="progress-bar"></div><span id="board-caption"></span></div>
   </section>
@@ -171,6 +194,10 @@ if(typeof module!=='undefined')module.exports=DemoAudio;
 const $ = id => document.getElementById(id);
 const canvas = $('board'), ctx = canvas.getContext('2d'), dialog = $('dialog');
 const STORE = 'infograf-html-demo-v1';
+const challengeCard = DEMO_CARDS.find(card => card.id === 'red_panda');
+const challengeCells = [4, 1, 5, 0, 3, 2];
+let showChallenge = window.location.hash === '#red-panda' && Boolean(challengeCard);
+let playingChallenge = false;
 let saved = {sessions: {}, completed: [], theme: 'system', musicVolume:1, effectsVolume:1};
 try {const v = JSON.parse(localStorage.getItem(STORE)); if (v && v.version === 1) {saved.sessions = v.sessions && typeof v.sessions === 'object' ? v.sessions : {}; saved.completed = Array.isArray(v.completed) ? v.completed.filter(id => DEMO_CARDS.some(c => c.id === id)) : []; saved.theme = ['system','light','dark'].includes(v.themeMode)?v.themeMode:'system';saved.musicVolume=DemoAudio.clamp(v.musicVolume);saved.effectsVolume=DemoAudio.clamp(v.effectsVolume);}} catch (_) {}
 let current = null, engine = null, front = null, back = null, side = 'front', moves = 0, level = 0, drag = null, selected = 0;
@@ -211,7 +238,7 @@ window.addEventListener('focus',()=>{audioFocused=true;syncAudio();});
 window.addEventListener('blur',()=>{audioFocused=false;syncAudio();});
 syncAudio();
 function persist() {
-  if (current && engine) saved.sessions[current.id] = {level, cols:engine.cols, rows:engine.rows, positions: engine.positions, side, moves};
+  if (current && engine && !playingChallenge) saved.sessions[current.id] = {level, cols:engine.cols, rows:engine.rows, positions: engine.positions, side, moves};
   try {localStorage.setItem(STORE, JSON.stringify({...saved, themeMode:saved.theme, version: 1}));} catch (_) { /* A private browser can disallow storage; play remains available. */ }
 }
 function toast(message) {clearTimeout(toastTimer); $('toast').textContent = message; $('toast').classList.add('visible'); toastTimer = setTimeout(() => $('toast').classList.remove('visible'), 3500);}
@@ -223,7 +250,7 @@ $('close-dialog').onclick = closeDialog;
 dialog.addEventListener('close', () => {paused = false;});
 dialog.addEventListener('click', e => {if (e.target === dialog) {const r = dialog.getBoundingClientRect(); if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) closeDialog();}});
 function gallery() {
-  cancelDrag(); persist(); ++loadRevision; current = null; engine = null; front = back = null;
+  cancelDrag(); persist(); ++loadRevision; current = null; engine = null; front = back = null; playingChallenge = false;
   $('gallery').hidden = false; $('play').hidden = true; document.body.classList.remove('playing', 'finished');
   $('home').hidden = true;
   $('collection-count').textContent = 'Demo · one picture per category';
@@ -236,6 +263,9 @@ function gallery() {
 }
 function home() {
   gallery(); $('gallery').hidden = true; $('home').hidden = false;
+  $('home').classList.toggle('challenge-home', showChallenge);
+  $('home-actions').hidden = showChallenge;
+  $('challenge-actions').hidden = !showChallenge;
   const latest = DEMO_CARDS.find(c => saved.sessions[c.id] && !isSessionSolved(c));
   $('resume-home').hidden = !latest;
   $('resume-home').onclick = () => {if(latest)start(latest,saved.sessions[latest.id].level,true);};
@@ -262,13 +292,18 @@ function choose(card) {
   if ($('resume')) $('resume').onclick = () => {closeDialog(); start(card, saved.sessions[card.id].level, true);};
 }
 function loadImage(src) {return new Promise((resolve,reject) => {const i = new Image(); i.onload = () => resolve(i); i.onerror = reject; i.src = src;});}
-async function start(card, difficulty = 0, resume = false) {
+async function start(card, difficulty = 0, resume = false, challenge = false) {
   cancelDrag(); persist(); const revision = ++loadRevision;
+  playingChallenge = challenge;
   current = card; level = Number.isInteger(difficulty) && difficulty >= 0 && difficulty <= 2 ? difficulty : 0;
   front = back = null; $('loading').hidden = false; $('loading').textContent = 'Preparing picture…';
   $('home').hidden = true; $('gallery').hidden = true; $('play').hidden = false; document.body.classList.add('playing'); document.body.classList.remove('finished');
   $('card-title').textContent = card.title; $('category').textContent = card.category;
-  const [cols, rows] = card.grids[level]; engine = PuzzleEngine.shuffled(cols, rows); moves = 0; side = 'front';
+  const [cols, rows] = card.grids[level];
+  engine = challenge
+    ? new PuzzleEngine(3, 2, challengeCells.map(cell => ({x: cell % 3, y: 1 + Math.floor(cell / 3)})))
+    : PuzzleEngine.shuffled(cols, rows);
+  moves = 0; side = 'front';
   const session = saved.sessions[card.id];
   if (resume && session) {
     try { engine = restoreEngine(card,session); side = session.side === 'back' ? 'back' : 'front'; moves = Number.isInteger(session.moves) && session.moves >= 0 ? session.moves : 0; }
@@ -380,7 +415,9 @@ function updateUI() {
   $('flip-label').textContent = side === 'front' ? 'Flip card' : 'Flip card';
   $('board-caption').textContent = `${side === 'front' ? 'PICTURE' : 'STORY'} · ${solved ? 'COLLECTED' : engine.count + ' PIECES'}`;
   $('solved').hidden = !solved; $('hint').disabled = solved; document.body.classList.toggle('finished',solved);
-  if (solved && !saved.completed.includes(current.id)) {saved.completed.push(current.id); toast('Collected! Saved to your gallery.');}
+  $('next').hidden = playingChallenge;
+  $('challenge-store').hidden = !playingChallenge || !solved;
+  if (solved && !playingChallenge && !saved.completed.includes(current.id)) {saved.completed.push(current.id); toast('Collected! Saved to your gallery.');}
   selected = Math.min(selected, groups.length-1);
 }
 function commit(next) {
@@ -446,6 +483,8 @@ $('hint').onclick=()=>{cancelDrag();if(!engine||engine.solved())return;const hin
 $('back').onclick=home;
 $('selection-back').onclick=home;
 $('categories-home').onclick=gallery;
+$('start-challenge').onclick=()=>start(challengeCard, 0, false, true);
+$('browse-demo').onclick=()=>{showChallenge=false;home();};
 $('random-home').onclick=()=>choose(DEMO_CARDS[Math.floor(Math.random()*DEMO_CARDS.length)]);
 $('collection').onclick=()=>{
   const cards=DEMO_CARDS.filter(c=>saved.completed.includes(c.id));
